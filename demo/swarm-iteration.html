@@ -509,6 +509,42 @@ await redis.eval(BUCKET_LUA, 1, rl_key, rps, now)
   </div>
 </section>
 
+<!-- ====================== GOOD vs BAD ITERATION ====================== -->
+<section>
+  <h2>When iteration <span style="color:#4fd1c5;">adds value</span> · and when it <span style="color:#ff6b6b;">just adds weight</span></h2>
+  <div class="twocol">
+    <div>
+      <div class="col-head" style="color:#4fd1c5;border-color:#4fd1c5;">RN · v3 adds a <em>process</em>, not just words</div>
+      <div class="artifact" style="font-size:0.62em;">
+        <span style="color:#888;">v1 · notes column:</span><br>
+        "Take in morning to avoid nighttime bathroom trips and fall risk."<br><br>
+        <span style="color:#4fd1c5;">v3 · same row · notes column:</span><br>
+        "Take <em>one small white pill</em> in the morning, <em>with breakfast</em>… <em>Old furosemide bottles:</em> put them in the mail-order pharmacy return bag or drop box."<br><br>
+        <span style="color:#4fd1c5;">v3 · new clinician-facing header:</span><br>
+        "Pill descriptors (color / shape / bottle marker) are included in Notes to support marginal literacy. <em>The bedside nurse confirms descriptors by inspecting the actual bottles at teach-back.</em>"
+      </div>
+      <p class="small" style="margin-top:0.4em;"><em>v3 introduced a new actor — the bedside nurse — with a specific verification step. That's not more text. That's more <strong>work</strong>, assigned.</em></p>
+    </div>
+    <div>
+      <div class="col-head" style="color:#ff6b6b;border-color:#ff6b6b;">Chemist · v3 adds columns, not science</div>
+      <div class="artifact" style="font-size:0.62em;">
+        <span style="color:#888;">v1 · linearity table:</span><br>
+        5 levels · Mean Area · RSD<br>
+        <em>r² = 0.9998</em>, intercept 0.19% of 100% response<br><br>
+        <span style="color:#ff6b6b;">v3 · linearity table:</span><br>
+        <em>6 levels</em> · Mean · SD · RSD · Predicted · Residual · Residual %<br>
+        + regression table: slope 95% CI · intercept 95% CI · lack-of-fit F test<br>
+        <em>r² = 0.9998</em>, intercept 0.19% of 100% response<br><br>
+        <span class="tiny" style="color:#888;">(the data is the same; the presentation is 4× heavier)</span>
+      </div>
+      <p class="small" style="margin-top:0.4em;"><em>Each new column is defensible <strong>in isolation</strong>. Collectively: auditor-theater. The science didn't move.</em></p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:0.4em;">
+    <em>Line count measures work done, not value added.</em> Some of SW Dev's 4.2× is circuit breakers (load-bearing). Some of Chemist's 1.6× is CI tables (ceremony). The uplift <em>ratio</em> doesn't tell you which is which — only the artifact does.
+  </div>
+</section>
+
 <!-- ====================== TAKEAWAYS ====================== -->
 <section>
   <h2>Takeaways</h2>
