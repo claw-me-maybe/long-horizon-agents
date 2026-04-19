@@ -5,7 +5,7 @@
 - **Title:** Instructional Coordinators
 
 ## Scenario
-Dr. Ndiaye is the K-5 ELA Instructional Coordinator for Riverside Unified School District, an 11-school district of 6,400 students. The state passed legislation requiring evidence-based structured-literacy instruction aligned to the science of reading, and the board approved a new core program (CKLA Amplify for K-2; HMH Into Reading with structured-literacy supplements for 3-5). She must produce a Year-1 adoption framework that covers rollout sequencing, teacher PD, coaching, fidelity monitoring, and assessment transitions across 11 schools. This is NOT a lesson plan.
+Dr. Ndiaye is the K-5 ELA Instructional Coordinator for Riverside Unified School District, an 11-school district of 6,400 students serving a mixed suburban/rural community. The state passed legislation requiring evidence-based structured-literacy instruction aligned to the science of reading (effective fall 2025), and the board approved a new core program (CKLA Amplify for K-2; HMH Into Reading with structured-literacy supplements for 3-5) in March 2025. She must produce a Year-1 adoption framework that covers rollout sequencing, teacher PD, coaching, fidelity monitoring, and assessment transitions across 11 schools. The framework will be presented to the board at the June 2025 study session and formally adopted in July. This is NOT a lesson plan — it is a strategic district-level curriculum and implementation document. Dr. Ndiaye reports to the Assistant Superintendent of Teaching & Learning and collaborates with the Special Education Director (for dyslexia/MTSS alignment) and the HR Director (for PD scheduling within collective-bargaining constraints).
 
 ## Inputs
 - **Standards and frameworks:**

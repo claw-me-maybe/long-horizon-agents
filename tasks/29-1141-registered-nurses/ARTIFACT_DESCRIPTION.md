@@ -75,6 +75,8 @@ Produce a single Markdown document combining two parts:
 - **Assessment:** Discharge condition — vitals, weight trend, volume status, relevant labs, mental status, mobility.
 - **Recommendation / Plan:** Disposition, follow-up appointments, medication reconciliation table (with column flagging NEW / CHANGED / UNCHANGED / STOPPED), activity and diet restrictions, DME, home-health referrals if any.
 
+Medication reconciliation table should use the columns: Medicine (generic) | Dose | Route | Frequency | Reason | Status (NEW / CHANGED / UNCHANGED / STOPPED) | Notes (e.g., "Replaces furosemide — stop furosemide," "Take in morning to avoid nighttime bathroom trips," "Requires lab check at next visit").
+
 ### Part B — Teach-Back Education Plan
 Organized by topic. For each topic include:
 - **Key message** (what the patient must understand — plain language, 6th-grade reading level target)
@@ -99,6 +101,11 @@ Include a green/yellow/red zone summary at the end of the education plan using t
 - **Yellow (warning — call HF clinic the same business day, 555-0133):** Weight up 2-4 lb in 1 day or 5 lb in 1 week, mild increase in ankle swelling, need for extra pillow at night, new dry cough, felt dizzy once on standing, missed a dose.
 - **Red (emergency — call 911):** Severe shortness of breath at rest, chest pain or pressure, fainting, coughing pink frothy sputum, weight up >5 lb in 2 days that is not responding.
 
+### Part D — Daily Weight Log Template (embedded)
+A simple weekly table the patient or daughter fills in at home. Columns: Date | Time | Weight (lb) | Change from yesterday | Swelling (none/mild/worse) | Energy (same/tired) | Notes. Include a short instruction ("Weigh every morning after you use the bathroom and before breakfast. Wear the same type of clothes. Write it down right away.").
+
+Include a row above the table pre-filled with discharge-day values as an anchor (discharge weight 82.3 kg = 181.5 lb; BP 128/76; HR 78).
+
 ## Output format
 - File type: `.md`
 - Length: approximately 250-500 lines total across both parts
@@ -115,10 +122,12 @@ Include a green/yellow/red zone summary at the end of the education plan using t
 ## Success criteria (evaluator only)
 1. Medication reconciliation table is complete, correctly flags NEW/CHANGED/STOPPED status for every listed med, and explicitly notes furosemide is discontinued and replaced by torsemide.
 2. Every teach-back prompt is open-ended (e.g., "Show me how you will…", "Tell me in your own words…") — zero yes/no prompts.
-3. All red-flag triggers are quantitative or clearly observable (specific weights, specific symptoms) and paired with a specific action and contact.
+3. All red-flag triggers are quantitative or clearly observable (specific weights, specific symptoms) and paired with a specific action and contact number drawn from the Inputs contact list.
 4. Reading level of teach-back key messages is accessible (short sentences, defined jargon) and consistent with REALM-SF marginal literacy.
 5. Discharge summary follows SBAR structure in order and includes discharge vitals, weight trend (admit → discharge), and discharge labs (Cr, K).
 6. Fall-prevention content is present and references the patient's actual risk factors (cane use, prior fall, diuretic-related orthostasis).
+7. HF zones sheet (Part C) is populated with the unit-standardized thresholds and includes correct phone numbers for yellow and red actions.
+8. First follow-up appointment (HF clinic 2026-04-24) is correctly identified as within 7 days of discharge, satisfying the audit requirement.
 
 ## Scope target
 A v1 produced in ~15 minutes should contain:
@@ -126,4 +135,17 @@ A v1 produced in ~15 minutes should contain:
 - Teach-back entries for at least topics 1, 4, 5, and 8 (daily weights, med changes, red flags, when to call 911 vs. clinic)
 - At least one teach-back prompt per topic, already phrased open-ended
 - Follow-up appointment information embedded in the Plan section
-Missing but expected on later iterations: fully polished plain-language rewrites, caregiver-role sidebar, fall-prevention depth, and full coverage of all 8 teach-back topics.
+- A first-draft HF zones sheet even if contact numbers or thresholds need polish
+Missing but expected on later iterations: fully polished plain-language rewrites, caregiver-role sidebar, fall-prevention depth, pictograph/icon references for the marginal-literacy patient, and full coverage of all 8 teach-back topics.
+
+## Out-of-scope (do not attempt)
+- Do not change, add, or hold any medication beyond what is already reconciled by the medical team; the nurse's role here is documentation and education, not prescribing.
+- Do not second-guess the EF, the AKI workup, or the decision to start empagliflozin — these are documented team decisions.
+- Do not diagnose new conditions or infer unstated comorbidities; if information is missing (e.g., specific sodium target not in inputs), use unit-standard values and flag the assumption.
+- Do not fabricate phone numbers, appointment times, or provider names beyond those supplied in the Inputs.
+
+## Style conventions
+- Use "you" for patient-facing content; use third-person clinical voice for Part A discharge summary.
+- Spell out medication names on first mention, then the plain-language descriptor in parentheses (e.g., "torsemide (water pill)").
+- Where a number is given to a patient, accompany with a concrete comparison ("2 pounds is about the weight of a large water bottle").
+- Avoid the word "compliance"; use "what you take at home" or "how your medicines are going."

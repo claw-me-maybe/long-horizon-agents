@@ -91,3 +91,34 @@ Single Markdown file, ~3 pages rendered (180-280 lines source).
 
 ## Scope target
 A v1 in ~15 minutes should contain: cover block, exec summary, findings table covering at least 8 of the cabinets/items, explicit disposal and archive queues, and the environmental/security observations. Refining severity gradations, adding retention citations per line, and fully treating the signature-card ambiguity belong to iteration.
+
+## Example of v1 failure modes
+- Recommending immediate shred of the 1998-2008 signature cards without recognizing that "Life of account + 7 years" demands an account-status check in Symitar.
+- Treating the 4 unlabeled HR boxes as "unknown, so discard" instead of "unknown, so controlled review."
+- Putting the 2016-2020 board packets into the disposal queue because "the file room isn't the right place" rather than recognizing they must go to archive per the 10-year retention.
+- Leaving the exposed-SSN finding in a Minor/housekeeping bucket instead of elevating to Critical.
+- Bundling the humidity reading and the broken lock into a single "environmental" line, flattening a safety/security issue into a facilities ticket.
+- Using "approximately 3 linear feet" without attempting a folder/inch conversion to support a shred-vendor PO.
+- Dropping the 2024 marketing drafts into the shred queue when only 2019-2023 drafts are past retention.
+- Not distinguishing "I can destroy this under policy" from "Ops Manager must sign the disposal form."
+
+## Common pitfalls to avoid
+- Do not propose estimated dates before Leo has agreed to the disposal plan; frame as "target dates contingent on approval."
+- Do not conflate retention (how long to keep) with storage location (where to keep it); the board packets need a relocation, not a retention decision.
+- Do not write in alarmed language about the exposed SSNs — report factually with Critical severity and recommend same-day physical mitigation (move to locked drawer) pending full remediation plan.
+- Do not assume the shred vendor has capacity; propose a scheduling check with the vendor before committing to target dates.
+- Do not aggregate Minor findings into a single bullet; they remain separately actionable.
+
+## Evaluator notes (context for scoring, not for the model)
+- The 43-9061 general clerk role is iteration-improvable here because severity calibration is genuinely hard: a new clerk over-flags or under-flags, and a seasoned one distinguishes "regulatory/PII" (Critical) from "policy violation" (Major) from "housekeeping" (Minor) reliably.
+- Harborstone CU and all named figures are fictional. NCUA exams are real; the retention categories shown reflect typical CU practice but the specific durations are illustrative.
+- The core iteration arc: v1 produces a reasonable list; v2 applies severity, respects clerk-vs-manager authority boundaries, and correctly handles the signature-card and HR-boxes ambiguities.
+- Downstream feedback should focus on: the signature-card-cannot-shred reasoning, the exposed-SSN escalation, the clerk-vs-manager authority split on disposal, and the quantification of volumes for vendor scoping.
+
+## Required elements the model should actively produce
+- A severity legend (Critical / Major / Minor) with 1-line definitions.
+- A retention citation column in the findings table (row references to the retention schedule categories).
+- A volume estimate for every disposal queue item (folder counts or linear feet).
+- At least one "relocate, do not destroy" row (the board packets 2016-2020).
+- At least one "cross-check required before any disposition" row (the 1998-2008 signature cards).
+- A same-day remediation step for the exposed-SSN finding, separate from the broader disposal plan.
