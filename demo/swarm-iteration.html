@@ -2,687 +2,563 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swarm Iteration — Early Demo Night</title>
+<title>Model Swarm Iteration — Early Demo</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
 <style>
-  :root {
-    --ink: #1d1916;
-    --muted: #5e564f;
-    --sand: #f5efe6;
-    --cream: #fffaf2;
-    --card: rgba(255, 250, 242, 0.78);
-    --line: rgba(29, 25, 22, 0.16);
-    --burnt: #cb5b2f;
-    --gold: #dd9e32;
-    --teal: #1f6d72;
-    --sea: #3d8f86;
-    --berry: #893c4a;
-    --shadow: 0 18px 50px rgba(29, 25, 22, 0.12);
-  }
-
-  html,
-  body {
-    background:
-      radial-gradient(circle at top left, rgba(221, 158, 50, 0.22), transparent 34%),
-      radial-gradient(circle at top right, rgba(31, 109, 114, 0.18), transparent 32%),
-      linear-gradient(180deg, #fbf5ed 0%, #efe3d4 100%);
-  }
-
-  .reveal {
-    color: var(--ink);
-    font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
-    font-size: 34px;
-  }
-
-  .reveal .slides {
-    text-align: left;
-  }
-
-  .reveal .slides section {
-    min-height: 700px;
-    box-sizing: border-box;
-    padding: 0.35em 0.1em 0.7em;
-  }
-
-  .reveal h1,
-  .reveal h2,
-  .reveal h3 {
-    text-transform: none;
-    letter-spacing: -0.03em;
-    margin: 0 0 0.22em;
-    color: var(--ink);
-    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
-  }
-
-  .reveal h1 {
-    font-size: 2.22em;
-    line-height: 0.95;
-  }
-
-  .reveal h2 {
-    font-size: 1.5em;
-    line-height: 1.02;
-  }
-
-  .reveal h3 {
-    font-size: 0.82em;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--berry);
-    font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
-    font-weight: 700;
-  }
-
-  .reveal p,
-  .reveal li,
-  .reveal td,
-  .reveal th {
-    font-size: 0.7em;
-    line-height: 1.38;
-  }
-
-  .reveal strong {
-    color: var(--berry);
-  }
-
-  .reveal ul,
-  .reveal ol {
-    margin: 0.35em 0 0 1.1em;
-  }
-
-  .reveal li {
-    margin: 0.28em 0;
-  }
-
-  .reveal code {
-    color: var(--teal);
-    background: rgba(31, 109, 114, 0.08);
-    border-radius: 0.3em;
-    padding: 0.04em 0.28em;
-    font-size: 0.92em;
-  }
-
-  .title-slide,
-  .closing-slide {
-    display: grid;
-    place-items: center;
-    text-align: center;
-  }
-
-  .hero {
-    background: linear-gradient(135deg, rgba(255, 250, 242, 0.92), rgba(255, 243, 226, 0.86));
-    border: 1px solid rgba(137, 60, 74, 0.16);
-    border-radius: 32px;
-    box-shadow: var(--shadow);
-    padding: 1.1em 1.15em 0.95em;
-    max-width: 960px;
-  }
-
-  .eyebrow {
-    display: inline-block;
-    margin-bottom: 0.6em;
-    padding: 0.22em 0.7em;
-    border-radius: 999px;
-    background: rgba(31, 109, 114, 0.1);
-    color: var(--teal);
-    font-size: 0.42em;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .subtitle {
-    margin-top: 0.55em;
-    color: var(--muted);
-    font-size: 0.74em;
-    max-width: 24em;
-  }
-
-  .meta-row,
-  .score-grid,
-  .card-grid,
-  .takeaway-grid,
-  .two-col {
-    display: grid;
-    gap: 0.6em;
-  }
-
-  .meta-row {
-    grid-template-columns: repeat(4, 1fr);
-    margin-top: 0.95em;
-  }
-
-  .two-col {
-    grid-template-columns: 1.2fr 1fr;
-    align-items: start;
-  }
-
-  .score-grid {
-    grid-template-columns: 1fr;
-    margin-top: 0.6em;
-  }
-
-  .card-grid,
-  .takeaway-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 0.55em;
-  }
-
-  .stat,
-  .panel,
-  .score-row,
-  .takeaway,
-  .quote-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 26px;
-    box-shadow: var(--shadow);
-  }
-
-  .stat {
-    padding: 0.6em 0.7em;
-  }
-
-  .stat .num {
-    display: block;
-    font-size: 1.05em;
-    font-weight: 700;
-    color: var(--burnt);
-    margin-bottom: 0.12em;
-  }
-
-  .stat .label {
-    font-size: 0.46em;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .panel,
-  .quote-card {
-    padding: 0.68em 0.8em;
-  }
-
-  .quote-card {
-    background: linear-gradient(180deg, rgba(31, 109, 114, 0.07), rgba(255, 250, 242, 0.86));
-  }
-
-  .score-row {
-    display: grid;
-    grid-template-columns: 2.15fr 1.6fr 0.95fr;
-    gap: 0.7em;
-    align-items: center;
-    padding: 0.58em 0.7em;
-  }
-
-  .rank-line {
-    display: flex;
-    align-items: baseline;
-    gap: 0.45em;
-    margin-bottom: 0.16em;
-  }
-
-  .rank {
-    font-size: 0.78em;
-    font-weight: 700;
-    color: var(--burnt);
-    min-width: 1.2em;
-  }
-
-  .domain {
-    font-size: 0.68em;
-    font-weight: 700;
-  }
-
-  .artifact {
-    color: var(--muted);
-    font-size: 0.52em;
-  }
-
-  .bar-shell {
-    height: 18px;
-    border-radius: 999px;
-    background: rgba(29, 25, 22, 0.08);
-    overflow: hidden;
-    margin-bottom: 0.14em;
-  }
-
-  .bar-fill {
-    height: 100%;
-    border-radius: 999px;
-    background: linear-gradient(90deg, var(--burnt), var(--gold));
-  }
-
-  .bar-note,
-  .tiny,
-  .fineprint {
-    color: var(--muted);
-  }
-
-  .bar-note,
-  .tiny {
-    font-size: 0.48em;
-  }
-
-  .fineprint {
-    margin-top: 0.45em;
-    font-size: 0.4em;
-  }
-
-  .headline-callout {
-    font-size: 1.15em;
-    line-height: 1;
-    color: var(--burnt);
-    font-weight: 700;
-    margin-bottom: 0.2em;
-  }
-
-  .label-chip {
-    display: inline-block;
-    font-size: 0.4em;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.28em 0.58em;
-    border-radius: 999px;
-    background: rgba(203, 91, 47, 0.1);
-    color: var(--burnt);
-    margin-bottom: 0.46em;
-  }
-
-  .split-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.65em;
-    margin-top: 0.55em;
-  }
-
-  .best {
-    border-color: rgba(31, 109, 114, 0.2);
-    background: linear-gradient(180deg, rgba(31, 109, 114, 0.08), rgba(255, 250, 242, 0.88));
-  }
-
-  .worst {
-    border-color: rgba(203, 91, 47, 0.22);
-    background: linear-gradient(180deg, rgba(203, 91, 47, 0.08), rgba(255, 250, 242, 0.88));
-  }
-
-  .takeaway-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .takeaway {
-    padding: 0.62em 0.68em;
-  }
-
-  .takeaway .kicker {
-    font-size: 0.42em;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--teal);
-    font-weight: 700;
-    margin-bottom: 0.35em;
-  }
-
-  .takeaway .line {
-    font-size: 0.63em;
-    line-height: 1.34;
-  }
-
-  table.compact {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0.35em;
-  }
-
-  table.compact th,
-  table.compact td {
-    text-align: left;
-    padding: 0.34em 0.42em;
-    border-bottom: 1px solid var(--line);
-    vertical-align: top;
-  }
-
-  table.compact th {
-    font-size: 0.48em;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--berry);
-  }
-
-  .closing-slide .hero {
-    max-width: 1020px;
-  }
-
-  .closing-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.6em;
-    margin-top: 0.9em;
-    text-align: left;
-  }
-
-  @media (max-width: 900px) {
-    .reveal {
-      font-size: 26px;
-    }
-
-    .meta-row,
-    .two-col,
-    .split-card,
-    .takeaway-grid,
-    .closing-grid,
-    .card-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .score-row {
-      grid-template-columns: 1fr;
-    }
-  }
+  .reveal { font-size: 20px; }
+  .reveal h1, .reveal h2, .reveal h3 { text-transform: none; letter-spacing: -0.01em; margin: 0 0 0.25em 0; }
+  .reveal .slides section { text-align: left; padding: 0 14px; }
+  .reveal h1 { font-size: 1.8em; }
+  .reveal h2 { font-size: 1.1em; color: #ffce54; }
+  .reveal h3 { font-size: 0.82em; color: #b3d9ff; font-weight: 500; }
+  .reveal h4 { font-size: 0.72em; color: #888; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.3em 0; font-weight: 500; }
+  .reveal section.title { text-align: center; }
+  .reveal em { color: #ffce54; font-style: normal; font-weight: 600; }
+  .reveal code { color: #ffce54; background: #1a1a1a; padding: 0.05em 0.3em; border-radius: 3px; font-size: 0.8em; }
+  .reveal pre { box-shadow: none; font-size: 0.46em; line-height: 1.25; width: 100%; margin: 0.25em 0; }
+  .reveal pre code { background: #0d0d0d; color: #d0d0d0; padding: 0.5em 0.7em; border-radius: 4px; border: 1px solid #2a2a2a; display: block; }
+  .reveal ul, .reveal ol { margin: 0.25em 0 0.25em 1em; }
+  .reveal li { margin-bottom: 0.12em; line-height: 1.32; font-size: 0.8em; }
+  .reveal .fineprint { font-size: 0.52em; color: #777; margin-top: 0.6em; font-style: italic; }
+  .reveal .small { font-size: 0.68em; color: #bbb; line-height: 1.3; }
+  .reveal .tiny { font-size: 0.56em; color: #888; }
+  .reveal .big { font-size: 1.3em; color: #ffce54; font-weight: 600; }
+  .reveal table { font-size: 0.66em; margin: 0.15em 0; border-collapse: collapse; width: 100%; }
+  .reveal th, .reveal td { padding: 0.22em 0.5em; border-bottom: 1px solid #2a2a2a; vertical-align: top; }
+  .reveal th { color: #ffce54; font-weight: 600; font-size: 0.92em; }
+  .quote { color: #cbd6e0; font-style: italic; border-left: 2px solid #ffce54; padding: 0.3em 0.7em; margin: 0.25em 0; font-size: 0.72em; line-height: 1.38; background: rgba(255,206,84,0.04); }
+  .artifact { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 4px; padding: 0.5em 0.7em; font-size: 0.62em; line-height: 1.38; color: #c8c8c8; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .artifact .note { color: #888; font-style: italic; font-family: inherit; }
+  .artifact em { color: #ffce54; }
+  .prose { background: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 4px; padding: 0.5em 0.8em; font-size: 0.68em; line-height: 1.45; color: #ddd; font-family: Georgia, "Times New Roman", serif; }
+  .prose em { color: #ffce54; font-style: italic; font-weight: normal; }
+  .prose .note { color: #888; font-style: italic; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; align-items: start; }
+  .threecol { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.6em; align-items: start; }
+  .chart-wrap { display: flex; justify-content: center; margin: 0.3em 0; }
+  .tag { display: inline-block; background: #1a1a1a; color: #ffce54; font-size: 0.6em; padding: 0.08em 0.45em; border-radius: 3px; border: 1px solid #333; margin-right: 0.25em; }
+  .tag.new { color: #4fd1c5; border-color: #4fd1c5; }
+  .tag.stay { color: #888; }
+  .col-head { color: #ffce54; font-size: 0.68em; font-weight: 600; border-bottom: 1px solid #333; padding-bottom: 0.18em; margin-bottom: 0.35em; letter-spacing: 0.04em; }
+  .callout { background: rgba(255,206,84,0.07); border-left: 3px solid #ffce54; padding: 0.4em 0.7em; font-size: 0.72em; margin-top: 0.5em; line-height: 1.4; }
+  .zone { border-radius: 4px; padding: 0.4em 0.6em; font-size: 0.62em; line-height: 1.4; }
+  .zone.g { background: rgba(79,209,197,0.1); border-left: 3px solid #4fd1c5; }
+  .zone.y { background: rgba(255,206,84,0.1); border-left: 3px solid #ffce54; }
+  .zone.r { background: rgba(255,107,107,0.1); border-left: 3px solid #ff6b6b; }
+  .zone h4 { color: #ddd; font-size: 0.82em; margin: 0 0 0.3em 0; letter-spacing: 0; text-transform: none; }
+  .zone.g h4 { color: #4fd1c5; }
+  .zone.y h4 { color: #ffce54; }
+  .zone.r h4 { color: #ff6b6b; }
+  .lawquote { border-left: 3px solid #b3d9ff; padding: 0.3em 0.7em; font-size: 0.72em; line-height: 1.45; color: #cbd6e0; font-style: italic; background: rgba(179,217,255,0.05); }
 </style>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
 
-<section class="title-slide">
-  <div class="hero">
-    <div class="eyebrow">Early Demo Night • Codex Swarm</div>
-    <h1>Which domains actually<br>benefit from swarming?</h1>
-    <p class="subtitle">
-      Five domains, fifteen subagents, one rough question: where did multi-agent iteration create
-      real benchmark uplift, and where did it mostly create churn?
-    </p>
-    <div class="meta-row">
-      <div class="stat">
-        <span class="num">5</span>
-        <span class="label">domains</span>
+<!-- ====================== TITLE ====================== -->
+<section class="title">
+  <h1>Model Swarm Iteration</h1>
+  <p style="color:#b3d9ff;font-size:0.95em;margin:0.3em 0 0.2em 0;">How much does iterating with a swarm of agents actually uplift artifact quality?</p>
+  <p class="tiny" style="margin-top:1.5em;">Early demo night · 2026-04-19 · Claude Opus 4.7</p>
+</section>
+
+<!-- ====================== SETUP + DOMAINS ====================== -->
+<section>
+  <h2>Setup · 5 domains × 3 agents × 3 iterations = 45 artifacts</h2>
+  <div class="twocol" style="grid-template-columns: 0.9fr 1.1fr; gap:1em;">
+    <div>
+      <svg viewBox="0 0 420 220" width="100%" style="max-width:400px;">
+        <rect x="10" y="90" width="90" height="40" rx="5" fill="#1a1a1a" stroke="#ffce54"/>
+        <text x="55" y="108" fill="#ffce54" font-size="10" text-anchor="middle" font-weight="600">ARTIFACT</text>
+        <text x="55" y="121" fill="#ffce54" font-size="10" text-anchor="middle">_DESCRIPTION</text>
+        <circle cx="180" cy="40" r="16" fill="#ff6b6b" opacity="0.25" stroke="#ff6b6b"/>
+        <text x="180" y="44" fill="#fff" font-size="11" text-anchor="middle">A1</text>
+        <circle cx="180" cy="110" r="16" fill="#ffce54" opacity="0.25" stroke="#ffce54"/>
+        <text x="180" y="114" fill="#fff" font-size="11" text-anchor="middle">A2</text>
+        <circle cx="180" cy="180" r="16" fill="#4fd1c5" opacity="0.25" stroke="#4fd1c5"/>
+        <text x="180" y="184" fill="#fff" font-size="11" text-anchor="middle">A3</text>
+        <line x1="100" y1="105" x2="164" y2="48" stroke="#555"/>
+        <line x1="100" y1="110" x2="164" y2="110" stroke="#555"/>
+        <line x1="100" y1="115" x2="164" y2="172" stroke="#555"/>
+        <g font-size="9" fill="#ddd" text-anchor="middle">
+          <rect x="215" y="28" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="231" y="43">v1</text>
+          <rect x="253" y="28" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="269" y="43">v2</text>
+          <rect x="291" y="28" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="307" y="43">v3</text>
+          <rect x="215" y="98" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="231" y="113">v1</text>
+          <rect x="253" y="98" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="269" y="113">v2</text>
+          <rect x="291" y="98" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="307" y="113">v3</text>
+          <rect x="215" y="168" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="231" y="183">v1</text>
+          <rect x="253" y="168" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="269" y="183">v2</text>
+          <rect x="291" y="168" width="32" height="22" rx="2" fill="#1a1a1a" stroke="#444"/><text x="307" y="183">v3</text>
+        </g>
+        <line x1="196" y1="40" x2="215" y2="40" stroke="#555"/>
+        <line x1="196" y1="110" x2="215" y2="110" stroke="#555"/>
+        <line x1="196" y1="180" x2="215" y2="180" stroke="#555"/>
+        <text x="330" y="42" fill="#888" font-size="9">agent 1</text>
+        <text x="330" y="112" fill="#888" font-size="9">agent 2</text>
+        <text x="330" y="182" fill="#888" font-size="9">agent 3</text>
+        <text x="200" y="215" fill="#888" font-size="9" text-anchor="middle">No cross-talk. Each v3 is a portfolio entry, not a vote.</text>
+      </svg>
+    </div>
+    <div>
+      <div class="threecol" style="grid-template-columns: repeat(5, 1fr); gap: 0.4em; margin-top:0.5em;">
+        <div style="background:#111;border-top:3px solid #ff6b6b;padding:0.4em;border-radius:2px;">
+          <h4 style="color:#ff6b6b;margin:0 0 0.2em 0;">SW Dev</h4>
+          <p class="tiny" style="margin:0;"><em>Webhook dispatcher.</em> Python+Redis+tests.</p>
+        </div>
+        <div style="background:#111;border-top:3px solid #ffce54;padding:0.4em;border-radius:2px;">
+          <h4 style="color:#ffce54;margin:0 0 0.2em 0;">Editor</h4>
+          <p class="tiny" style="margin:0;"><em>Dev-edit letter.</em> Braided 3-thread novel.</p>
+        </div>
+        <div style="background:#111;border-top:3px solid #b3d9ff;padding:0.4em;border-radius:2px;">
+          <h4 style="color:#b3d9ff;margin:0 0 0.2em 0;">Lawyer</h4>
+          <p class="tiny" style="margin:0;"><em>Non-compete memo.</em> MA § 24L + PI.</p>
+        </div>
+        <div style="background:#111;border-top:3px solid #c792ea;padding:0.4em;border-radius:2px;">
+          <h4 style="color:#c792ea;margin:0 0 0.2em 0;">Chemist</h4>
+          <p class="tiny" style="margin:0;"><em>HPLC validation.</em> ICH Q2(R2), losartan.</p>
+        </div>
+        <div style="background:#111;border-top:3px solid #4fd1c5;padding:0.4em;border-radius:2px;">
+          <h4 style="color:#4fd1c5;margin:0 0 0.2em 0;">Nurse</h4>
+          <p class="tiny" style="margin:0;"><em>CHF discharge + teach-back.</em> Marginal literacy.</p>
+        </div>
       </div>
-      <div class="stat">
-        <span class="num">15</span>
-        <span class="label">subagents</span>
-      </div>
-      <div class="stat">
-        <span class="num">2 + 1</span>
-        <span class="label">critics + writer</span>
-      </div>
-      <div class="stat">
-        <span class="num">~5 min</span>
-        <span class="label">talk track</span>
-      </div>
+      <p class="small" style="margin-top:0.6em;">One per SOC major group — weighted by BLS wage-bill × AEI API adoption × artifact-fit. Cognitive coverage: <em>systems</em> / <em>craft</em> / <em>statutes</em> / <em>regulated science</em> / <em>clinical comms</em>.</p>
+      <p class="small">Each agent reads <code>ARTIFACT_DESCRIPTION.md</code>, drafts v1, applies iteration targets for v2, polishes to v3.</p>
     </div>
   </div>
 </section>
 
+<!-- ====================== GROWTH CURVES ====================== -->
 <section>
-  <h2>The readout</h2>
-  <div class="two-col">
-    <div class="panel">
-      <h3>What we iterated</h3>
-      <table class="compact">
-        <tr>
-          <th>Domain</th>
-          <th>Representative artifact</th>
-        </tr>
-        <tr>
-          <td>Computer &amp; Mathematical</td>
-          <td>Software developer webhook dispatcher spec</td>
-        </tr>
-        <tr>
-          <td>Business &amp; Financial Operations</td>
-          <td>Accountant interim revenue review workpaper</td>
-        </tr>
-        <tr>
-          <td>Educational Instruction &amp; Library</td>
-          <td>Instructional coordinator curriculum adoption framework</td>
-        </tr>
-        <tr>
-          <td>Management</td>
-          <td>Finance manager gross-margin variance memo</td>
-        </tr>
-        <tr>
-          <td>Office &amp; Administrative Support</td>
-          <td>Executive assistant CEO dinner pre-brief</td>
-        </tr>
+  <h2>Uplift trajectories · lines per version (mean of 3 agents)</h2>
+  <div class="chart-wrap">
+    <svg viewBox="0 0 860 360" width="100%" style="max-width:900px;">
+      <g stroke="#222" stroke-width="1">
+        <line x1="60" y1="40" x2="680" y2="40"/>
+        <line x1="60" y1="105" x2="680" y2="105"/>
+        <line x1="60" y1="170" x2="680" y2="170"/>
+        <line x1="60" y1="235" x2="680" y2="235"/>
+        <line x1="60" y1="300" x2="680" y2="300"/>
+      </g>
+      <g fill="#666" font-size="10" text-anchor="end">
+        <text x="55" y="305">0</text>
+        <text x="55" y="240">300</text>
+        <text x="55" y="175">600</text>
+        <text x="55" y="110">900</text>
+        <text x="55" y="45">1200</text>
+      </g>
+      <text x="20" y="170" fill="#888" font-size="11" transform="rotate(-90 20 170)" text-anchor="middle">lines of output</text>
+      <g fill="#aaa" font-size="12" text-anchor="middle" font-weight="600">
+        <text x="90" y="325">v1</text>
+        <text x="370" y="325">v2</text>
+        <text x="650" y="325">v3</text>
+      </g>
+
+      <polyline fill="none" stroke="#ff6b6b" stroke-width="2.5" points="90,242 370,156 650,58"/>
+      <circle cx="90" cy="242" r="4" fill="#ff6b6b"/><circle cx="370" cy="156" r="4" fill="#ff6b6b"/><circle cx="650" cy="58" r="5" fill="#ff6b6b"/>
+      <text x="690" y="62" fill="#ff6b6b" font-size="11" font-weight="600">SW Dev · 1119 (4.2×)</text>
+
+      <polyline fill="none" stroke="#c792ea" stroke-width="2.5" points="90,236 370,212 650,196"/>
+      <circle cx="90" cy="236" r="4" fill="#c792ea"/><circle cx="370" cy="212" r="4" fill="#c792ea"/><circle cx="650" cy="196" r="5" fill="#c792ea"/>
+      <text x="690" y="200" fill="#c792ea" font-size="11" font-weight="600">Chemist · 482 (1.6×)</text>
+
+      <polyline fill="none" stroke="#4fd1c5" stroke-width="2.5" points="90,264 370,230 650,210"/>
+      <circle cx="90" cy="264" r="4" fill="#4fd1c5"/><circle cx="370" cy="230" r="4" fill="#4fd1c5"/><circle cx="650" cy="210" r="5" fill="#4fd1c5"/>
+      <text x="690" y="214" fill="#4fd1c5" font-size="11" font-weight="600">RN · 415 (2.4×)</text>
+
+      <polyline fill="none" stroke="#b3d9ff" stroke-width="2.5" points="90,282 370,271 650,264"/>
+      <circle cx="90" cy="282" r="4" fill="#b3d9ff"/><circle cx="370" cy="271" r="4" fill="#b3d9ff"/><circle cx="650" cy="264" r="5" fill="#b3d9ff"/>
+      <text x="690" y="268" fill="#b3d9ff" font-size="11" font-weight="600">Lawyer · 167 (2.0×)</text>
+
+      <polyline fill="none" stroke="#ffce54" stroke-width="2.5" points="90,290 370,273 650,272"/>
+      <circle cx="90" cy="290" r="4" fill="#ffce54"/><circle cx="370" cy="273" r="4" fill="#ffce54"/><circle cx="650" cy="272" r="5" fill="#ffce54"/>
+      <text x="690" y="283" fill="#ffce54" font-size="11" font-weight="600">Editor · 129 (2.7×)</text>
+
+      <text x="430" y="258" fill="#ffce54" font-size="10" opacity="0.85" font-style="italic">plateau after v2</text>
+      <text x="230" y="115" fill="#ff6b6b" font-size="10" opacity="0.85" font-style="italic">runaway — hardening compounds</text>
+    </svg>
+  </div>
+  <p class="fineprint" style="text-align:center;margin-top:0.1em;">Lines = crude proxy for "work added"; qualitative reads are what matter. Demo-night rigor only.</p>
+</section>
+
+<!-- ====================== UPLIFT RATIO BARS ====================== -->
+<section>
+  <h2>Uplift ratio (v1 → v3) — sorted</h2>
+  <div class="chart-wrap">
+    <svg viewBox="0 0 720 310" width="100%" style="max-width:820px;">
+      <g stroke="#2a2a2a" stroke-width="1" stroke-dasharray="2,3">
+        <line x1="180" y1="20" x2="180" y2="280"/>
+        <line x1="300" y1="20" x2="300" y2="280"/>
+        <line x1="420" y1="20" x2="420" y2="280"/>
+        <line x1="540" y1="20" x2="540" y2="280"/>
+        <line x1="660" y1="20" x2="660" y2="280"/>
+      </g>
+      <g fill="#666" font-size="10" text-anchor="middle">
+        <text x="180" y="298">1×</text><text x="300" y="298">2×</text><text x="420" y="298">3×</text><text x="540" y="298">4×</text><text x="660" y="298">5×</text>
+      </g>
+
+      <g><text x="175" y="50" fill="#ff6b6b" font-size="13" text-anchor="end" font-weight="600">Software Dev</text>
+        <rect x="180" y="35" width="380" height="24" fill="#ff6b6b" opacity="0.85"/>
+        <text x="570" y="52" fill="#ff6b6b" font-size="13" font-weight="600">4.2×</text>
+        <text x="175" y="64" fill="#777" font-size="9" text-anchor="end">269 → 1119 lines</text></g>
+
+      <g><text x="175" y="100" fill="#ffce54" font-size="13" text-anchor="end" font-weight="600">Editor</text>
+        <rect x="180" y="85" width="204" height="24" fill="#ffce54" opacity="0.85"/>
+        <text x="394" y="102" fill="#ffce54" font-size="13" font-weight="600">2.7×</text>
+        <text x="175" y="114" fill="#777" font-size="9" text-anchor="end">48 → 129 lines</text></g>
+
+      <g><text x="175" y="150" fill="#4fd1c5" font-size="13" text-anchor="end" font-weight="600">Nurse (RN)</text>
+        <rect x="180" y="135" width="174" height="24" fill="#4fd1c5" opacity="0.85"/>
+        <text x="364" y="152" fill="#4fd1c5" font-size="13" font-weight="600">2.4×</text>
+        <text x="175" y="164" fill="#777" font-size="9" text-anchor="end">169 → 415 lines</text></g>
+
+      <g><text x="175" y="200" fill="#b3d9ff" font-size="13" text-anchor="end" font-weight="600">Lawyer</text>
+        <rect x="180" y="185" width="124" height="24" fill="#b3d9ff" opacity="0.85"/>
+        <text x="314" y="202" fill="#b3d9ff" font-size="13" font-weight="600">2.0×</text>
+        <text x="175" y="214" fill="#777" font-size="9" text-anchor="end">82 → 167 lines</text></g>
+
+      <g><text x="175" y="250" fill="#c792ea" font-size="13" text-anchor="end" font-weight="600">Chemist</text>
+        <rect x="180" y="235" width="76" height="24" fill="#c792ea" opacity="0.85"/>
+        <text x="266" y="252" fill="#c792ea" font-size="13" font-weight="600">1.6×</text>
+        <text x="175" y="264" fill="#777" font-size="9" text-anchor="end">295 → 482 lines</text></g>
+    </svg>
+  </div>
+  <p class="fineprint" style="text-align:center;">1.6× to 4.2×. Regulated templates cap lowest; systems code runs away.</p>
+</section>
+
+<!-- ====================== SWARM VARIANCE CHART ====================== -->
+<section>
+  <h2>Swarm variance · where the 3 agents agree</h2>
+  <p class="small">Each dot = one agent's v3, normalized to domain mean. Tight cluster = convergence; wide = divergent judgment.</p>
+  <div class="chart-wrap">
+    <svg viewBox="0 0 720 290" width="100%" style="max-width:820px;">
+      <line x1="60" y1="150" x2="680" y2="150" stroke="#444" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <text x="50" y="154" fill="#888" font-size="10" text-anchor="end">mean</text>
+      <g fill="#555" font-size="9" text-anchor="end">
+        <text x="50" y="84">+15%</text>
+        <line x1="60" y1="80" x2="680" y2="80" stroke="#222" stroke-dasharray="1,3"/>
+        <text x="50" y="224">-15%</text>
+        <line x1="60" y1="220" x2="680" y2="220" stroke="#222" stroke-dasharray="1,3"/>
+      </g>
+
+      <g fill="#ff6b6b"><circle cx="150" cy="153" r="7" opacity="0.9"/><circle cx="150" cy="138" r="7" opacity="0.9"/><circle cx="150" cy="158" r="7" opacity="0.9"/></g>
+      <text x="150" y="248" fill="#ff6b6b" font-size="11" text-anchor="middle" font-weight="600">SW Dev</text>
+      <text x="150" y="262" fill="#888" font-size="9" text-anchor="middle">σ ≈ 2%</text>
+      <text x="150" y="275" fill="#555" font-size="9" text-anchor="middle">tight</text>
+
+      <g fill="#ffce54"><circle cx="270" cy="83" r="7" opacity="0.9"/><circle cx="270" cy="190" r="7" opacity="0.9"/><circle cx="270" cy="175" r="7" opacity="0.9"/></g>
+      <text x="270" y="248" fill="#ffce54" font-size="11" text-anchor="middle" font-weight="600">Editor</text>
+      <text x="270" y="262" fill="#888" font-size="9" text-anchor="middle">σ ≈ 12%</text>
+      <text x="270" y="275" fill="#555" font-size="9" text-anchor="middle">divergent</text>
+
+      <g fill="#b3d9ff"><circle cx="390" cy="210" r="7" opacity="0.9"/><circle cx="390" cy="130" r="7" opacity="0.9"/><circle cx="390" cy="112" r="7" opacity="0.9"/></g>
+      <text x="390" y="248" fill="#b3d9ff" font-size="11" text-anchor="middle" font-weight="600">Lawyer</text>
+      <text x="390" y="262" fill="#888" font-size="9" text-anchor="middle">σ ≈ 10%</text>
+      <text x="390" y="275" fill="#555" font-size="9" text-anchor="middle">spread</text>
+
+      <g fill="#c792ea"><circle cx="510" cy="170" r="7" opacity="0.9"/><circle cx="510" cy="125" r="7" opacity="0.9"/><circle cx="510" cy="155" r="7" opacity="0.9"/></g>
+      <text x="510" y="248" fill="#c792ea" font-size="11" text-anchor="middle" font-weight="600">Chemist</text>
+      <text x="510" y="262" fill="#888" font-size="9" text-anchor="middle">σ ≈ 5%</text>
+      <text x="510" y="275" fill="#555" font-size="9" text-anchor="middle">constrained</text>
+
+      <g fill="#4fd1c5"><circle cx="630" cy="102" r="7" opacity="0.9"/><circle cx="630" cy="195" r="7" opacity="0.9"/><circle cx="630" cy="158" r="7" opacity="0.9"/></g>
+      <text x="630" y="248" fill="#4fd1c5" font-size="11" text-anchor="middle" font-weight="600">Nurse</text>
+      <text x="630" y="262" fill="#888" font-size="9" text-anchor="middle">σ ≈ 10%</text>
+      <text x="630" y="275" fill="#555" font-size="9" text-anchor="middle">spread</text>
+    </svg>
+  </div>
+  <p class="fineprint" style="text-align:center;">Code converges. Craft &amp; judgment diverge. Next slide: what that <em>divergence</em> actually looks like →</p>
+</section>
+
+<!-- ====================== EDITOR SWARM VARIANCE (ARTIFACT SAMPLES) ====================== -->
+<section>
+  <h2 style="color:#ffce54;">Editor swarm · 3 agents · 3 "if you only fix one thing"</h2>
+  <p class="small">Same manuscript, same brief. Each agent picks a <em>genuinely different</em> load-bearing diagnosis.</p>
+  <div class="threecol">
+    <div>
+      <div class="col-head">Agent 1 — <span style="color:#ff6b6b;">architecture</span></div>
+      <div class="prose">
+        "Objects that start as image and accrue into ethics — that's the technique this book is built on. <span class="note">[...]</span>
+        <br><br>
+        <em>If you only fix one thing, fix the Bristol thread's architecture.</em> Temi doesn't make enough <em>decisions that cost her</em>."
+      </div>
+      <p class="tiny" style="margin-top:0.35em;color:#888;">→ 3 options: withholding / relational / pacing.</p>
+    </div>
+    <div>
+      <div class="col-head">Agent 2 — <span style="color:#4fd1c5;">causality</span></div>
+      <div class="prose">
+        "A novel about what money remembers that bodies forget, and its form knows it. <span class="note">[...]</span>
+        <br><br>
+        <em>If you only fix one thing, fix #2: the threads rhyme but don't cause.</em> The braid is doing metaphor-work but not machine-work."
+      </div>
+      <p class="tiny" style="margin-top:0.35em;color:#888;">→ through-line object / sororal plot / causal silence.</p>
+    </div>
+    <div>
+      <div class="col-head">Agent 3 — <span style="color:#b3d9ff;">desire line</span></div>
+      <div class="prose">
+        "A historical novel where history arrives through the senses rather than narrated event. <span class="note">[...]</span>
+        <br><br>
+        <em>Temi wants... the verbs are abstract where the other two women's verbs are concrete.</em> Voice can't be solved until desire is."
+      </div>
+      <p class="tiny" style="margin-top:0.35em;color:#888;">→ inheritance frame / refusal frame / withheld-desire frame.</p>
+    </div>
+  </div>
+  <div class="callout">
+    Three agents. Three <em>load-bearing</em> diagnoses: architecture / causality / desire. The swarm is a <em>portfolio of judgments</em>, not a vote — reader picks which diagnosis fits the book they actually wrote.
+  </div>
+</section>
+
+<!-- ====================== EDITOR v1 → v2 ALTERNATIVES ====================== -->
+<section>
+  <h2 style="color:#ffce54;">Editor · v1 was partial · v2 added <em>alternatives</em></h2>
+  <div class="twocol">
+    <div>
+      <div class="col-head">v1 · 48 lines · hedged and incomplete</div>
+      <div class="prose">
+        <em>Keep [Aunty Fola].</em> But cut her scenes by roughly a third. The test: can you write a scene where Aunty Fola lies to Temi? If yes, she stays. If no, she's a device, and devices should be cut.
+        <br><br>
+        <span class="note">[This is a first pass — I'll send you the full letter, including the other two thread sections, the complete questions list, and the scope/timeline, by end of day Saturday.]</span>
+      </div>
+      <p class="small" style="margin-top:0.3em;">v1 knew it was incomplete. One recommendation per issue, with a hedge.</p>
+    </div>
+    <div>
+      <div class="col-head">v2 · 147 lines · three real options, one structural issue</div>
+      <div class="prose">
+        <em>Option A — give Temi an active secret.</em> A secret generates decisions by force. <span class="note">[Precedent: Nelson, Open Water.]</span>
+        <br><br>
+        <em>Option B — collapse Temi and Aunty Fola into an antagonism.</em> Gives Temi a scene partner who forces her to act rather than receive.
+        <br><br>
+        <em>Option C — push the diagnosis earlier.</em> Most structurally invasive; only if A and B don't spark.
+        <br><br>
+        <span style="color:#4fd1c5;font-style:italic;">"These are not the same fix in three outfits. A is withholding, B is relational, C is pacing. Pick one and commit."</span>
+      </div>
+    </div>
+  </div>
+  <div class="callout">
+    v2 didn't just add words — it added <em>alternatives the author can reject</em>. That's what iteration buys on open-ended craft work.
+  </div>
+</section>
+
+<!-- ====================== SOFTWARE DEV: CODE DIFF ====================== -->
+<section>
+  <h2 style="color:#ff6b6b;">Software Dev · v1 scaffold → v3 production</h2>
+  <div class="twocol">
+    <div>
+      <div class="col-head">v1 rate limit · 269 lines total</div>
+<pre><code>def _sem_for(merchant_id, max_rps):
+    if merchant_id not in self._sems:
+        # v1: cap concurrent sends per merchant
+        # at max_rps — <em>crude rate limit</em>
+        self._sems[merchant_id] = \
+            asyncio.Semaphore(max(1, max_rps))
+    return self._sems[merchant_id]
+
+# naive: only ack on 2xx, otherwise reprocess
+if 200 &lt;= resp.status_code &lt; 300:
+    await self._ack(event)</code></pre>
+      <p class="tiny" style="color:#888;margin-top:0.2em;">No signing. No retry backoff. No dedup. Semaphore dies on restart. One happy-path test.</p>
+    </div>
+    <div>
+      <div class="col-head">v3 · 1119 lines · <em>production concerns surfaced</em></div>
+<pre><code>@dataclass
+class CircuitBreaker:
+    """Closed → Open → Half-open.
+       First probe decides next state."""
+    failure_threshold: int = 5
+    reset_after: float = 30.0
+
+# HMAC-SHA256, Stripe-style t=&lt;ts&gt;,v1=&lt;hex&gt;
+ok = hmac.<em>compare_digest</em>(expected, received)
+
+# Redis token bucket — <em>survives restart</em>
+await redis.eval(BUCKET_LUA, 1, rl_key, rps, now)
+
+# + idempotency dedup (7d TTL)
+# + DLQ, Prometheus, structured logs
+# + graceful SIGTERM drain</code></pre>
+    </div>
+  </div>
+  <p class="col-head" style="margin-top:0.3em;">Sampled from v3 README — the guarantee table v1 didn't have</p>
+  <div class="artifact">
+    | Property | Mechanism |<br>
+    | <em>At-least-once delivery</em> | Redis consumer-group XACK only on 2xx or terminal drop |<br>
+    | <em>No duplicate POSTs</em> | <code>SET NX EX=604800</code> on <code>idempotency_key</code> |<br>
+    | <em>Per-merchant rate limit</em> | Redis <code>INCR</code> + <code>EXPIRE</code> fixed-window token bucket |<br>
+    | <em>No thundering herd on down merchants</em> | Circuit breaker: 5 consecutive 5xx → open, 30s half-open |<br>
+    | <em>Tamper-evident delivery</em> | HMAC-SHA256, Stripe-style <code>t=&lt;ts&gt;,v1=&lt;hex&gt;</code> |<br>
+    | <em>Graceful shutdown</em> | SIGTERM/SIGINT → drain in-flight, close pools |
+  </div>
+</section>
+
+<!-- ====================== LAWYER DOCTRINE EXPANSION (+ real prose) ====================== -->
+<section>
+  <h2 style="color:#b3d9ff;">Lawyer · v2 noticed what v1 didn't notice</h2>
+  <div class="twocol" style="grid-template-columns:1.3fr 1fr;">
+    <div>
+      <table style="font-size:0.72em;">
+        <tr><th style="width:28%;">Doctrine / theory</th><th>v1 · 82 lines</th><th>v2 · 136 lines · <em>added</em></th></tr>
+        <tr><td>§ 24L statutory elements</td><td class="small">All six elements</td><td class="small">Same six, deeper rigor</td></tr>
+        <tr><td>Common-law reasonableness</td><td class="small" style="color:#666;">— not separate —</td><td class="small" style="color:#4fd1c5;"><em>+ Boulanger, Marine Contractors</em> as independent doctrine</td></tr>
+        <tr><td>Parallel trade-secret theory</td><td class="small">Brief in PI analysis</td><td class="small" style="color:#4fd1c5;"><em>+ DTSA § 1836 + MUTSA c. 93</em> fully developed</td></tr>
+        <tr><td>Jurisdictional risk</td><td class="small">Cambridge office noted</td><td class="small" style="color:#4fd1c5;"><em>+ RI § 28-59 choice-of-law</em> (lived in RI 2 days/wk)</td></tr>
+        <tr><td>PI options</td><td class="small">3 ranked options</td><td class="small" style="color:#4fd1c5;"><em>+ cost/probability per option</em> + 7 "open issues"</td></tr>
       </table>
+      <div class="callout" style="font-size:0.7em;">
+        Uplift = <em>breadth, not transformation</em>. v1 was competent; v2 noticed the second doctrine, the alternate theory, the jurisdictional edge case.
+      </div>
     </div>
-    <div class="quote-card">
-      <h3>How to read "uplift"</h3>
-      <ul>
-        <li><strong>Scope discipline</strong>: did swarm make `v1` smaller and more believable?</li>
-        <li><strong>Role fidelity</strong>: does the artifact sound like the right job now?</li>
-        <li><strong>Measurability</strong>: are inputs, outputs, and success criteria easier to score?</li>
-        <li><strong>Iteration value</strong>: do later rounds add real signal instead of padding?</li>
-      </ul>
-      <p class="fineprint">
-        This is intentionally hand-wavey. I used qualitative judgment first, with changed-line counts
-        only as a churn proxy, not as the score itself.
-      </p>
+    <div>
+      <div class="col-head">sampled v2 prose · the doctrinal layer</div>
+      <div class="lawquote">
+        "Satisfying § 24L is <em>necessary but not sufficient</em>; the Covenant must also be reasonable under the <em>Boulanger</em> framework. <span class="note">[...]</span>
+        <br><br>
+        The March 28, 2026 USB-copy events provide a factual predicate for a <em>freestanding misappropriation claim</em> under the Defend Trade Secrets Act, 18 U.S.C. §§ 1836 et seq.
+        <br><br>
+        Rhode Island's R.I. Gen. Laws § 28-59-1 et seq. is <em>materially more restrictive</em> than the MNAA... The trade-secret theory is <em>viable independent</em> of the Covenant and is the firm's single strongest near-term ground for injunctive relief."
+      </div>
+      <p class="tiny" style="margin-top:0.35em;">— real v2 excerpt. Each addition is a doctrine v1 had the facts to raise but didn't.</p>
     </div>
   </div>
 </section>
 
+<!-- ====================== RN ARTIFACT SAMPLE — HF ZONES ====================== -->
 <section>
-  <h2>Hand-wavey uplift leaderboard</h2>
-  <div class="score-grid">
-    <div class="score-row">
-      <div>
-        <div class="rank-line">
-          <span class="rank">1</span>
-          <span class="domain">Computer &amp; Mathematical</span>
-        </div>
-        <div class="artifact">Software Developers • concrete interfaces + real staged build</div>
-      </div>
-      <div>
-        <div class="bar-shell"><div class="bar-fill" style="width: 100%;"></div></div>
-        <div class="bar-note">Uplift score: <strong>5.0 / 5</strong></div>
-      </div>
-      <div class="tiny">50 changed lines</div>
+  <h2 style="color:#4fd1c5;">RN surprise · the literacy levers that compound (real v3 excerpt)</h2>
+  <p class="small">Posted on the fridge. Same information as v1's prose paragraph — <em>re-tooled</em> so a marginal-literacy patient can triage at 3am.</p>
+  <div class="threecol" style="gap:0.5em;">
+    <div class="zone g">
+      <h4>● GREEN — All Clear <span style="color:#999;font-size:0.85em;">(keep going)</span></h4>
+      <ul style="margin:0;padding-left:1em;">
+        <li>No shortness of breath when sitting still.</li>
+        <li>Weight within <em>2 lb of 181 lb</em> (your dry weight, 82 kg).</li>
+        <li>No new swelling.</li>
+        <li>Usual energy.</li>
+        <li>Taking medicines as written on the pill box.</li>
+      </ul>
+      <p style="margin:0.3em 0 0 0;"><strong>What to do:</strong> Keep doing what you are doing.</p>
     </div>
-
-    <div class="score-row">
-      <div>
-        <div class="rank-line">
-          <span class="rank">2</span>
-          <span class="domain">Office &amp; Administrative Support</span>
-        </div>
-        <div class="artifact">Executive Assistants • strongest role-fidelity correction</div>
-      </div>
-      <div>
-        <div class="bar-shell"><div class="bar-fill" style="width: 90%;"></div></div>
-        <div class="bar-note">Uplift score: <strong>4.5 / 5</strong></div>
-      </div>
-      <div class="tiny">107 changed lines</div>
+    <div class="zone y">
+      <h4>● YELLOW — Warning <span style="color:#999;font-size:0.85em;">(call SAME BUSINESS DAY)</span></h4>
+      <ul style="margin:0;padding-left:1em;">
+        <li>Weight up <em>2-4 lb in 1 day</em> OR <em>5 lb in 1 week</em></li>
+        <li>More swelling in ankles than usual</li>
+        <li>Need an extra pillow to breathe at night</li>
+        <li>New dry cough</li>
+        <li>Dizzy one time when standing up</li>
+        <li>Missed a dose</li>
+      </ul>
+      <p style="margin:0.3em 0 0 0;"><strong>Call:</strong> HF clinic <em>555-0133</em> (M-F). After hours: <em>555-0145</em>.</p>
     </div>
-
-    <div class="score-row">
-      <div>
-        <div class="rank-line">
-          <span class="rank">3</span>
-          <span class="domain">Business &amp; Financial Operations</span>
-        </div>
-        <div class="artifact">Accountants &amp; Auditors • more deterministic, more review-grade</div>
-      </div>
-      <div>
-        <div class="bar-shell"><div class="bar-fill" style="width: 70%;"></div></div>
-        <div class="bar-note">Uplift score: <strong>3.5 / 5</strong></div>
-      </div>
-      <div class="tiny">60 changed lines</div>
-    </div>
-
-    <div class="score-row">
-      <div>
-        <div class="rank-line">
-          <span class="rank">4</span>
-          <span class="domain">Management</span>
-        </div>
-        <div class="artifact">Financial Managers • stronger accounting boundaries, less answer leakage</div>
-      </div>
-      <div>
-        <div class="bar-shell"><div class="bar-fill" style="width: 58%;"></div></div>
-        <div class="bar-note">Uplift score: <strong>2.9 / 5</strong></div>
-      </div>
-      <div class="tiny">143 changed lines</div>
-    </div>
-
-    <div class="score-row">
-      <div>
-        <div class="rank-line">
-          <span class="rank">5</span>
-          <span class="domain">Educational Instruction &amp; Library</span>
-        </div>
-        <div class="artifact">Instructional Coordinators • better, but still scope-hungry</div>
-      </div>
-      <div>
-        <div class="bar-shell"><div class="bar-fill" style="width: 42%;"></div></div>
-        <div class="bar-note">Uplift score: <strong>2.1 / 5</strong></div>
-      </div>
-      <div class="tiny">124 changed lines</div>
+    <div class="zone r">
+      <h4>● RED — Emergency <span style="color:#999;font-size:0.85em;">(call 911 NOW)</span></h4>
+      <ul style="margin:0;padding-left:1em;">
+        <li>Cannot catch your breath even sitting still</li>
+        <li>Chest pain or pressure</li>
+        <li>Fainted / passed out</li>
+        <li>Coughing pink foamy spit</li>
+        <li>Weight up <em>more than 5 lb in 2 days</em> and not getting better</li>
+        <li>Bleeding you cannot stop</li>
+      </ul>
+      <p style="margin:0.3em 0 0 0;"><strong>Call 911.</strong> Stay on the phone. Do not drive yourself.</p>
     </div>
   </div>
-  <p class="fineprint">
-    Punchline: <strong>most churn did not equal most uplift</strong>. The biggest winners were the artifacts
-    that became narrower, more checkable, and more occupationally faithful.
-  </p>
+  <div class="callout">
+    v1 → v3 added: pictographs · <em>meal-time anchors</em> instead of clock times · two-scenario teach-back prompts · literacy-fitted emergency tables · caregiver role-splits ("daughter at work"). My prior was wrong: tight templates still have many small levers.
+  </div>
 </section>
 
+<!-- ====================== CHEMIST — LINEARITY TABLE ====================== -->
 <section>
-  <h2>Where swarm helped most</h2>
-  <div class="split-card">
-    <div class="panel best">
-      <div class="label-chip">Most uplift overall</div>
-      <div class="headline-callout">Software Developers</div>
-      <ul>
-        <li>`v1` stopped pretending to be a full service build and became a genuine 15-minute first pass.</li>
-        <li>Later iterations added explicit Redis payloads, ACK semantics, retry and DLQ behavior, and fixed-window throttling.</li>
-        <li>The artifact now has crisp interfaces, crisp tests, and a believable iteration ladder.</li>
-      </ul>
-      <p class="tiny">Translation: swarm works very well when the job already exposes concrete contracts.</p>
+  <h2 style="color:#c792ea;">Chemist · template ceiling · <em>precision</em>, not new scope</h2>
+  <div class="twocol" style="grid-template-columns:0.85fr 1.15fr;">
+    <div>
+      <div class="col-head">v1 linearity statement</div>
+      <div class="prose">
+        "Linearity was demonstrated across 50-150% of working concentration. r² &gt; 0.999. Residuals appeared random."
+      </div>
+      <p class="tiny" style="margin-top:0.3em;color:#888;">6 sentences. Correct shape. No raw data.</p>
+      <br>
+      <div class="callout" style="font-size:0.7em;">
+        <em>1.6× ceiling</em> · ICH Q2(R2) fixes the outline. v1 already hits the shape. v2/v3 add rigor <em>within</em> the skeleton — more decimal places, more QC sign-off, more residual diagnostics. You cannot iterate your way to a new section heading.
+      </div>
     </div>
-    <div class="panel best">
-      <div class="label-chip">Biggest role-fit jump</div>
-      <div class="headline-callout">Executive Assistants</div>
-      <ul>
-        <li>The artifact moved down from a chief-of-staff voice into an actual EA pre-brief.</li>
-        <li>Confirmed facts got separated from guidance; logistics became owned actions with deadlines.</li>
-        <li>The Q&amp;A got harder without turning into investment-bank cosplay.</li>
-      </ul>
-      <p class="tiny">Translation: swarm can rescue artifacts that are close, but written at the wrong seniority layer.</p>
+    <div>
+      <div class="col-head">v3 linearity · real tabulated raw data + regression CI</div>
+      <div class="artifact" style="font-size:0.55em;">
+        <strong>Table 7. Linearity Data</strong><br><br>
+        | Level | Conc (mg/mL) | Mean Area | SD | RSD (%) | Residual (%) |<br>
+        | 50 | 0.2501 | 1,247,830 | 3,620 | 0.29 | -0.29 |<br>
+        | 70 | 0.3502 | 1,745,221 | 4,105 | 0.24 | -0.32 |<br>
+        | 100 | 0.5003 | 2,495,118 | 4,490 | 0.18 | -0.14 |<br>
+        | 120 | 0.6004 | 2,996,042 | 5,810 | 0.19 | -0.06 |<br>
+        | 140 | 0.7005 | 3,494,783 | 7,230 | 0.21 | -0.06 |<br>
+        | 150 | 0.7504 | 3,743,217 | 9,720 | 0.26 | -0.07 |<br>
+        <br>
+        <strong>Regression statistics</strong><br>
+        | Slope (b1) | <em>4.9867E6</em> uAU·s per (mg/mL) |<br>
+        | Slope 95% CI | [4.9715E6, 5.0019E6] |<br>
+        | Intercept 95% CI | [-3,140, +12,764] <em>(includes zero)</em> |<br>
+        | Lack-of-fit F test | <em>not significant</em> at α = 0.05 |<br>
+        <br>
+        <span class="note">"Base hydrolysis produced 12.4% parent loss, inside the 5-20% target window... Losartan Related Compound A confirmed by USP RS spike (ΔRRT = 0.00), UV spectral match 1000/1000, 9.8% w/w exceeds ICH Q3B(R2) identification threshold of 0.2%. <em>PASS.</em>"</span>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ====================== TAKEAWAYS ====================== -->
 <section>
-  <h2>Where uplift was weakest</h2>
-  <div class="two-col">
-    <div class="panel worst">
-      <div class="label-chip">Least uplift</div>
-      <div class="headline-callout">Instructional Coordinators</div>
-      <ul>
-        <li>The artifact improved operationally, but it still wants to become a district strategy packet, board memo, and implementation framework all at once.</li>
-        <li>Every good addition risks making the benchmark less bounded.</li>
-        <li>Even after trimming evaluator leakage, it remains the most likely artifact to over-coach the model.</li>
-      </ul>
+  <h2>Takeaways</h2>
+  <div class="twocol">
+    <div>
+      <h3 style="color:#ff6b6b;">1 · Code has runaway uplift</h3>
+      <p class="small">4.2× across 3 rounds. Each iteration surfaces another production concern (tests → auth → state → ops). "Iteration tax" paid in hardening, not rethinking.</p>
+
+      <h3 style="color:#ffce54;margin-top:0.5em;">2 · Craft letters plateau after round 2</h3>
+      <p class="small">Editor's v1 was partial; v2 finished it with <em>alternatives</em>. v3 ≈ v2. Once the structural argument is complete, further rounds polish prose but don't transform.</p>
+
+      <h3 style="color:#4fd1c5;margin-top:0.5em;">3 · "Tight template" ≠ "no uplift"</h3>
+      <p class="small">Discharge summaries grew 2.4× — patient-education has <em>many small literacy levers</em> (pictographs, meal anchors, caregiver roles) that compound. <em>My prior was wrong.</em></p>
     </div>
-    <div class="panel">
-      <h3>Why this domain is harder</h3>
-      <ul>
-        <li><strong>Political surface area</strong>: many stakeholders, many constraints, many "correct" scopes.</li>
-        <li><strong>Weak natural stopping point</strong>: the artifact keeps asking for another section.</li>
-        <li><strong>Judgment is diffuse</strong>: success is less about one crisp deliverable and more about balanced planning taste.</li>
-      </ul>
-      <p class="fineprint">Management was also middling: lots of cleanup value, less true transformation.</p>
+    <div>
+      <h3 style="color:#c792ea;">4 · Regulated templates plateau earliest</h3>
+      <p class="small">Chemist = 1.6×. ICH Q2(R2) fixes the outline; iteration refines validation rigor within a fixed skeleton. No new section headings to discover.</p>
+
+      <h3 style="color:#b3d9ff;margin-top:0.5em;">5 · Swarms produce portfolios, not consensus</h3>
+      <p class="small">Editor agents picked 3 genuinely different load-bearing diagnoses (architecture / causality / desire). SW dev agents converged (σ ≈ 2%). <em>Useful for comparison; bad for majority-vote.</em></p>
+
+      <div class="callout" style="margin-top:0.6em;">
+        <em>The uplift curve depends on the artifact's degrees of freedom.</em> Fixed shape → refinement. Open-ended craft → alternatives. Systems code → hardening.
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ====================== CAVEATS + QUESTIONS ====================== -->
 <section>
-  <h2>Best artifact vs. worst artifact</h2>
-  <div class="split-card">
-    <div class="panel best">
-      <div class="label-chip">Best artifact after swarm</div>
-      <div class="headline-callout">Webhook Dispatcher Spec</div>
-      <ul>
-        <li>Inputs are concrete.</li>
-        <li>Output is easy to imagine and easy to score.</li>
-        <li>Each iteration adds one visible layer of real engineering work.</li>
-        <li>The artifact invites improvement without bloating.</li>
+  <h2>Caveats · next steps · questions?</h2>
+  <div class="twocol">
+    <div>
+      <h4>Caveats</h4>
+      <ul class="small">
+        <li><em>Line count ≠ quality.</em> Blind human rating of v2 vs v1 needed.</li>
+        <li><em>5 domains is small.</em> 7 more running (Mgmt, Office, Biz/Fin, Eng, Sci, Sales, Community).</li>
+        <li><em>v3 data is thin.</em> Open question: v3 = marginal value or diminishing returns?</li>
+        <li><em>Codex is running parallel.</em> Head-to-head comparison next.</li>
       </ul>
     </div>
-    <div class="panel worst">
-      <div class="label-chip">Weakest artifact after swarm</div>
-      <div class="headline-callout">K-5 Literacy Adoption Framework</div>
-      <ul>
-        <li>Still too broad for a clean benchmark target.</li>
-        <li>Still tempted to drift into theory-of-action and political messaging.</li>
-        <li>Improved content did not fully solve the scoping problem.</li>
-        <li>The model can look smart here while still being hard to evaluate.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Takeaways from each domain</h2>
-  <div class="takeaway-grid">
-    <div class="takeaway">
-      <div class="kicker">Computer &amp; Mathematical</div>
-      <div class="line">The biggest win was turning a fake `v1` into a real `v1`.</div>
-    </div>
-    <div class="takeaway">
-      <div class="kicker">Business &amp; Financial Ops</div>
-      <div class="line">Swarm helped by making review logic deterministic, not by making it more creative.</div>
-    </div>
-    <div class="takeaway">
-      <div class="kicker">Educational Instruction</div>
-      <div class="line">Scope explosion is the enemy. More content can make the benchmark worse.</div>
-    </div>
-    <div class="takeaway">
-      <div class="kicker">Management</div>
-      <div class="line">Useful cleanup domain: better boundaries, less leakage, modest transformation.</div>
-    </div>
-    <div class="takeaway">
-      <div class="kicker">Office &amp; Admin</div>
-      <div class="line">Role fidelity matters as much as detail. Wrong seniority layer kills the artifact fast.</div>
-    </div>
-    <div class="takeaway">
-      <div class="kicker">Meta</div>
-      <div class="line">The swarm did best when it narrowed the task, not when it made the document longer.</div>
-    </div>
-  </div>
-</section>
-
-<section class="closing-slide">
-  <div class="hero">
-    <div class="eyebrow">Punchy Close</div>
-    <h2>My early-demo read</h2>
-    <div class="closing-grid">
-      <div class="takeaway">
-        <div class="kicker">Most uplift</div>
-        <div class="line">Computer &amp; Mathematical</div>
-      </div>
-      <div class="takeaway">
-        <div class="kicker">Least uplift</div>
-        <div class="line">Educational Instruction &amp; Library</div>
-      </div>
-      <div class="takeaway">
-        <div class="kicker">Best artifact</div>
-        <div class="line">Software developer dispatcher spec</div>
-      </div>
-      <div class="takeaway">
-        <div class="kicker">Worst artifact</div>
-        <div class="line">Instructional coordinator rollout framework</div>
+    <div>
+      <h4>Artifacts</h4>
+      <p class="small"><code>/tasks/&lt;soc&gt;-&lt;slug&gt;/iterations/agent-N/v{1,2,3}.md</code></p>
+      <p class="small">45 files · 14,498 total lines · 15 agents × 3 rounds</p>
+      <p class="small">Weighting method: <code>CLAUDE_DOMAINS_DETAILED.md</code></p>
+      <div class="callout" style="margin-top:0.7em;text-align:center;font-size:1.1em;">
+        <em>Questions?</em>
       </div>
     </div>
-    <ol style="margin-top:0.8em;">
-      <li><strong>Open systems uplift more than governed planning docs.</strong></li>
-      <li><strong>The best swarm output was not longer. It was narrower and more scoreable.</strong></li>
-      <li><strong>Role fit matters as much as domain complexity.</strong></li>
-      <li><strong>Next step: blind-rate `before` vs `after` to see whether this early intuition survives scoring.</strong></li>
-    </ol>
   </div>
 </section>
 
@@ -692,12 +568,14 @@
 <script>
   Reveal.initialize({
     hash: true,
-    transition: "slide",
+    transition: 'slide',
     controls: true,
     progress: true,
     center: false,
-    slideNumber: "c/t",
-    margin: 0.06
+    slideNumber: 'c/t',
+    width: 1280,
+    height: 760,
+    margin: 0.04,
   });
 </script>
 </body>
