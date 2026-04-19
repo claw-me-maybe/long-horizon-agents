@@ -119,11 +119,12 @@
     box-shadow: var(--shadow);
     padding: 0.72em 0.82em;
     width: 100%;
-    max-width: 1220px;
+    max-width: 1160px;
+    margin: 0 auto;
   }
 
   .hero {
-    max-width: 1220px;
+    max-width: 1160px;
   }
 
   .eyebrow {
@@ -505,7 +506,7 @@
   }
 
   .closing-slide .shell {
-    max-width: 1220px;
+    max-width: 1160px;
   }
 
   @media (max-width: 960px) {
@@ -583,7 +584,6 @@
       <div class="metric"><span class="big">15</span><span class="label">subagents</span></div>
       <div class="metric"><span class="big">2 + 1</span><span class="label">critics + writer</span></div>
       <div class="metric"><span class="big">617</span><span class="label">artifact lines scanned</span></div>
-      <div class="metric"><span class="big">~5 min</span><span class="label">talk track</span></div>
     </div>
   </div>
 </section>
@@ -684,7 +684,7 @@
   <div class="shell">
     <h2>Artifact gallery</h2>
     <p class="lede">Five artifacts, shown as artifacts instead of summaries. These are direct slices of what makes each one feel occupationally real.</p>
-    <div class="artifact-grid">
+    <div class="artifact-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
       <div class="artifact-card">
         <div class="pill-row">
           <span class="pill">83 lines</span>
@@ -757,8 +757,8 @@ board split on pace</pre>
   <div class="shell">
     <h2>Actual samples: systems and numbers</h2>
     <p class="lede">These are the parts I’d actually put on screen in a demo. They show why the artifacts feel concrete, not just whether I liked them.</p>
-    <div class="artifact-grid">
-      <div class="artifact-card">
+    <div class="artifact-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+      <div class="artifact-card" style="grid-column: 1 / -1;">
         <div class="pill-row">
           <span class="pill">Software</span>
           <span class="pill">Concrete interface</span>
@@ -851,7 +851,7 @@ but split on pace.</pre>
 <section>
   <div class="shell">
     <h2>Best artifact: software developers</h2>
-    <div class="grid-3">
+    <div class="grid-3" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
       <div class="snippet">
         <h3>What the artifact now exposes</h3>
         <pre class="snip">Dispatcher reads from Redis stream
@@ -866,7 +866,7 @@ Signed POST:
         <p class="foot">Concrete interfaces. Concrete failure modes. Concrete success criteria.</p>
       </div>
 
-      <div class="card">
+      <div class="card" style="grid-column: 1 / -1;">
         <h3>Iteration Ladder</h3>
         <div class="ladder">
           <div class="step"><div class="tag">V1</div><div class="body">tiny happy-path loop</div></div>
@@ -888,7 +888,7 @@ Signed POST:
         </div>
         <div class="callout" style="margin-top:0.38em;">
           <div class="big">Main reason</div>
-          <div class="tiny">The swarm turned a fake "full service" v1 into a real first pass, then added one testable systems layer at a time.</div>
+          <div class="tiny">The artifact stopped pretending to be a full build and became a real first pass, then added one testable systems layer at a time.</div>
         </div>
       </div>
     </div>
@@ -898,7 +898,7 @@ Signed POST:
 <section>
   <div class="shell">
     <h2>Role-fidelity winner: executive assistants</h2>
-    <div class="grid-2">
+    <div class="grid-2" style="grid-template-columns: 1fr;">
       <div class="card">
         <h3>Artifact close-up</h3>
         <pre class="snip">2. At-a-glance (read in 60 seconds)
@@ -926,10 +926,10 @@ Signed POST:
       <div class="card">
         <h3>What the swarm fixed</h3>
         <div class="matrix">
-          <div class="cell"><strong>Fact / guidance split</strong><br>Confirmed details are now clearly distinct from recommendations and open judgment calls.</div>
-          <div class="cell"><strong>60-second glance</strong><br>The artifact visibly optimizes for Ingrid reading it in transit, not for exhaustive coverage.</div>
-          <div class="cell"><strong>Harder Q&amp;A</strong><br>Questions now include real investor pressure points like FERC 2222 timing and concentration.</div>
-          <div class="cell"><strong>Owned logistics</strong><br>The shellfish / scallop issue becomes Vanessa's action with a deadline, not a dangling note.</div>
+          <div class="cell"><strong>Fact / guidance split</strong><br>Facts and recommendations are now explicitly separated.</div>
+          <div class="cell"><strong>60-second glance</strong><br>Optimized for Ingrid reading in transit, not for exhaustive coverage.</div>
+          <div class="cell"><strong>Harder Q&amp;A</strong><br>Includes real pressure points like FERC 2222 timing and concentration.</div>
+          <div class="cell"><strong>Owned logistics</strong><br>The shellfish issue becomes Vanessa's action, not a loose note.</div>
         </div>
         <div class="score-bars" style="margin-top:0.38em;">
           <div class="score-line"><div class="label">Role fidelity</div><div class="rail"><div class="fill" style="width:100%"></div></div><div class="n">5.0</div></div>
@@ -944,11 +944,11 @@ Signed POST:
 <section>
   <div class="shell">
     <h2>Middle pack: accounting and finance</h2>
-    <div class="grid-2">
+    <div class="grid-2" style="grid-template-columns: 0.95fr 1.05fr;">
       <div class="card">
         <div class="chart-title">
           <h3>Accounting</h3>
-          <span class="small">deterministic sampling made the difference</span>
+          <span class="small">deterministic sampling was the win</span>
         </div>
         <pre class="snip">Sample strata:
 A = all high-risk items
@@ -968,9 +968,9 @@ C = 5 systematic items from fixed start</pre>
             <rect x="28" y="90" width="120" height="22" rx="11" fill="rgba(114,128,74,0.84)"></rect>
             <text x="88" y="105" font-size="12" text-anchor="middle" fill="white">5</text>
 
-            <text x="216" y="25" font-size="12" fill="#171412">high-risk coverage</text>
-            <text x="216" y="65" font-size="12" fill="#171412">ranked large contracts</text>
-            <text x="216" y="105" font-size="12" fill="#171412">systematic residual sample</text>
+            <text x="206" y="25" font-size="11" fill="#171412">all high-risk</text>
+            <text x="206" y="65" font-size="11" fill="#171412">ranked large items</text>
+            <text x="206" y="105" font-size="11" fill="#171412">systematic tail</text>
           </svg>
         </div>
         <p class="foot">This domain benefited because swarm removed judgment wiggle-room and made the review reperformable.</p>
@@ -979,12 +979,12 @@ C = 5 systematic items from fixed start</pre>
       <div class="card">
         <div class="chart-title">
           <h3>Financial Management</h3>
-          <span class="small">less about invention, more about accounting hygiene</span>
+          <span class="small">cleanup more than transformation</span>
         </div>
         <pre class="snip">v1: one-page memo + bridge only
 
 volume = dollar-only
-trade spend = contra-revenue
+trade spend = contra-rev
 GM% lane stays separate</pre>
         <div class="svg-wrap" style="margin-top:0.28em;">
           <svg viewBox="0 0 380 130" aria-label="bridge lanes">
@@ -1003,7 +1003,7 @@ GM% lane stays separate</pre>
             <text x="338" y="84" font-size="11" text-anchor="middle" fill="white">Trade</text>
           </svg>
         </div>
-        <p class="foot">Useful improvement, but mostly cleanup: stronger boundaries, less answer leakage, tighter reviewer expectations.</p>
+        <p class="foot">Useful improvement, but mostly cleanup: tighter boundaries and less evaluator leakage.</p>
       </div>
     </div>
   </div>
@@ -1045,13 +1045,80 @@ Output target: ~2,500-3,500 words</pre>
           <div class="score-line"><div class="label">Iteration payoff</div><div class="rail"><div class="fill" style="width:48%"></div></div><div class="n">2.4</div></div>
         </div>
         <div class="matrix" style="margin-top:0.35em;">
-          <div class="cell"><strong>Good change</strong><br>The artifact became more operational and less vague.</div>
-          <div class="cell"><strong>Still hard</strong><br>Every sensible addition expands the benchmark rather than sharpens it.</div>
-          <div class="cell"><strong>Risk</strong><br>A model can sound polished here while still being difficult to evaluate consistently.</div>
-          <div class="cell"><strong>Best next move</strong><br>Break this occupation into smaller benchmark families instead of one giant umbrella artifact.</div>
+          <div class="cell"><strong>Good change</strong><br>More operational, less vague.</div>
+          <div class="cell"><strong>Still hard</strong><br>Every sensible addition expands scope instead of sharpening the benchmark.</div>
+          <div class="cell"><strong>Risk</strong><br>A polished answer can still be hard to score consistently.</div>
+          <div class="cell"><strong>Best next move</strong><br>Split this occupation into smaller benchmark families.</div>
         </div>
         <p class="foot">My strongest claim from this set: the best swarm behavior here is subtraction, not elaboration.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Bigger thesis: trillions of decisions</h2>
+    <p class="lede">The artifact readout matters because the long-run value of AI may come less from a few brilliant outputs and more from dropping models into trillions of tiny decision loops.</p>
+    <div class="grid-2" style="grid-template-columns: 0.95fr 1.05fr;">
+      <div class="card">
+        <div class="chart-title">
+          <h3>Decision distribution</h3>
+          <span class="small">most of the mass is banal</span>
+        </div>
+        <div class="svg-wrap">
+          <svg viewBox="0 0 420 220" aria-label="decision distribution">
+            <rect x="30" y="150" width="280" height="36" rx="18" fill="rgba(33,111,115,0.84)"></rect>
+            <rect x="315" y="116" width="60" height="28" rx="14" fill="rgba(240,170,59,0.92)"></rect>
+            <rect x="380" y="92" width="24" height="20" rx="10" fill="rgba(141,65,80,0.88)"></rect>
+            <text x="48" y="171" font-size="16" fill="white">easy, high-volume decisions</text>
+            <text x="318" y="134" font-size="13" fill="#171412">medium complexity</text>
+            <text x="358" y="82" font-size="12" fill="#171412">frontier-hard</text>
+            <text x="34" y="55" font-size="13" fill="#635952">autonomy, routing, nanobot pilots, monitoring loops</text>
+          </svg>
+        </div>
+        <p class="foot">If trillions of actions become AI decisions, then tiny competent models in many loops may matter more than a small number of genius decisions.</p>
+      </div>
+      <div class="card">
+        <h3>Implications</h3>
+        <div class="matrix">
+          <div class="cell"><strong>Claim 1</strong><br>Big uplift comes from AI choosing actions at extreme volume, not from a few heroic outputs.</div>
+          <div class="cell"><strong>Claim 2</strong><br>At that scale, most calls are easy. The hard part is getting a model into every loop.</div>
+          <div class="cell"><strong>Claim 3</strong><br>For social transformation, deployment and system throughput matter more than extra frontier IQ.</div>
+          <div class="cell"><strong>Why this deck connects</strong><br>The winning artifacts looked like decision machinery: interfaces, bounds, escalations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shell">
+    <h2>Stage 1, then stage 2</h2>
+    <p class="lede">A plausible industry pattern: first the model floods the stack, then it retreats into the places bespoke software still cannot cover cleanly.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Stage 1: AI immersion</h3>
+        <div class="funnel">
+          <div class="band w1">models dropped everywhere in the workflow</div>
+          <div class="band w2">whole industries temporarily wrapped in general AI</div>
+          <div class="band w3">coverage matters more than elegance</div>
+          <div class="band w4">common behavior still burns expensive model calls</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Stage 2: retreat into the cracks</h3>
+        <div class="funnel">
+          <div class="band w1">bespoke software absorbs the common path</div>
+          <div class="band w2">specialized AIs handle only the hard escalations</div>
+          <div class="band w3">models write narrow code and orchestration</div>
+          <div class="band w4">next gap: on-demand specialist weights</div>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:0.42em;">
+      <div class="big">Why software-like artifacts scored high</div>
+      <div class="tiny">They already resemble the long-run shape: lots of narrow systems, lots of easy decisions, and explicit escalation paths for the few cases that still need heavier intelligence.</div>
     </div>
   </div>
 </section>
@@ -1062,33 +1129,33 @@ Output target: ~2,500-3,500 words</pre>
     <div class="takeaway-grid" style="margin-top:0.35em;">
       <div class="takeaway">
         <h3>Most uplift</h3>
-        <p><strong>Software developers.</strong> The spec now exposes interfaces, invariants, and a believable iteration ladder.</p>
+        <p><strong>Software developers.</strong> Interfaces and escalation ladders made this benchmark click.</p>
       </div>
       <div class="takeaway">
         <h3>Best role-fit rescue</h3>
-        <p><strong>Executive assistants.</strong> The output now reads like a real principal brief, not strategy staff cosplay.</p>
+        <p><strong>Executive assistants.</strong> Reads like a real principal brief.</p>
       </div>
       <div class="takeaway">
         <h3>Middle pack</h3>
-        <p><strong>Accounting and finance.</strong> Swarm mainly improved determinism and accounting hygiene.</p>
+        <p><strong>Accounting and finance.</strong> Better determinism, not dramatic reinvention.</p>
       </div>
       <div class="takeaway">
         <h3>Least uplift</h3>
-        <p><strong>Instructional coordinators.</strong> Too much surface area, too many legitimate scopes, too little natural stopping point.</p>
+        <p><strong>Instructional coordinators.</strong> Scope is still too broad to benchmark cleanly.</p>
       </div>
     </div>
-    <div class="grid-3" style="margin-top:0.5em;">
+    <div class="grid-3" style="margin-top:0.5em; grid-template-columns: repeat(2, minmax(0, 1fr));">
       <div class="mini-card">
         <h3>Pattern 1</h3>
-        <p>Open systems uplift more than governed planning documents.</p>
+        <p>Transformation comes from deploying huge numbers of decision loops, not only from isolated frontier wins.</p>
       </div>
       <div class="mini-card">
         <h3>Pattern 2</h3>
-        <p>The best swarm output was not longer. It was narrower, more role-faithful, and easier to score.</p>
+        <p>Most of those loops are easy; scaling systems and deployment matters as much as pushing raw intelligence.</p>
       </div>
-      <div class="mini-card">
+      <div class="mini-card" style="grid-column: 1 / -1;">
         <h3>Pattern 3</h3>
-        <p>Next step is blind scoring of before/after artifacts so this qualitative read survives contact with evaluation.</p>
+        <p>Long run: bespoke software everywhere, with models writing code and eventually specialized models for the hard cracks.</p>
       </div>
     </div>
   </div>
