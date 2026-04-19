@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Swarm Iteration · Claude vs Codex</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: #000; color: #eee;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .wrap {
+    display: grid;
+    grid-template-rows: 32px 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "hdr-l hdr-r"
+      "frm-l frm-r";
+    height: 100vh;
+    gap: 0;
+  }
+
+  .hdr {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 10px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #111;
+    border-bottom: 1px solid #222;
+  }
+  .hdr.left  { grid-area: hdr-l; border-right: 1px solid #222; }
+  .hdr.right { grid-area: hdr-r; }
+  .hdr .tag { color: #8fb4ff; font-weight: 600; }
+  .hdr.right .tag { color: #ffb98f; }
+  .hdr .slide-num { color: #888; font-variant-numeric: tabular-nums; }
+
+  iframe {
+    width: 100%; height: 100%;
+    border: 0;
+    display: block;
+  }
+  .frm.left  { grid-area: frm-l; border-right: 1px solid #222; }
+  .frm.right { grid-area: frm-r; }
+
+  .help {
+    position: fixed;
+    bottom: 10px; left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.75);
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    color: #aaa;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    z-index: 100;
+  }
+  .help kbd {
+    display: inline-block;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    color: #ddd;
+    margin: 0 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="hdr left">
+    <span class="tag">Claude Opus 4.7</span>
+    <span class="slide-num" id="num-left">–</span>
+  </div>
+  <div class="hdr right">
+    <span class="tag">Codex</span>
+    <span class="slide-num" id="num-right">–</span>
+  </div>
+  <iframe class="frm left"  id="frame-left"  src="swarm-iteration.html"></iframe>
+  <iframe class="frm right" id="frame-right" src="swarm-iteration-codex.html"></iframe>
+</div>
+
+<div class="help" id="help">
+  <kbd>←</kbd><kbd>→</kbd> both decks · <kbd>[</kbd><kbd>]</kbd> left only · <kbd>{</kbd><kbd>}</kbd> right only · <kbd>0</kbd> reset
+</div>
+
+<script>
+  const left  = document.getElementById('frame-left');
+  const right = document.getElementById('frame-right');
+  const numL  = document.getElementById('num-left');
+  const numR  = document.getElementById('num-right');
+  const help  = document.getElementById('help');
+
+  function revealOf(frame) {
+    try { return frame.contentWindow && frame.contentWindow.Reveal; }
+    catch (e) { return null; }
+  }
+
+  function updateNums() {
+    for (const [frame, el] of [[left, numL], [right, numR]]) {
+      const R = revealOf(frame);
+      if (!R || !R.getIndices) continue;
+      const i = R.getIndices();
+      const total = (R.getTotalSlides && R.getTotalSlides()) || '?';
+      el.textContent = (i.h + 1) + ' / ' + total;
+    }
+  }
+
+  function act(frame, fn) {
+    const R = revealOf(frame);
+    if (R && typeof R[fn] === 'function') R[fn]();
+  }
+
+  function both(fn) { act(left, fn); act(right, fn); updateNums(); }
+
+  document.addEventListener('keydown', (e) => {
+    // Ignore modifier combos so browser shortcuts still work.
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'PageDown':
+      case ' ':
+      case 'n':
+        both('next'); e.preventDefault(); break;
+
+      case 'ArrowLeft':
+      case 'PageUp':
+      case 'p':
+        both('prev'); e.preventDefault(); break;
+
+      case 'Home':
+      case '0':
+        act(left,  'slide'); revealOf(left)  && revealOf(left).slide(0, 0);
+        act(right, 'slide'); revealOf(right) && revealOf(right).slide(0, 0);
+        updateNums(); e.preventDefault(); break;
+
+      case '[': act(left,  'prev'); updateNums(); e.preventDefault(); break;
+      case ']': act(left,  'next'); updateNums(); e.preventDefault(); break;
+      case '{': act(right, 'prev'); updateNums(); e.preventDefault(); break;
+      case '}': act(right, 'next'); updateNums(); e.preventDefault(); break;
+
+      case '?':
+        help.style.opacity = help.style.opacity === '0' ? '1' : '0';
+        break;
+    }
+  });
+
+  // Also forward keys from inside the iframes (in case focus lands there).
+  function attachFrameKeys(frame) {
+    frame.addEventListener('load', () => {
+      try {
+        frame.contentDocument.addEventListener('keydown', (e) => {
+          // Bubble to parent handler.
+          const copy = new KeyboardEvent('keydown', {
+            key: e.key, code: e.code,
+            metaKey: e.metaKey, ctrlKey: e.ctrlKey, altKey: e.altKey,
+          });
+          document.dispatchEvent(copy);
+          e.preventDefault();
+        }, true);
+      } catch (err) { /* cross-origin — ignore */ }
+      updateNums();
+    });
+  }
+
+  attachFrameKeys(left);
+  attachFrameKeys(right);
+
+  // Poll indices occasionally in case reveal changes them without a keyboard event.
+  setInterval(updateNums, 1000);
+
+  // Fade help after 5 s.
+  setTimeout(() => { help.style.opacity = '0.25'; }, 5000);
+</script>
+
+</body>
+</html>
