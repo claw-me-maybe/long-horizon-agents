@@ -537,6 +537,29 @@ await redis.eval(BUCKET_LUA, 1, rl_key, rps, now)
   </div>
 </section>
 
+<!-- ====================== ZOOMING OUT (THESIS) ====================== -->
+<section>
+  <h2>Zooming out · what does this demo actually hint at?</h2>
+  <div class="twocol">
+    <div>
+      <h3 style="color:#4fd1c5;">Scale &gt; peak intelligence</h3>
+      <p class="small">Our 2–4× uplift came from <em>running the same model more times</em> — not a smarter model. The value curve runs on <em>agents × rounds × domains</em>, not peak IQ.</p>
+      <p class="small">Chemist &amp; lawyer plateau fast: once the shape is set, most iteration decisions are <em>local and easy</em> — "did I cover RSD?", "meal anchor or clock time?" A tiny model could make them. But <em>a model has to be in the loop</em>.</p>
+      <div class="callout" style="border-left-color:#4fd1c5;">
+        <em>Societal-scale transformation looks like <strong>trillions of decisions × tiny per-decision intelligence</strong></em> — nanobot swarms, driverless fleets — not a handful of decisions × frontier intelligence.
+      </div>
+    </div>
+    <div>
+      <h3 style="color:#ff6b6b;">Stage 1 → Stage 2</h3>
+      <p class="small"><strong>Stage 1 · AI immersion.</strong> Editor, Lawyer, Chemist, RN all live here — the model writes <em>the whole artifact</em>. This demo is mostly Stage 1.</p>
+      <p class="small"><strong>Stage 2 · AI retreats to cracks.</strong> <span style="color:#ff6b6b;">Software Dev v1→v3 is the leading indicator:</span> one dispatch loop became Redis token bucket + HMAC + CircuitBreaker state machine + DLQ + SIGTERM drain — <em>bespoke deterministic code</em> that the model wrote, then stepped out of.</p>
+      <div class="callout" style="border-left-color:#ff6b6b;">
+        <em>What Stage 2 at scale still needs:</em> AI writing <strong>weights</strong> the way it writes <strong>code</strong>. Today: 45 text artifacts on demand. Tomorrow: billions of specialized models on demand — escalated to by bespoke code in the cracks.
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ====================== CAVEATS + QUESTIONS ====================== -->
 <section>
   <h2>Caveats · next steps · questions?</h2>
@@ -559,6 +582,17 @@ await redis.eval(BUCKET_LUA, 1, rl_key, rps, now)
         <em>Questions?</em>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ====================== QR CODE ====================== -->
+<section>
+  <h2 style="text-align:center;">Artifacts, code, weights</h2>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0.4em;margin-top:0.3em;">
+    <img src="repo-qr.svg" alt="QR code to github.com/claw-me-maybe/long-horizon-agents"
+         style="width:360px;height:360px;background:#fff;padding:16px;border-radius:8px;box-shadow:0 6px 30px rgba(0,0,0,0.35);image-rendering:pixelated;">
+    <p style="margin:0.2em 0 0;"><code style="font-size:0.9em;">github.com/claw-me-maybe/long-horizon-agents</code></p>
+    <p class="small" style="margin:0;opacity:0.7;">tinyurl.com/26wyzw2o</p>
   </div>
 </section>
 
