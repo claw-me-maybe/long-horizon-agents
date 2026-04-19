@@ -13,25 +13,28 @@
 
   .wrap {
     display: grid;
-    grid-template-rows: 32px 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 28px 1fr 28px 1fr;
     grid-template-areas:
-      "hdr-l hdr-r"
-      "frm-l frm-r";
+      "hdr-l"
+      "frm-l"
+      "hdr-r"
+      "frm-r";
     height: 100vh;
     gap: 0;
   }
 
   .hdr {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 10px;
-    font-size: 12px;
+    padding: 0 14px;
+    font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     background: #111;
+    border-top: 1px solid #222;
     border-bottom: 1px solid #222;
   }
-  .hdr.left  { grid-area: hdr-l; border-right: 1px solid #222; }
+  .hdr.left  { grid-area: hdr-l; border-top: 0; }
   .hdr.right { grid-area: hdr-r; }
   .hdr .tag { color: #8fb4ff; font-weight: 600; }
   .hdr.right .tag { color: #ffb98f; }
@@ -42,7 +45,7 @@
     border: 0;
     display: block;
   }
-  .frm.left  { grid-area: frm-l; border-right: 1px solid #222; }
+  .frm.left  { grid-area: frm-l; }
   .frm.right { grid-area: frm-r; }
 
   .help {

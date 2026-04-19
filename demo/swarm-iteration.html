@@ -51,6 +51,16 @@
   .zone.y h4 { color: #ffce54; }
   .zone.r h4 { color: #ff6b6b; }
   .lawquote { border-left: 3px solid #b3d9ff; padding: 0.3em 0.7em; font-size: 0.72em; line-height: 1.45; color: #cbd6e0; font-style: italic; background: rgba(179,217,255,0.05); }
+  .metric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5em 1.6em; margin: 0.2em 0 0.4em 0; }
+  .mpanel h3 { font-size: 0.78em; margin: 0 0 0.4em 0; color: #ddd; font-weight: 600; }
+  .mpanel h3 small { color: #888; font-weight: 400; font-size: 0.82em; margin-left: 0.3em; }
+  .mrow { display: grid; grid-template-columns: 74px 1fr 38px; align-items: center; gap: 6px; margin-bottom: 2px; font-size: 0.58em; }
+  .mrow .ml { text-align: right; font-weight: 600; }
+  .mrow .mbar { position: relative; background: #111; height: 13px; border-radius: 1px; overflow: hidden; }
+  .mrow .mbar > i { display: block; height: 100%; }
+  .mrow .mbar::before { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.22); left: 14.286%; }
+  .mrow .mv { font-weight: 600; font-variant-numeric: tabular-nums; }
+  .mrow .mv.na { color: #555; font-weight: 400; }
 </style>
 </head>
 <body>
@@ -542,6 +552,58 @@ await redis.eval(BUCKET_LUA, 1, rl_key, rps, now)
   </div>
   <div class="callout" style="margin-top:0.4em;">
     <em>Line count measures work done, not value added.</em> Some of SW Dev's 4.2× is circuit breakers (load-bearing). Some of Chemist's 1.6× is CI tables (ceremony). The uplift <em>ratio</em> doesn't tell you which is which — only the artifact does.
+  </div>
+</section>
+
+<!-- ====================== BEYOND LoC: MULTI-METRIC ====================== -->
+<section>
+  <h2>Beyond line count · four ways to score the same 45 artifacts</h2>
+  <p class="small" style="text-align:center;margin:0 0 0.4em 0;">v1 → v3 ratio, mean across 3 agents. Same 5 domains, same fixed order, common scale 0–7× (tick at 1×).</p>
+  <div class="metric-grid">
+
+    <!-- Panel 1: Lines -->
+    <div class="mpanel">
+      <h3>Lines <small>— what we originally showed</small></h3>
+      <div class="mrow"><span class="ml" style="color:#ff6b6b;">Software Dev</span><div class="mbar"><i style="width:60.0%;background:#ff6b6b;opacity:0.85;"></i></div><span class="mv" style="color:#ff6b6b;">4.2×</span></div>
+      <div class="mrow"><span class="ml" style="color:#ffce54;">Editor</span><div class="mbar"><i style="width:38.6%;background:#ffce54;opacity:0.85;"></i></div><span class="mv" style="color:#ffce54;">2.7×</span></div>
+      <div class="mrow"><span class="ml" style="color:#4fd1c5;">Nurse (RN)</span><div class="mbar"><i style="width:34.3%;background:#4fd1c5;opacity:0.85;"></i></div><span class="mv" style="color:#4fd1c5;">2.4×</span></div>
+      <div class="mrow"><span class="ml" style="color:#b3d9ff;">Lawyer</span><div class="mbar"><i style="width:28.6%;background:#b3d9ff;opacity:0.85;"></i></div><span class="mv" style="color:#b3d9ff;">2.0×</span></div>
+      <div class="mrow"><span class="ml" style="color:#c792ea;">Chemist</span><div class="mbar"><i style="width:22.9%;background:#c792ea;opacity:0.85;"></i></div><span class="mv" style="color:#c792ea;">1.6×</span></div>
+    </div>
+
+    <!-- Panel 2: Unique vocabulary -->
+    <div class="mpanel">
+      <h3>Unique vocabulary <small>— distinct concepts introduced</small></h3>
+      <div class="mrow"><span class="ml" style="color:#ff6b6b;">Software Dev</span><div class="mbar"><i style="width:47.6%;background:#ff6b6b;opacity:0.85;"></i></div><span class="mv" style="color:#ff6b6b;">3.3×</span></div>
+      <div class="mrow"><span class="ml" style="color:#ffce54;">Editor</span><div class="mbar"><i style="width:29.0%;background:#ffce54;opacity:0.85;"></i></div><span class="mv" style="color:#ffce54;">2.0×</span></div>
+      <div class="mrow"><span class="ml" style="color:#4fd1c5;">Nurse (RN)</span><div class="mbar"><i style="width:26.7%;background:#4fd1c5;opacity:0.85;"></i></div><span class="mv" style="color:#4fd1c5;">1.9×</span></div>
+      <div class="mrow"><span class="ml" style="color:#b3d9ff;">Lawyer</span><div class="mbar"><i style="width:26.7%;background:#b3d9ff;opacity:0.85;"></i></div><span class="mv" style="color:#b3d9ff;">1.9×</span></div>
+      <div class="mrow"><span class="ml" style="color:#c792ea;">Chemist</span><div class="mbar"><i style="width:28.7%;background:#c792ea;opacity:0.85;"></i></div><span class="mv" style="color:#c792ea;">2.0×</span></div>
+    </div>
+
+    <!-- Panel 3: Citations / authorities -->
+    <div class="mpanel">
+      <h3>Citations &amp; authorities <small>— §, case names, ICH, USP, DTSA, …</small></h3>
+      <div class="mrow"><span class="ml" style="color:#ff6b6b;">Software Dev</span><div class="mbar"><i style="width:0%;"></i></div><span class="mv na">n/a</span></div>
+      <div class="mrow"><span class="ml" style="color:#ffce54;">Editor</span><div class="mbar"><i style="width:0%;"></i></div><span class="mv na">n/a</span></div>
+      <div class="mrow"><span class="ml" style="color:#4fd1c5;">Nurse (RN)</span><div class="mbar"><i style="width:0%;"></i></div><span class="mv na">n/a</span></div>
+      <div class="mrow"><span class="ml" style="color:#b3d9ff;">Lawyer</span><div class="mbar"><i style="width:97.4%;background:#b3d9ff;opacity:0.85;"></i></div><span class="mv" style="color:#b3d9ff;">6.8×</span></div>
+      <div class="mrow"><span class="ml" style="color:#c792ea;">Chemist</span><div class="mbar"><i style="width:39.4%;background:#c792ea;opacity:0.85;"></i></div><span class="mv" style="color:#c792ea;">2.8×</span></div>
+    </div>
+
+    <!-- Panel 4: Specificity (numbers) -->
+    <div class="mpanel">
+      <h3>Specificity <small>— concrete numbers: doses, thresholds, $, dates</small></h3>
+      <div class="mrow"><span class="ml" style="color:#ff6b6b;">Software Dev</span><div class="mbar"><i style="width:93.1%;background:#ff6b6b;opacity:0.85;"></i></div><span class="mv" style="color:#ff6b6b;">6.5×</span></div>
+      <div class="mrow"><span class="ml" style="color:#ffce54;">Editor</span><div class="mbar"><i style="width:51.7%;background:#ffce54;opacity:0.85;"></i></div><span class="mv" style="color:#ffce54;">3.6×</span></div>
+      <div class="mrow"><span class="ml" style="color:#4fd1c5;">Nurse (RN)</span><div class="mbar"><i style="width:24.9%;background:#4fd1c5;opacity:0.85;"></i></div><span class="mv" style="color:#4fd1c5;">1.7×</span></div>
+      <div class="mrow"><span class="ml" style="color:#b3d9ff;">Lawyer</span><div class="mbar"><i style="width:33.0%;background:#b3d9ff;opacity:0.85;"></i></div><span class="mv" style="color:#b3d9ff;">2.3×</span></div>
+      <div class="mrow"><span class="ml" style="color:#c792ea;">Chemist</span><div class="mbar"><i style="width:40.1%;background:#c792ea;opacity:0.85;"></i></div><span class="mv" style="color:#c792ea;">2.8×</span></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Chemist</strong> is last on lines (1.6×) but <em>tied for 2nd</em> on vocabulary (2.0×), 2nd on citations (2.8×), 2nd on specificity (2.8×). The "plateau" was a measurement artifact. &nbsp;·&nbsp; <strong>Lawyer</strong> is 4th on lines but <em>dominates</em> citations (6.8×). &nbsp;·&nbsp; <em>Type-token ratio (unique-words / total-words) drops 25–40% in every domain — iteration adds repetition along with everything else.</em>
   </div>
 </section>
 
