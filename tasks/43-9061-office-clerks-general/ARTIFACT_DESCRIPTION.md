@@ -122,3 +122,32 @@ A v1 in ~15 minutes should contain: cover block, exec summary, findings table co
 - At least one "relocate, do not destroy" row (the board packets 2016-2020).
 - At least one "cross-check required before any disposition" row (the 1998-2008 signature cards).
 - A same-day remediation step for the exposed-SSN finding, separate from the broader disposal plan.
+
+## Severity definitions (for the model's use)
+- **Critical:** Regulatory violation, PII exposure, or information that could materially compromise a NCUA examination finding. Requires same-day or same-week remediation.
+- **Major:** Policy violation within Harborstone's own standards (e.g., board packets stored on-site past 2-year threshold for offsite). Requires remediation within the current quarter.
+- **Minor:** Housekeeping or process irregularity that does not create regulatory or material exposure (humidity, shred bin, broken lock without active PII risk). Remediation within 30-60 days acceptable.
+
+## Findings expected by cabinet (reference for evaluator)
+- Cabinet A Drawer 1 (loan files 2012-2015): disposal candidates; past 7-year retention; shred.
+- Cabinet A Drawer 2 (loan files 2016-2019): mixed; needs per-file review to identify which are past 7-yr from payoff.
+- Cabinet A Drawer 3 (loan files 2020-2023): keep; within retention.
+- Cabinet A Drawer 4 (signature cards 1998-2008): cross-check required with Symitar; cannot dispose without account-status confirmation.
+- Cabinet B Drawer 1 (teller proof 2018-2020): keep; within 5-yr retention.
+- Cabinet B Drawer 2 (teller proof 2015-2017): disposal candidates; past retention; shred.
+- Cabinet B Drawer 3 (vendor invoices 2017-2019): keep; within 7-yr retention.
+- Cabinet B Drawer 4 (vendor invoices 2010-2016): disposal candidates; past retention; shred.
+- Cabinet C Drawer 1 (board packets 2016-2020): RELOCATE to offsite archive; do not dispose; within 10-yr retention.
+- Cabinet C Drawer 2 (marketing drafts 2019-2024): 2019-2023 past retention, recycle; 2024 keep.
+- Cabinet C Drawer 3 (training rosters 2019-2023): mixed; 2019-2022 past 3-yr, 2023 keep.
+- Cabinet D Top (security reports 2014-2025): items >2 years on-site should be moved to offsite archive per policy; all within 10-yr retention, none for disposal.
+- Cabinet D Middle (unclaimed property notices 2018-2024): escheat-year cross-check required; conservative handling.
+- Loose items (4 HR boxes, loose timesheets): controlled review required before any disposition.
+
+## What distinguishes this from a simple file-room inventory list
+- Retention-schedule citations applied per row, not just category labels.
+- Severity gradation consistently applied.
+- Clerk-vs-manager authority distinction drives which items are "I can act" vs. "Leo must decide."
+- Cross-checks with source systems (Symitar) called out where retention is account-status-dependent.
+- Physical environment and security observations integrated as a separate finding class with their own severity calibration.
+- PII exposure elevated to Critical regardless of volume.

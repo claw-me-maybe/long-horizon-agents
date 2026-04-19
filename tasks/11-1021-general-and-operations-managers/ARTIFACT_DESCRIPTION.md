@@ -146,3 +146,16 @@ accounts (NorthStar and Evergreen) with at least one action each. Staffing/attri
 and appendix can be minimal at v1. By v2/v3 the OTD decomposition should reconcile
 numerically, the decision options should have explicit trigger conditions, and the workstream
 list should have named owners and metrics.
+
+## Anti-patterns to avoid
+Reviewers should down-rate deliverables that exhibit any of the following:
+- Vague attribution language ("multiple factors contributed to the OTD gap") without
+  quantification; the 2.9 pp gap should be decomposed, not narrated.
+- Treating the decision as a recommendation to "continue monitoring" — the COO needs a
+  GO or NO-GO with trigger conditions, not a deferral.
+- Lumping NorthStar and Evergreen under "key customers" — they have distinct ARR, distinct
+  renewal timing, and distinct exposure profiles and must be treated separately.
+- Using aspirational workstream metrics ("improve OTD") in place of quantified targets
+  ("OTD to 94.5% by Oct 31, 95.0% by Nov 30").
+- Ignoring the attrition-to-OTD causal chain; proposing retention bonuses without
+  addressing supervisor span of control is symptom-treatment, not cause-treatment.

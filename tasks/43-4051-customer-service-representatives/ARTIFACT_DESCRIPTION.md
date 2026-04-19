@@ -85,3 +85,67 @@ Single Markdown file, ~3 pages rendered (200-300 lines source).
 
 ## Scope target
 A v1 at ~15 minutes should contain: case header, customer-facing summary, full internal timeline with all 6 touches, a draft root-cause analysis (at least 3 levels deep), resolution terms, and at least 2 systemic recommendations. Tightening the 5 Whys to 5 full levels, quantifying the systemic recs, and polishing the PII discipline belong to iteration.
+
+## Example of v1 failure modes
+- Stopping the 5 Whys at "email bounced" — which leads only to "retry bounced emails more aggressively." A full analysis reaches "our notification architecture assumes email is the sole reliable channel and has no fallback when the only channel fails."
+- Listing recommendations as aspirations: "improve communication with customers about price changes." An iteration-worthy version is specific: "Implement SMS fallback for any pricing notification that bounces; estimated volume 1,847 bounces/90 days, estimated cost $16.62/qtr at $0.009/SMS."
+- Blaming Bao L. for the missed callback instead of diagnosing the CRM config gap (no callback task was created, so the callback was never on anyone's queue).
+- Leaking Mr. Park's full name, email, and the bounced-mailbox detail in the Product Ops-distributed RCA, violating PII minimum-necessary.
+- Calculating the refund incorrectly: Mr. Park paid $237.55, final rate $199.00, refund must be $38.55 — not $237.55 minus the goodwill offered or some intermediate number.
+- Claiming the supervisor escalation was "standard practice" when in fact Tier 2 was capped at $50 goodwill and the $199 grandfathering exceeded that authority.
+- Treating this as a won retention without quantifying the estimated LTV preserved ($2,387 est.) against the cost of resolution ($38.55 direct + ~30 min Sup time + Tier 2 time).
+
+## Common pitfalls to avoid
+- Do not quote Mr. Park's bounced-mailbox reason in any audience-broader-than-Keisha artifact; it's sensitive context, not a blame point.
+- Do not propose customer-side action items ("Mr. Park should update his email") in the root-cause analysis; the RCA is about our systems.
+- Do not claim the issue is "resolved to the customer's satisfaction" without noting the follow-up survey that is not yet returned.
+- Do not conflate grandfathering (rate retention for this customer, this year) with a blanket policy change.
+- Do not produce a system recommendation that exceeds CSR authority (e.g., committing to a new SMS fallback without Product Ops and Compliance approval); recommend, don't mandate.
+
+## Evaluator notes (context for scoring, not for the model)
+- This is the strongest iteration artifact for 43-4051 because "case notes" alone are transactional, but a multi-touch case with RCA and systemic recommendation is where CSR craft shows: depth of root-cause thinking, PII discipline, escalation-path literacy, and quantification of resolution cost and LTV preservation.
+- BrightNest Home Security, Mr. Park, and all named CSRs and supervisors are fictional. The 1,847-bounce systemic signal and the grandfathering-by-tenure resolution are realistic.
+- A strong v2 reaches a system-architecture-level root cause (single-channel notification with inadequate fallback), proposes a costed fix, and preserves PII appropriately across the internal, team-training, and Product Ops audiences.
+
+## Audience segmentation (use for PII and tone discipline)
+- Customer-facing summary: Mr. P. or "you"; positive, forward-looking; references the final resolution; omits internal process details.
+- Internal timeline (Rafael and QA only): full name; all details; no redaction.
+- Product Ops distributed RCA: anonymized to "a 6-year tenure customer"; systemic focus; no individual case narrative detail.
+- Team training lessons: fully anonymized; pattern-focused ("when a callback is promised, confirm a task is created").
+
+## Suggested 5 Whys structure (reference — the model should think through it itself)
+1. Why did Mr. Park receive an unexpected price increase? Because he did not see the 2026-01-10 notification email.
+2. Why did he not see it? Because his mailbox was briefly full, and the email bounced.
+3. Why did the bounce lead to no notification reaching him? Because our bounce-handling logic attempts a single retry after 24 hours, then silently stops.
+4. Why is there no fallback to another channel? Because the notification architecture assumes email is the sole reliable channel.
+5. Why is that architecture unexamined? Because no dashboard or alert surfaces "pricing notification delivery rate" to Product Ops; the 1,847-bounce quarterly pattern has been invisible.
+
+An even sharper v2 might add a 6th "why" at the policy level: because notification-delivery-rate is not a tracked SLA and has no owner.
+
+## Quantification cues for the systemic recommendation
+- Cost of SMS fallback: ~$0.009/message × 1,847 bounces/quarter = ~$16.62/quarter.
+- Customer-retention value protected: case-level LTV $2,387 × retention rate × bounce-rate-exposed customers — rough order of magnitude even a small percentage translates to thousands in preserved ARR.
+- Implementation effort: single integration work item (CRM-to-SMS-gateway); estimate 2-4 eng sprints.
+- Not a recommendation: replacing email as primary. Email remains primary; SMS is fallback when email bounces.
+
+## Post-incident follow-up plan (required in the artifact)
+- NPS/CSAT survey scheduled 04/23 (7 days post-close) — separate from the writeup, but cited.
+- 30-day check-in call from Keisha on 05/16 — calendared as soft-touch retention.
+- Account annotation: "rate grandfathered at $199 for 2026; standard increases resume 2027."
+- Flag on account for future escalations: prior dispute history in good resolution; prefer phone contact; daughter-in-neighborhood (note: only if patient-like relevance applies; in this case no care partner, so drop).
+
+## What distinguishes this from a simple ticket close-out
+- Multi-touch timeline with behavioral detail, not just resolution status.
+- Root cause reaches system architecture, not customer behavior.
+- Audience-segmented output with explicit PII discipline.
+- Quantified systemic recommendation, not generic "improve processes."
+- Team-training lesson extraction, making the case useful as a teaching artifact.
+
+## Final sanity checks before submitting to Rafael
+- Refund math: $237.55 − $199.00 = $38.55. Confirmation REF-7712804 noted.
+- Every touch logged with CSR, channel, duration, and key exchange.
+- RCA reaches a system-level conclusion, not a customer-level or CSR-level one.
+- PII scoped appropriately per audience; no leakage into Product Ops-distributed sections.
+- Systemic recommendations costed and actionable.
+- Team-training lessons are pattern-level, not case-level or person-level.
+- Touch-1 missed callback is acknowledged as a CRM tasking gap, not as Bao's personal failure.

@@ -1,11 +1,11 @@
-# Q2 2026 Revenue Recognition Audit Workpaper — Helmwright SaaS Inc.
+# Q2 2026 Revenue Recognition Interim Review Workpaper — Helmwright SaaS Inc.
 
 ## Occupation
 - **SOC:** 13-2011
 - **Title:** Accountants and Auditors
 
 ## Scenario
-You are the senior auditor at Castlewood & Pemberton LLP assigned to the Q2 2026 interim review of Helmwright SaaS Inc., a mid-market B2B analytics vendor preparing for its IPO in Q1 2027. The engagement partner, Reena Kothari, has flagged revenue recognition (ASC 606) as a significant risk after Helmwright's new CFO restructured several multi-element arrangements in May. You must produce the revenue testing workpaper that will support the auditor's sign-off on the 10-Q and feed into the year-end substantive plan.
+You are the senior auditor at Castlewood & Pemberton LLP assigned to the Q2 2026 interim review of Helmwright SaaS Inc., a mid-market B2B analytics vendor preparing for its IPO in Q1 2027. The engagement partner, Reena Kothari, has flagged revenue recognition (ASC 606) as a significant risk after Helmwright's new CFO restructured several customer arrangements in May. You must produce the interim revenue review workpaper that will support the 10-Q review conclusion and feed into the year-end audit plan. This is a limited-scope interim review, so the conclusion language should be review-oriented and evidentiary, not full-audit opinion language.
 
 ## Inputs
 
@@ -26,7 +26,7 @@ You are the senior auditor at Castlewood & Pemberton LLP assigned to the Q2 2026
 | 4050       | Professional services    | 965,400     |
 | 4099       | Deferred revenue release | 3,012,800   |
 
-**Sample selection (15 contracts, stratified)**
+**Sample selection (15 contracts, stratified and deterministic)**
 Representative excerpt (full population is 847 contracts, $18.0M):
 | Contract ID | Customer               | TCV       | Signed   | Term    | Modules                        |
 |-------------|------------------------|-----------|----------|---------|--------------------------------|
@@ -34,43 +34,55 @@ Representative excerpt (full population is 847 contracts, $18.0M):
 | HEL-2026-211 | North Anchor Credit U | $125,000  | 6/02/26  | 12 mo   | Core + Premium Support         |
 | HEL-2026-218 | Quellstream Biotech   | $1,200,000| 4/22/26  | 24 mo   | Enterprise + Impl + Training   |
 
+Sample strata and selection logic:
+| Stratum | Definition | Selection rule | Items |
+|---------|------------|----------------|------:|
+| A | All new or amended contracts with a May 2026 price lock clause, implementation fee > $150K, or management allocation memo variance | Select all items | 3 |
+| B | Remaining multi-element contracts with TCV >= $250K | Select the next 7 items ranked by descending TCV, then signed date, then contract ID | 7 |
+| C | Residual low-risk subscription and monthly contracts | Select 5 systematic items using a fixed start on the alphabetized contract register (seed = 260630, start = 3, interval = 9) | 5 |
+
+Why 15 items is sufficient:
+- It fully covers the identified high-risk stratum and therefore captures the population most likely to contain a revenue misstatement.
+- The residual population is homogeneous single-element or low-complexity subscription revenue, so a small systematic sample is adequate for the interim review objective.
+- The sample is reproducible from the written rule set, which allows a reviewer to reperform the selection without judgmental substitution.
+
 **Known items from fieldwork**
-- New May 2026 standard contract added a "24-month price lock" clause whose impact on distinct performance obligations was not reviewed by management's technical accounting memo.
+- New May 2026 standard contract added a "24-month price lock" clause. Treat this as a transaction price / contract modification / allocation question under ASC 606, not as a generic distinct-performance-obligation issue; the workpaper should conclude whether the lock changes the transaction price, creates a modification, or simply confirms fixed pricing.
 - Three contracts (HEL-2026-204, HEL-2026-218, HEL-2026-231) include implementation fees >$150K where the SSP allocation was performed by the CFO's spreadsheet, not the billing system.
-- Deferred revenue rollforward does not tie to subledger by $41,200 (debit difference).
+- Deferred revenue rollforward does not tie to subledger by $41,200 (debit difference). The exception write-up must classify the difference as either a misstatement or a reconciling item, state whether a PAJE is required, and explain the effect on the conclusion.
 
 ## Artifact specification
-Standard Big-4-style audit workpaper. Required sections:
+Standard Big-4-style interim review workpaper. Required sections:
 1. **Header block** (client, period, W/P reference, preparer, reviewer, dates)
-2. **Objective** (specific assertions tested: existence, cutoff, accuracy, valuation)
+2. **Objective** (specific review assertions tested: existence/occurrence, cutoff, accuracy/allocation, completeness)
 3. **Source of data** and IPE (Information Produced by Entity) considerations
-4. **Procedures performed** (numbered, tied to assertions)
-5. **Sample methodology** (selection method, sample size justification, stratification)
-6. **Detailed testing table** with tickmarks, SSP recalculation, and exceptions
-7. **Exceptions summary** with proposed adjustments (PAJE)
-8. **Conclusion** on assertion-by-assertion basis
+4. **Procedures performed** (numbered, tied to assertions and the limited interim review scope)
+5. **Sample methodology** (selection method, sample size justification, stratification, reproducible selection rule)
+6. **Detailed testing table** with tickmarks, transaction price / allocation checks, and exceptions
+7. **Exceptions summary** with explicit classification, PAJE status, and conclusion impact
+8. **Conclusion** on assertion-by-assertion basis using review-style language
 9. **Cross-references** to related workpapers (revenue walk, deferred revenue rollforward, management memo)
 
-Tone: terse, evidentiary, citing ASC 606-10-25-19 through -22 for distinct performance obligations and ASC 606-10-32-31 for SSP allocation where relevant. Use tickmark legend.
+Tone: terse, evidentiary, citing ASC 606-10 guidance on contract modifications, transaction price, and allocation where relevant. Use tickmark legend. Do not drift into full-audit opinion wording or broad distinct-performance-obligation discussion unless the facts actually require it.
 
 ## Output format
 Markdown file rendering a formal workpaper. Target: 1,400–1,800 words plus tables and tickmark legend.
 
 ## Iteration targets
-1. v1 likely over-describes procedures but under-documents *why* the sample size of 15 meets the expected-error-based sizing in the firm's methodology — add that justification in the sampling section.
-2. The SSP recalculation for HEL-2026-204 needs an explicit side table showing management's allocation vs. auditor's recalc rather than a narrative paragraph.
-3. Exception 2 (the $41,200 deferred revenue tie-out difference) is not clearly classified as known-vs-likely misstatement; fix.
-4. Tie the "price lock" clause conclusion to a specific ASC 606 paragraph rather than citing "the standard."
-5. Conclusion section conflates existence and accuracy; split.
+1. v1 should be a credible ~15 minute pass: header, objective, 5 procedures, sample methodology, 3 highlighted contracts in the testing table, the two known exceptions, and a draft conclusion. Keep it to roughly 700-900 words so it reads like a first-pass workpaper rather than a finished memo.
+2. The sample methodology needs to be fully deterministic: state the strata, the ranking or randomization rule, and the specific reason 15 items is enough under the firm's expected-error and coverage logic.
+3. The HEL-2026-204 allocation analysis needs an explicit side table showing management's allocation versus the auditor's recalculation, with the revenue impact quantified.
+4. Each exception row must include a forced disposition field: misstatement or reconciling item, PAJE yes/no, and effect on the conclusion.
+5. The "price lock" clause analysis should be framed as transaction price / modification / allocation under ASC 606, not as a distinct-performance-obligation discussion.
 6. Add a tickmark legend table rather than defining tickmarks inline.
 
 ## Success criteria
-- Procedures map 1:1 to specific financial statement assertions and would survive a peer review.
-- Sample selection has documented statistical basis, not just a judgmental handwave.
-- Every exception either has a PAJE, a rationale for passing, or a clear path to resolution.
-- SSP allocation analysis shows both management's approach and the auditor's independent recalculation, with variances quantified.
+- Procedures map 1:1 to specific review assertions and the limited interim review scope.
+- Sample selection is reproducible from the written strata and selection rules.
+- Every exception is classified consistently, with PAJE status and conclusion effect stated explicitly.
+- Allocation analysis shows both management's approach and the auditor's independent recalculation, with variances quantified.
 - Cross-references to supporting workpapers are specific (e.g., "R-310.01, §3") not generic.
-- Conclusion could stand up to PCAOB inspection — no conclusions unsupported by documented procedures.
+- Conclusion is review-style, internally consistent, and supported by the documented procedures and exception dispositions.
 
 ## Scope target
-v1 at ~15 minutes should contain: filled header, objective with 4 assertions named, procedures section (5–7 numbered procedures), a detailed testing table with at least the 3 highlighted contracts populated with tickmarks, the two known exceptions written up with proposed PAJE amounts, and a draft conclusion per assertion. Approximately 900–1,100 words on the first pass, with tickmark legend and SSP recalculation deferred to iteration.
+v1 at ~15 minutes should contain: filled header, objective with 4 assertions named, 5 numbered procedures, a deterministic sample methodology paragraph plus strata table, a detailed testing table with at least the 3 highlighted contracts populated with tickmarks, the two known exceptions written up with disposition fields, and a draft conclusion per assertion. Approximately 700–900 words on the first pass, with the full tickmark legend and expanded allocation side table added in later iteration(s).

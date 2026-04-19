@@ -111,3 +111,45 @@ Single Markdown file with tables, ~3 pages rendered (200-320 lines source).
 
 ## Scope target
 A v1 at ~15 minutes should contain: header, exec summary, variance breakdown with clusters A-D identified, RCA for at least clusters A and B, a reconciliation proposal distinguishing post-now vs. pending, a recount plan, and at least 3 preventive actions. Tightening policy-gate language, refining the net-vs-gross framing, and adding the 04/11 re-key audit in detail belong to iteration.
+
+## Example of v1 failure modes
+- Summing the absolute $ variance (adding the swap pair at $1,120 + $1,120 = $2,240) and reporting it as net shortage, inflating the loss.
+- Proposing immediate WMS adjustments to the swap pair without the label replacement and bin-label audit, which will let the same variance recur next cycle.
+- Treating AB-7700 (damaged, 1 unit, already logged) as unresolved; it has a known cause and a damage log entry.
+- Missing the temporal connection between the 04/11 WMS outage and the bulk-fastener variance (FS-6120, FS-3999); these were receive/pick-heavy SKUs during the outage window.
+- Recommending a shrinkage investigation on LB-0221 without first ruling out a receiving error or a breakage-not-logged event.
+- Using "theft" as an RCA conclusion without any supporting evidence (no security incident, camera access, or pattern data); this is defamatory and premature.
+- Proposing adjustments before supervisor sign-off when policy requires manager + controller for >3% variance.
+- Failing to name the counter team (lead, counter, observer) in a report that may be audited.
+
+## Common pitfalls to avoid
+- Do not adjust the WMS for any cluster until its recount and required sign-offs are on file; write the proposal with adjustment dates conditional on policy-compliant approval.
+- Do not propose "add cameras to Zone D" as a preventive action; it's outside inventory-clerk scope and will be declined without facility-level justification.
+- Do not combine the swap-pair and the bulk-fastener clusters into a single RCA; their evidence and likely causes are distinct.
+- Do not quote rough counts for the kit SKU (FS-3999) without attempting a careful count of loose fasteners in the bin (kit-opening implies loose inventory that should be counted against the kit's component SKUs, not against FS-3999 itself).
+- Do not overlook the 4 customer returns re-put-away — one of those could be the source of the LB-0221 shortage if a return was put to a wrong bin.
+
+## Evaluator notes (context for scoring, not for the model)
+- The 43-5071 role is strongly iteration-worthy here because the core failure mode — conflating a swap with two independent shortages, or adjusting WMS before required sign-off — is both common and consequential. A strong v2 disentangles the clusters, gates adjustments behind the correct policy thresholds, and connects the bulk-fastener variance to the 04/11 re-key audit.
+- Foothill Industrial Supply, the specific SKUs, and all named individuals are fictional. The variance categories (swap, damage, shortage-with-cause, shortage-unexplained) are standard in cycle-count practice. The 1%/1-3%/>3% policy tier structure is typical.
+- Iteration feedback should focus on: (a) correctly netting the swap ($0 impact) from the gross variance; (b) respecting the policy gates; (c) connecting WMS outage to investigation; (d) distinguishing evidence-based vs. speculative RCA.
+
+## Arithmetic checks the model should perform
+- Swap pair: FS-3845 (-140 × $8.00 = -$1,120) + FS-3847 (+140 × $8.00 = +$1,120) = $0 net. Unit price assumed equal across the pair (same grade, adjacent sizes); verify if needed.
+- Net $ variance after swap: $14,827 − net effect of the swap pair = $14,827 (since swap is $0 net).
+- True unexplained: $14,827 minus cluster C damage, minus known cluster D damage, leaves the FS-6120 and FS-3999 bulk fastener cluster and LB-0221/AB-8800 as the investigation target.
+- Recount scope: the 1,387 SKUs counted this week + re-count of the specific variance lines; Zone D batch 2 (next 1,400 SKUs) is scheduled 04/20-04/23.
+
+## What distinguishes this from a simple cycle count report
+- Presence of a swap pattern that requires cross-SKU reasoning.
+- Intersection with a WMS outage and re-keyed data that requires source-data audit.
+- Mix of damaged/known-cause, damaged/unknown-cause, swap, and clean shortages in a single cycle.
+- Policy tiers that gate adjustments behind manager + controller approval at this variance magnitude.
+- Preventive action space that includes labels, pick-path configuration, scanner audit, and shrinkage monitoring — multiple independent mechanisms.
+
+## Final sanity checks before submitting to Anita
+- Swap pair net-$0 impact surfaced in the exec summary and the reconciliation.
+- No WMS adjustments proposed without policy-compliant sign-off path.
+- WMS outage 04/11 re-key audit included in the investigation plan.
+- Preventive actions tied to specific findings, not generic process improvements.
+- Counter team (lead, counter, observer) named in the report.

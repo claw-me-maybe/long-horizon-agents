@@ -96,4 +96,74 @@ Single Markdown file, approximately 1,800-2,500 words. Use headings and at least
 - The language is concrete, encouraging, and free of art-school jargon unless defined.
 
 ## Scope target
-At 15 minutes, v1 should include: a workshop overview, a four-session table, short detailed session plans, and draft text for the handouts. The ASCII sketch, troubleshooting notes, and instructor prep checklist can be simple but should be present. Refinement can come later through stronger examples, cleaner handouts, and more polished pacing.
+At 15 minutes, v1 should include:
+- A workshop overview with title, short description, and a plain-language outcomes list.
+- A four-session table (Session | Theme | Key techniques | Takeaway).
+- Short detailed session plans with timing blocks for at least Session 1 fully developed.
+- Draft text for at least two handouts (supply checklist and technique cheat sheet).
+- A starter troubleshooting list with 4-6 common issues.
+
+ASCII sketches, full session-plan detail for sessions 2-4, complete glossary, family-friendly tone polish, and instructor prep checklist can be simple but should be present. Refinement can come later through stronger examples, cleaner handouts, and more polished pacing.
+
+## Evaluator notes (for fixture use)
+- Strong v1 **reads as adult-hobbyist** — warm, encouraging, jargon-free. Weak v1 uses academic pedagogy language ("learning objectives", "formative assessment").
+- Strong v1 has a **visible progression** across 4 sessions so each one builds on the last. Weak v1 reads like 4 disconnected techniques.
+- Strong v1 has demo time <= 25% of session; most of the session is **making**. Weak v1 over-demos.
+- Strong v1 **troubleshooting** names specific watercolor issues (muddy colors, cauliflowers/backruns, overworked paper, blooming pigments, hard edges where soft intended) with demonstrable fixes.
+- Strong v1 has **choice baked in** (color palette, subject matter) so mixed-confidence adults can personalize.
+- Strong v1 **at-home bridge** gives a specific prompt ("paint three 2-inch squares of sky this week — clear morning, cloudy afternoon, sunset") not a vague "keep practicing".
+- Strong v1 ends Session 4 with a **celebratory, non-judgmental** share-out, not a critique.
+- Strong v1 has a **supplies checklist** that names low-cost substitutes (student-grade tubes vs. pans; cold-press vs. hot-press rationale; synthetic vs. natural hair brushes).
+- Strong v1 includes a **cleanup routine** that respects the venue (no pouring paint down sinks with clay-heavy plumbing; no leaving wet work on tables).
+
+## Common watercolor issues (starter for the downstream model)
+- **Muddy colors**: Overmixing on the palette or on the paper; pigments that fight (e.g., earth tones over cool primaries). Fix: demo a "clean palette rule" — mix only 2-3 pigments max.
+- **Backruns/cauliflowers**: Wet paint flowing into damp areas creates fringed edges. Can be an artistic effect or an unwanted accident. Fix: teach when to let a wash dry fully vs. when to invite blooms.
+- **Overworked paper**: Too much scrubbing lifts paper fibers, causes pilling. Fix: "two passes max" rule; use better paper (at least 140lb cold press).
+- **Water control problems**: Too much water puddles; too little drags. Fix: demo the "thirsty brush" test on a paper towel.
+- **Hard edges where soft intended**: Paint drying before next stroke; air too dry. Fix: wet-on-wet timing; spray bottle to re-wet.
+- **Paper buckling**: Not taped down or too thin. Fix: masking tape on all four edges; heavier paper.
+
+## Session 1 sketch (starter — for the downstream model to refine)
+- **Welcome & settle-in** (0-10 min): Name tags, supply orientation, view of instructor's own "first attempt" (a deliberately imperfect piece to lower anxiety).
+- **Demo: wet-on-wet** (10-20 min): Show how water goes down first, then pigment dropped in. Key vocabulary: wash, pigment, pooling, lift.
+- **Guided exercise** (20-45 min): Students do 3 "sky swatches" side by side on one quarter sheet. Pair reflection.
+- **Demo: color mixing** (45-55 min): Three-primary palette; how to get greens, oranges, purples without buying new tubes.
+- **Independent practice** (55-80 min): Students paint their own 3-swatch sky progression (morning / midday / sunset) with chosen palette.
+- **Share & cleanup** (80-90 min): Tabletop gallery walk; cleanup routine demonstration.
+
+## Handout 1: Supply checklist (seed)
+**Minimum kit (bring to Session 1):**
+- Watercolor paint set: 6-12 colors minimum (student-grade okay; suggested brand)
+- Watercolor paper: 140lb cold-press, a pad of 9x12 (minimum 8 sheets for the course)
+- Brushes: round size 8, round size 4, flat 3/4" (synthetic is fine)
+- 2 water cups (one clean, one dirty — labeled)
+- Paper towels or rag
+- Pencil, eraser, masking tape
+- Palette or ceramic plate
+
+**Optional upgrades:**
+- Artist-grade tubes (better pigment saturation)
+- Sketchbook for thumbnails
+- Spray bottle
+
+**Total minimum cost: ~$35-45 at a craft store**
+
+## Handout 2: Technique cheat sheet (seed)
+One page, visual, in beginner language. Covers:
+- Wet-on-wet (soft, blended)
+- Wet-on-dry (crisp edges)
+- Dry brush (texture)
+- Layering / glazing (build depth after drying)
+- Lifting (taking paint back off)
+- Salt effect (optional; sprinkle on wet paint for starburst texture)
+- Color mixing from 3 primaries
+
+## Pedagogical vocabulary glossary (for reference, not to appear in learner materials)
+- **Andragogy**: Adult learning theory (Knowles) — adults learn by doing, need relevance, draw on life experience.
+- **Demonstration-guided practice-independent practice**: Classic skill sequence that maps to Bandura's modeling theory.
+- **Flow state**: Csikszentmihalyi; peak engagement when challenge matches skill — design challenges at "stretch but reachable" level.
+- **Scaffolding**: Teacher-supplied temporary supports that are gradually removed as learners gain independence.
+
+## Iteration loop expectation
+This artifact will be drafted, evaluated, and iterated over 4-5 rounds focused on: progression across sessions, handout clarity, troubleshooting specificity, tone (keeping it warm and non-academic), and learner agency.

@@ -108,3 +108,43 @@ Single Markdown file, organized by artifact type with clear section headers. ~4 
 
 ## Scope target
 A v1 at ~15 minutes should contain: internal routing cover sheet, full draft of the cardiology referral letter plus abbreviated drafts of endocrinology and sleep referrals, lab order summary, a first-pass patient-facing care navigation summary with at least 3 of the 5 elements, and a first sketch of the insurance checklist. Tailoring each referral for minimum-necessary, adjusting the patient summary to literacy level, and polishing the CTA/metformin/hydration instructions belong to iteration.
+
+## Example of v1 failure modes
+- Copying the full problem list into every referral letter; violates HIPAA minimum-necessary. The cardiology letter does not need the child's dental referral; the sleep letter does not need a renal function note.
+- Omitting the metformin hold and pre-hydration protocol from the cardiology letter and from the patient summary; the eGFR 54 makes this a non-optional element.
+- Writing the patient summary at 10th-grade level ("Your physician has recommended a coronary CTA to further stratify cardiovascular risk"); this will not land with a patient flagged as limited health literacy.
+- Providing a "Who to call" list without clear thresholds; a patient-facing summary needs "Call us if…" and "Call 911 if…" with concrete symptoms and durations.
+- Treating all three referrals as equal priority; hypertension 156/92 + HbA1c 8.4 needs to be reflected in scheduling priority (cardiology first, endocrinology second, sleep study third by clinical urgency).
+- Scheduling the CTA before the labs; labs should precede CTA so current eGFR is on file at the time of the imaging.
+- Over-committing on insurance authorization: "Medicare covers this" without verification; v2 flags for verification before asserting.
+- Listing Patricia's role in a way that would require her to make medical decisions; her role is care-partner support (transport, appointment tracking, hearing the plan), not proxy.
+
+## Common pitfalls to avoid
+- Do not include in the external referral letter any detail not relevant to the receiving specialist's care decision.
+- Do not assume Pisgah Sleep Center is in-network without verification; the in-network list was last confirmed 3 months ago.
+- Do not schedule appointments before confirming lab draw locations with the patient; he drives short distances only and may prefer the on-site lab at Meadowbrook.
+- Do not issue the patient summary in English only if the patient has stated a preference for written materials in Spanish; though he is primary English, confirm before sending.
+- Do not send the patient summary through the portal without also offering a paper copy at the office; his portal activity is infrequent per chart.
+- Do not route the metformin hold instructions only to the patient; Dr. Weill's nurse should also have a copy for pre-procedure confirmation.
+
+## Evaluator notes (context for scoring, not for the model)
+- The 43-6013 medical-secretary role has genuine iteration depth because HIPAA minimum-necessary, multi-specialty coordination, and health-literacy adaptation all operate simultaneously. A junior secretary produces a usable package; a senior one produces a package that is tailored per audience, clinically safe (eGFR + contrast + metformin), and literacy-appropriate.
+- Meadowbrook Internal Medicine, Blue Ridge Health Partners IPA, all named providers, and the patient "Harold T." are fictional. The clinical scenario (T2DM, HTN, suspected OSA, CKD, CAD workup) is a realistic multi-specialty referral pattern for a 74-year-old primary-care patient.
+- The clear distinction from 43-6014 and 43-6011 is: this role operates under HIPAA minimum-necessary, uses clinical terminology correctly, coordinates across specialties with insurance authorization, and produces a patient-facing deliverable that respects health literacy.
+- A strong v2: tailors each referral letter to its specialist; explicitly addresses the eGFR/contrast/metformin interaction; produces a truly 6th-grade-level patient summary; handles insurance verification as a flagged task rather than an assertion; integrates Patricia as a support partner without overreach.
+
+## What specifically distinguishes this from 43-6014 (generic admin) and 43-6011 (executive)
+- HIPAA and minimum-necessary compliance is a hard constraint, not a style preference.
+- The audience segmentation (specialist letter vs. patient summary vs. internal routing) uses different clinical and literacy registers.
+- Clinical safety (eGFR/contrast/metformin) creates a non-administrative correctness bar.
+- Insurance authorization introduces a payer-specific verification workflow absent from generic admin work.
+- The care-partner role (HIPAA auth on file) is a specific coordination element unique to medical settings.
+
+## Required content in the patient-facing summary
+- Short "why" section (3-4 sentences, 6th-grade level).
+- Numbered "what to do" list with dates (TBD until scheduled), addresses, phone numbers, what to bring.
+- Clear metformin hold instructions for CTA with plain-language explanation of why.
+- Fasting guidance for each appointment that requires it.
+- Call-Meadowbrook vs. call-911 guidance with specific symptoms.
+- Patricia's support role listed with concrete actions (transport, writing down answers, holding paperwork).
+- Appointment tracker table with "to be scheduled" placeholders where needed.

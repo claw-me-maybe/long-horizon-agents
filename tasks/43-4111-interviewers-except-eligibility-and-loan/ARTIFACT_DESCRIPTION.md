@@ -109,3 +109,47 @@ Single Markdown file, ~3 pages rendered (210-340 lines source).
 
 ## Scope target
 A v1 at ~15 minutes should contain: case header, completion status with module list, respondent experience narratives, narrative themes summarized descriptively (at least 3 of 4), a data quality events log with item-level refusals, the structured-narrative inconsistency flagged, and an interviewer reflection. Tightening anonymization, removing any interpretive language, and formalizing quote-consent attribution belong to iteration.
+
+## Example of v1 failure modes
+- Writing interpretive statements: "This household exemplifies systemic failures in network adequacy." Interpretation is a coder's job, not an interviewer's.
+- Including location detail beyond state/region: "Greensboro" or "the household on X Road" must not appear.
+- Listing "refused PHQ-2" at module level instead of item level; the protocol specifies item-level logging.
+- Treating the 3-vs-4 PCP visits inconsistency as a reconciliation task: picking one or "averaging"; protocol requires flagging, not resolving.
+- Quoting the respondents verbatim beyond the scope of opt-in; though both opted in at consent, selective quotation still requires relevance and minimum-necessary framing.
+- Mentioning the 8-year-old's dental referral using the child's age and gender, creating potential re-identification; the module spec permits "child-2" labeling.
+- Using the interviewer reflection as advocacy or performance self-assessment ("I felt the participants needed more support"); reflection is for data-quality interpretation, not emotional content.
+- Omitting the protocol-permitted patient-navigation hotline referral consideration; if protocol allows offering resources in response to issues raised in Module J, this should be flagged as a supervisor-review item.
+
+## Common pitfalls to avoid
+- Do not describe the household by income, education, or immigration-related detail not in the structured modules.
+- Do not speculate on why HH2 refused the PHQ-2 items (could be stigma, could be fatigue, could be preference for privacy); log the refusal, not the inference.
+- Do not list the employer or workers-comp carrier names even if respondents named them; those are identifiable and irrelevant to case-summary aggregation.
+- Do not use "frustration" or "anger" as affect labels; use behavioral description ("HH1 raised her voice while describing the February urgent-care denial" if accurate, or omit entirely).
+- Do not annotate the file with the audio file path or recording device serial; study protocol keeps media references in a separate chain-of-custody log.
+
+## Evaluator notes (context for scoring, not for the model)
+- The 43-4111 interviewer artifact is unusual in the SOC list because the core work is verbal and transactional. The case summary + data quality notes is the artifact-shaped output that does survive the interview and does have iteration room, specifically around: anonymization rigor, item-level quality logging, discipline against interpretation, and protocol-faithful handling of structured-narrative inconsistencies.
+- MERIDIAN-H, Household 2026-04-0341, and all respondents are fictional. The multi-module CAPI structure (A-I + narrative J), the Wilson/6-item/AUDIT-C/PHQ-2 module components, and the $60 per-adult incentive all mirror real research-interviewer practice.
+- A strong v2: strips identifiers rigorously, logs the PHQ-2 items at the item level, preserves the 3-vs-4 visits inconsistency without reconciliation, and keeps the interviewer reflection short and data-quality-oriented.
+
+## Anonymization conventions the model should follow
+- Adult-1, Adult-2 for respondents; avoid "husband/wife" or relationship inference beyond what structured data supports.
+- Child-1, Child-2 for minors; no age beyond cohort (e.g., "school-age child").
+- "Extramural family member, older adult, on Medicare Advantage" in place of "HH1's mother."
+- Month/year granularity for event dates; no exact date unless required by protocol and non-identifying.
+- State/region granularity for location; no city/neighborhood/street.
+- No direct employer names, insurer names, or provider names unless they are population-scale and non-identifying (e.g., "a community health center" is fine; "Cone Health's Main Street clinic" is not).
+
+## What distinguishes this from an ethnographic field note
+- The artifact is protocol-governed, not reflective or literary.
+- It is paired with structured CAPI data and must reference that data by module letter.
+- It is written for a supervisor and a data team, not for publication.
+- It is evaluated for compliance (anonymization, quote-consent, item-level logging) as much as for content.
+- Interpretation is explicitly forbidden; description is required.
+
+## Final sanity checks before submitting to Dr. Westbury
+- All direct identifiers scrubbed (no household name, street, city, employer, provider names).
+- Item-level logging of PHQ-2 refusals, not module-level.
+- The 3-vs-4 PCP visits inconsistency is flagged but NOT reconciled.
+- Narrative themes described, never interpreted.
+- Interviewer reflection is short, specific, and data-quality-oriented.

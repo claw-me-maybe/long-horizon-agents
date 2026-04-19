@@ -99,3 +99,53 @@ Single Markdown file with embedded tables. ~3-4 pages rendered (220-380 lines so
 
 ## Scope target
 A v1 at ~15 minutes should include: methods note with at least 6 of the 10 methodological elements, Tables 1-3 populated with plausible numbers, Wilson CIs on the county-level table, and at least a partial Table 5 disparity ratio with threshold flagging. Completing Tables 4-6, refining suppression audit, and adding the under-capture sensitivity note belong to iteration.
+
+## Example of v1 failure modes
+- Reporting point estimates without CIs; or reporting Wald (normal-approximation) CIs instead of Wilson, which are misleading at small denominators common in by-ZIP breakdowns.
+- Silently imputing race based on surname or geography; never acceptable.
+- Reporting "Missing" race as a bucket but then including it in the denominator for disparity ratios, which distorts equity readings.
+- Suppressing cells with <11 numerator but forgetting the <20 denominator half of the rule.
+- Applying the disparity threshold (0.85 / 1.15) without noting that it is a flag, not a conclusion; readers will over-read flags as causal claims.
+- Reporting Q1 2026 vs. Q1 2025 as a Δ without disclosing that any antigen definition or age cohort changed (if it did).
+- Producing tables that are visually clean but not machine-parseable for the state's Data Transparency Portal ingest.
+- Interpreting findings ("coverage lower in ZIP 53949 likely due to…"); this is Dr. Ngo's job, not yours.
+
+## Common pitfalls to avoid
+- Do not compute coverage with a registry-derived denominator when the spec calls for ACS-derived; this inflates rates where registry enrollment is high.
+- Do not carry Q1 2026 to more than 1 decimal place in the primary table; CIs already convey precision.
+- Do not produce heat-map-style tables in Markdown (color coding does not survive the ingest pipeline); if flagging, use text markers like asterisks or daggers with a footnote key.
+- Do not include any child-level record in the tables; aggregate only.
+- Do not include PII in the exclusion ledger; row-level reasons for exclusion are fine (e.g., "DOB > report end date: 89 records"), but no identifiers.
+
+## Evaluator notes (context for scoring, not for the model)
+- The 43-9111 statistical-assistant role is well-suited to artifact iteration because the craft layer (suppression, CIs, missingness handling, like-for-like comparison, producing neutral tables) is exactly what improves with mentoring over months, and the task is defined enough that failure modes are concrete and detectable.
+- MERIDIAN-H, Marquette County data, and the antigen reporting spec are fictional but realistic. The Wilson CI, <11/<20 suppression rule, and CDC combined-series definition reflect actual public-health statistical practice. Wisconsin's WI-IR registry has a known private-insurance under-capture pattern modeled here.
+- A strong v2 handles every mode of missingness transparently, applies suppression mechanically, distinguishes flags from conclusions, and disclaims the under-capture bias in the methods note.
+
+## Machine-parseability requirements
+- Column headers must be stable strings (no line breaks, no merged cells).
+- Numeric cells must be plain numbers or the explicit suppression marker "†" (not "n/a", not em-dashes).
+- The table must be reproducible in CSV without post-processing (no rowspans, no colspans).
+- Any footnote markers (†, ‡, §) appear in a single key block at the bottom of each table.
+
+## What distinguishes this from a narrative public-health report
+- No interpretation, causation, or recommendation.
+- Every estimate has a CI.
+- Every cell has a clear status: reportable, suppressed, or excluded, with reason.
+- The methods note is more detailed than a typical briefing would carry.
+- The output is designed for ingest, not for reading.
+
+## Expected Wilson CI formula (for the model's reference)
+For proportion p̂ = x/n, 95% CI is:
+(p̂ + z²/(2n) ± z·√(p̂(1-p̂)/n + z²/(4n²))) / (1 + z²/n)
+where z = 1.96.
+
+This produces narrower, more accurate bounds than Wald approximation at small n, which is material for by-ZIP and by-race stratifications.
+
+## Final sanity checks before submitting to Dr. Ngo
+- Every reportable estimate has a Wilson 95% CI.
+- Suppression applied uniformly (<11 numerator OR <20 denominator).
+- "Missing" categories are reported, not silently dropped.
+- No interpretive language appears.
+- Methods note fits on one page and is readable by non-statisticians.
+- Exclusion ledger matches the record count delta (18,412 → processed records).

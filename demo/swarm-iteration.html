@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swarm Iteration — Early Demo Night</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+  :root {
+    --ink: #1d1916;
+    --muted: #5e564f;
+    --sand: #f5efe6;
+    --cream: #fffaf2;
+    --card: rgba(255, 250, 242, 0.78);
+    --line: rgba(29, 25, 22, 0.16);
+    --burnt: #cb5b2f;
+    --gold: #dd9e32;
+    --teal: #1f6d72;
+    --sea: #3d8f86;
+    --berry: #893c4a;
+    --shadow: 0 18px 50px rgba(29, 25, 22, 0.12);
+  }
+
+  html,
+  body {
+    background:
+      radial-gradient(circle at top left, rgba(221, 158, 50, 0.22), transparent 34%),
+      radial-gradient(circle at top right, rgba(31, 109, 114, 0.18), transparent 32%),
+      linear-gradient(180deg, #fbf5ed 0%, #efe3d4 100%);
+  }
+
+  .reveal {
+    color: var(--ink);
+    font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+    font-size: 34px;
+  }
+
+  .reveal .slides {
+    text-align: left;
+  }
+
+  .reveal .slides section {
+    min-height: 700px;
+    box-sizing: border-box;
+    padding: 0.35em 0.1em 0.7em;
+  }
+
+  .reveal h1,
+  .reveal h2,
+  .reveal h3 {
+    text-transform: none;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.22em;
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  }
+
+  .reveal h1 {
+    font-size: 2.22em;
+    line-height: 0.95;
+  }
+
+  .reveal h2 {
+    font-size: 1.5em;
+    line-height: 1.02;
+  }
+
+  .reveal h3 {
+    font-size: 0.82em;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--berry);
+    font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", sans-serif;
+    font-weight: 700;
+  }
+
+  .reveal p,
+  .reveal li,
+  .reveal td,
+  .reveal th {
+    font-size: 0.7em;
+    line-height: 1.38;
+  }
+
+  .reveal strong {
+    color: var(--berry);
+  }
+
+  .reveal ul,
+  .reveal ol {
+    margin: 0.35em 0 0 1.1em;
+  }
+
+  .reveal li {
+    margin: 0.28em 0;
+  }
+
+  .reveal code {
+    color: var(--teal);
+    background: rgba(31, 109, 114, 0.08);
+    border-radius: 0.3em;
+    padding: 0.04em 0.28em;
+    font-size: 0.92em;
+  }
+
+  .title-slide,
+  .closing-slide {
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, rgba(255, 250, 242, 0.92), rgba(255, 243, 226, 0.86));
+    border: 1px solid rgba(137, 60, 74, 0.16);
+    border-radius: 32px;
+    box-shadow: var(--shadow);
+    padding: 1.1em 1.15em 0.95em;
+    max-width: 960px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    margin-bottom: 0.6em;
+    padding: 0.22em 0.7em;
+    border-radius: 999px;
+    background: rgba(31, 109, 114, 0.1);
+    color: var(--teal);
+    font-size: 0.42em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .subtitle {
+    margin-top: 0.55em;
+    color: var(--muted);
+    font-size: 0.74em;
+    max-width: 24em;
+  }
+
+  .meta-row,
+  .score-grid,
+  .card-grid,
+  .takeaway-grid,
+  .two-col {
+    display: grid;
+    gap: 0.6em;
+  }
+
+  .meta-row {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0.95em;
+  }
+
+  .two-col {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: start;
+  }
+
+  .score-grid {
+    grid-template-columns: 1fr;
+    margin-top: 0.6em;
+  }
+
+  .card-grid,
+  .takeaway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0.55em;
+  }
+
+  .stat,
+  .panel,
+  .score-row,
+  .takeaway,
+  .quote-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+  }
+
+  .stat {
+    padding: 0.6em 0.7em;
+  }
+
+  .stat .num {
+    display: block;
+    font-size: 1.05em;
+    font-weight: 700;
+    color: var(--burnt);
+    margin-bottom: 0.12em;
+  }
+
+  .stat .label {
+    font-size: 0.46em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .panel,
+  .quote-card {
+    padding: 0.68em 0.8em;
+  }
+
+  .quote-card {
+    background: linear-gradient(180deg, rgba(31, 109, 114, 0.07), rgba(255, 250, 242, 0.86));
+  }
+
+  .score-row {
+    display: grid;
+    grid-template-columns: 2.15fr 1.6fr 0.95fr;
+    gap: 0.7em;
+    align-items: center;
+    padding: 0.58em 0.7em;
+  }
+
+  .rank-line {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45em;
+    margin-bottom: 0.16em;
+  }
+
+  .rank {
+    font-size: 0.78em;
+    font-weight: 700;
+    color: var(--burnt);
+    min-width: 1.2em;
+  }
+
+  .domain {
+    font-size: 0.68em;
+    font-weight: 700;
+  }
+
+  .artifact {
+    color: var(--muted);
+    font-size: 0.52em;
+  }
+
+  .bar-shell {
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(29, 25, 22, 0.08);
+    overflow: hidden;
+    margin-bottom: 0.14em;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--burnt), var(--gold));
+  }
+
+  .bar-note,
+  .tiny,
+  .fineprint {
+    color: var(--muted);
+  }
+
+  .bar-note,
+  .tiny {
+    font-size: 0.48em;
+  }
+
+  .fineprint {
+    margin-top: 0.45em;
+    font-size: 0.4em;
+  }
+
+  .headline-callout {
+    font-size: 1.15em;
+    line-height: 1;
+    color: var(--burnt);
+    font-weight: 700;
+    margin-bottom: 0.2em;
+  }
+
+  .label-chip {
+    display: inline-block;
+    font-size: 0.4em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.28em 0.58em;
+    border-radius: 999px;
+    background: rgba(203, 91, 47, 0.1);
+    color: var(--burnt);
+    margin-bottom: 0.46em;
+  }
+
+  .split-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65em;
+    margin-top: 0.55em;
+  }
+
+  .best {
+    border-color: rgba(31, 109, 114, 0.2);
+    background: linear-gradient(180deg, rgba(31, 109, 114, 0.08), rgba(255, 250, 242, 0.88));
+  }
+
+  .worst {
+    border-color: rgba(203, 91, 47, 0.22);
+    background: linear-gradient(180deg, rgba(203, 91, 47, 0.08), rgba(255, 250, 242, 0.88));
+  }
+
+  .takeaway-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .takeaway {
+    padding: 0.62em 0.68em;
+  }
+
+  .takeaway .kicker {
+    font-size: 0.42em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 0.35em;
+  }
+
+  .takeaway .line {
+    font-size: 0.63em;
+    line-height: 1.34;
+  }
+
+  table.compact {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.35em;
+  }
+
+  table.compact th,
+  table.compact td {
+    text-align: left;
+    padding: 0.34em 0.42em;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  table.compact th {
+    font-size: 0.48em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--berry);
+  }
+
+  .closing-slide .hero {
+    max-width: 1020px;
+  }
+
+  .closing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6em;
+    margin-top: 0.9em;
+    text-align: left;
+  }
+
+  @media (max-width: 900px) {
+    .reveal {
+      font-size: 26px;
+    }
+
+    .meta-row,
+    .two-col,
+    .split-card,
+    .takeaway-grid,
+    .closing-grid,
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .score-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section class="title-slide">
+  <div class="hero">
+    <div class="eyebrow">Early Demo Night • Codex Swarm</div>
+    <h1>Which domains actually<br>benefit from swarming?</h1>
+    <p class="subtitle">
+      Five domains, fifteen subagents, one rough question: where did multi-agent iteration create
+      real benchmark uplift, and where did it mostly create churn?
+    </p>
+    <div class="meta-row">
+      <div class="stat">
+        <span class="num">5</span>
+        <span class="label">domains</span>
+      </div>
+      <div class="stat">
+        <span class="num">15</span>
+        <span class="label">subagents</span>
+      </div>
+      <div class="stat">
+        <span class="num">2 + 1</span>
+        <span class="label">critics + writer</span>
+      </div>
+      <div class="stat">
+        <span class="num">~5 min</span>
+        <span class="label">talk track</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The readout</h2>
+  <div class="two-col">
+    <div class="panel">
+      <h3>What we iterated</h3>
+      <table class="compact">
+        <tr>
+          <th>Domain</th>
+          <th>Representative artifact</th>
+        </tr>
+        <tr>
+          <td>Computer &amp; Mathematical</td>
+          <td>Software developer webhook dispatcher spec</td>
+        </tr>
+        <tr>
+          <td>Business &amp; Financial Operations</td>
+          <td>Accountant interim revenue review workpaper</td>
+        </tr>
+        <tr>
+          <td>Educational Instruction &amp; Library</td>
+          <td>Instructional coordinator curriculum adoption framework</td>
+        </tr>
+        <tr>
+          <td>Management</td>
+          <td>Finance manager gross-margin variance memo</td>
+        </tr>
+        <tr>
+          <td>Office &amp; Administrative Support</td>
+          <td>Executive assistant CEO dinner pre-brief</td>
+        </tr>
+      </table>
+    </div>
+    <div class="quote-card">
+      <h3>How to read "uplift"</h3>
+      <ul>
+        <li><strong>Scope discipline</strong>: did swarm make `v1` smaller and more believable?</li>
+        <li><strong>Role fidelity</strong>: does the artifact sound like the right job now?</li>
+        <li><strong>Measurability</strong>: are inputs, outputs, and success criteria easier to score?</li>
+        <li><strong>Iteration value</strong>: do later rounds add real signal instead of padding?</li>
+      </ul>
+      <p class="fineprint">
+        This is intentionally hand-wavey. I used qualitative judgment first, with changed-line counts
+        only as a churn proxy, not as the score itself.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Hand-wavey uplift leaderboard</h2>
+  <div class="score-grid">
+    <div class="score-row">
+      <div>
+        <div class="rank-line">
+          <span class="rank">1</span>
+          <span class="domain">Computer &amp; Mathematical</span>
+        </div>
+        <div class="artifact">Software Developers • concrete interfaces + real staged build</div>
+      </div>
+      <div>
+        <div class="bar-shell"><div class="bar-fill" style="width: 100%;"></div></div>
+        <div class="bar-note">Uplift score: <strong>5.0 / 5</strong></div>
+      </div>
+      <div class="tiny">50 changed lines</div>
+    </div>
+
+    <div class="score-row">
+      <div>
+        <div class="rank-line">
+          <span class="rank">2</span>
+          <span class="domain">Office &amp; Administrative Support</span>
+        </div>
+        <div class="artifact">Executive Assistants • strongest role-fidelity correction</div>
+      </div>
+      <div>
+        <div class="bar-shell"><div class="bar-fill" style="width: 90%;"></div></div>
+        <div class="bar-note">Uplift score: <strong>4.5 / 5</strong></div>
+      </div>
+      <div class="tiny">107 changed lines</div>
+    </div>
+
+    <div class="score-row">
+      <div>
+        <div class="rank-line">
+          <span class="rank">3</span>
+          <span class="domain">Business &amp; Financial Operations</span>
+        </div>
+        <div class="artifact">Accountants &amp; Auditors • more deterministic, more review-grade</div>
+      </div>
+      <div>
+        <div class="bar-shell"><div class="bar-fill" style="width: 70%;"></div></div>
+        <div class="bar-note">Uplift score: <strong>3.5 / 5</strong></div>
+      </div>
+      <div class="tiny">60 changed lines</div>
+    </div>
+
+    <div class="score-row">
+      <div>
+        <div class="rank-line">
+          <span class="rank">4</span>
+          <span class="domain">Management</span>
+        </div>
+        <div class="artifact">Financial Managers • stronger accounting boundaries, less answer leakage</div>
+      </div>
+      <div>
+        <div class="bar-shell"><div class="bar-fill" style="width: 58%;"></div></div>
+        <div class="bar-note">Uplift score: <strong>2.9 / 5</strong></div>
+      </div>
+      <div class="tiny">143 changed lines</div>
+    </div>
+
+    <div class="score-row">
+      <div>
+        <div class="rank-line">
+          <span class="rank">5</span>
+          <span class="domain">Educational Instruction &amp; Library</span>
+        </div>
+        <div class="artifact">Instructional Coordinators • better, but still scope-hungry</div>
+      </div>
+      <div>
+        <div class="bar-shell"><div class="bar-fill" style="width: 42%;"></div></div>
+        <div class="bar-note">Uplift score: <strong>2.1 / 5</strong></div>
+      </div>
+      <div class="tiny">124 changed lines</div>
+    </div>
+  </div>
+  <p class="fineprint">
+    Punchline: <strong>most churn did not equal most uplift</strong>. The biggest winners were the artifacts
+    that became narrower, more checkable, and more occupationally faithful.
+  </p>
+</section>
+
+<section>
+  <h2>Where swarm helped most</h2>
+  <div class="split-card">
+    <div class="panel best">
+      <div class="label-chip">Most uplift overall</div>
+      <div class="headline-callout">Software Developers</div>
+      <ul>
+        <li>`v1` stopped pretending to be a full service build and became a genuine 15-minute first pass.</li>
+        <li>Later iterations added explicit Redis payloads, ACK semantics, retry and DLQ behavior, and fixed-window throttling.</li>
+        <li>The artifact now has crisp interfaces, crisp tests, and a believable iteration ladder.</li>
+      </ul>
+      <p class="tiny">Translation: swarm works very well when the job already exposes concrete contracts.</p>
+    </div>
+    <div class="panel best">
+      <div class="label-chip">Biggest role-fit jump</div>
+      <div class="headline-callout">Executive Assistants</div>
+      <ul>
+        <li>The artifact moved down from a chief-of-staff voice into an actual EA pre-brief.</li>
+        <li>Confirmed facts got separated from guidance; logistics became owned actions with deadlines.</li>
+        <li>The Q&amp;A got harder without turning into investment-bank cosplay.</li>
+      </ul>
+      <p class="tiny">Translation: swarm can rescue artifacts that are close, but written at the wrong seniority layer.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Where uplift was weakest</h2>
+  <div class="two-col">
+    <div class="panel worst">
+      <div class="label-chip">Least uplift</div>
+      <div class="headline-callout">Instructional Coordinators</div>
+      <ul>
+        <li>The artifact improved operationally, but it still wants to become a district strategy packet, board memo, and implementation framework all at once.</li>
+        <li>Every good addition risks making the benchmark less bounded.</li>
+        <li>Even after trimming evaluator leakage, it remains the most likely artifact to over-coach the model.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Why this domain is harder</h3>
+      <ul>
+        <li><strong>Political surface area</strong>: many stakeholders, many constraints, many "correct" scopes.</li>
+        <li><strong>Weak natural stopping point</strong>: the artifact keeps asking for another section.</li>
+        <li><strong>Judgment is diffuse</strong>: success is less about one crisp deliverable and more about balanced planning taste.</li>
+      </ul>
+      <p class="fineprint">Management was also middling: lots of cleanup value, less true transformation.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Best artifact vs. worst artifact</h2>
+  <div class="split-card">
+    <div class="panel best">
+      <div class="label-chip">Best artifact after swarm</div>
+      <div class="headline-callout">Webhook Dispatcher Spec</div>
+      <ul>
+        <li>Inputs are concrete.</li>
+        <li>Output is easy to imagine and easy to score.</li>
+        <li>Each iteration adds one visible layer of real engineering work.</li>
+        <li>The artifact invites improvement without bloating.</li>
+      </ul>
+    </div>
+    <div class="panel worst">
+      <div class="label-chip">Weakest artifact after swarm</div>
+      <div class="headline-callout">K-5 Literacy Adoption Framework</div>
+      <ul>
+        <li>Still too broad for a clean benchmark target.</li>
+        <li>Still tempted to drift into theory-of-action and political messaging.</li>
+        <li>Improved content did not fully solve the scoping problem.</li>
+        <li>The model can look smart here while still being hard to evaluate.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Takeaways from each domain</h2>
+  <div class="takeaway-grid">
+    <div class="takeaway">
+      <div class="kicker">Computer &amp; Mathematical</div>
+      <div class="line">The biggest win was turning a fake `v1` into a real `v1`.</div>
+    </div>
+    <div class="takeaway">
+      <div class="kicker">Business &amp; Financial Ops</div>
+      <div class="line">Swarm helped by making review logic deterministic, not by making it more creative.</div>
+    </div>
+    <div class="takeaway">
+      <div class="kicker">Educational Instruction</div>
+      <div class="line">Scope explosion is the enemy. More content can make the benchmark worse.</div>
+    </div>
+    <div class="takeaway">
+      <div class="kicker">Management</div>
+      <div class="line">Useful cleanup domain: better boundaries, less leakage, modest transformation.</div>
+    </div>
+    <div class="takeaway">
+      <div class="kicker">Office &amp; Admin</div>
+      <div class="line">Role fidelity matters as much as detail. Wrong seniority layer kills the artifact fast.</div>
+    </div>
+    <div class="takeaway">
+      <div class="kicker">Meta</div>
+      <div class="line">The swarm did best when it narrowed the task, not when it made the document longer.</div>
+    </div>
+  </div>
+</section>
+
+<section class="closing-slide">
+  <div class="hero">
+    <div class="eyebrow">Punchy Close</div>
+    <h2>My early-demo read</h2>
+    <div class="closing-grid">
+      <div class="takeaway">
+        <div class="kicker">Most uplift</div>
+        <div class="line">Computer &amp; Mathematical</div>
+      </div>
+      <div class="takeaway">
+        <div class="kicker">Least uplift</div>
+        <div class="line">Educational Instruction &amp; Library</div>
+      </div>
+      <div class="takeaway">
+        <div class="kicker">Best artifact</div>
+        <div class="line">Software developer dispatcher spec</div>
+      </div>
+      <div class="takeaway">
+        <div class="kicker">Worst artifact</div>
+        <div class="line">Instructional coordinator rollout framework</div>
+      </div>
+    </div>
+    <ol style="margin-top:0.8em;">
+      <li><strong>Open systems uplift more than governed planning docs.</strong></li>
+      <li><strong>The best swarm output was not longer. It was narrower and more scoreable.</strong></li>
+      <li><strong>Role fit matters as much as domain complexity.</strong></li>
+      <li><strong>Next step: blind-rate `before` vs `after` to see whether this early intuition survives scoring.</strong></li>
+    </ol>
+  </div>
+</section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: "slide",
+    controls: true,
+    progress: true,
+    center: false,
+    slideNumber: "c/t",
+    margin: 0.06
+  });
+</script>
+</body>
+</html>

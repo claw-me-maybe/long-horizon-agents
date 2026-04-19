@@ -120,3 +120,49 @@ Iteration work includes: the full TCO with consumables; quantified microsampling
 - Secondary internal readers at Meridian likely: QA/Validation lead, Procurement.
 - Internal Thornegate review: VP Sales Dmitri Varga must counter-sign any discount above 10% before delivery.
 - Document is professional and appropriate for direct delivery to the customer after internal sign-off.
+
+## Reference BOM skeleton (for the model to adapt)
+The model should configure the BOM around the following line-item set — the exact discount applied, trade-in credits, and bundle structure are iteration choices, but the line items themselves are fixed:
+
+| Line | Description | List | Qty | Extended list |
+|---|---|---|---|---|
+| 1 | LCT-8400 base triple-quad | $612,000 | 2 | $1,224,000 |
+| 2 | Autosampler ALS-240 | $78,000 | 2 | $156,000 |
+| 3 | HPLC front-end UltraFlow-X | $112,000 | 2 | $224,000 |
+| 4 | Empower CDS driver license | $14,000 | 2 | $28,000 |
+| 5 | Connect LIMS middleware (per site) | $42,000 | 1 | $42,000 |
+| 6 | 5-yr Platinum service plan | $178,000 | 2 | $356,000 |
+| 7 | IQ/OQ/PQ services package | $38,000 | 2 | $76,000 |
+| — | Gross list total | — | — | $2,106,000 |
+
+Applied discounting and trade-in credits should show the math that brings this to a net investment in the ~$1.72–1.78M range (i.e., demonstrate intelligent use of the envelope, not max-out of every lever).
+
+## Reference spec-compliance matrix skeleton
+The compliance matrix should cover at minimum these RFP requirements:
+
+| Requirement | Meridian spec | Thornegate LCT-8400 | Status |
+|---|---|---|---|
+| LOQ on 12-analyte plasma panel | ≤0.5 ng/mL | 0.2–0.4 ng/mL | Pass |
+| Throughput | 800 inj/day across 2 units | 960 inj/day (480×2) | Pass with 20% headroom |
+| Empower CDS integration | Required | GA driver, Jan 2025 | Pass |
+| LabWare v8 LIMS integration | Required | Connect middleware, 40+ deployments | Pass — detail in SDD |
+| 48-hour on-site service response | Required | 48h SLA in Mid-Atlantic | Pass |
+| 21 CFR Part 11 | Required | Attested; IQ/OQ/PQ templates | Pass |
+
+## ROI math template the model should populate
+- Microsampling opportunity: ~3 contracts/yr × ~$220K/contract = ~$660K/yr incremental revenue enabled by 0.2–0.4 ng/mL LOQ headroom against 0.5 spec.
+- Avoided-downtime value: $14K/day of lost core utilization (Meridian's own 2024 figure) × frequency of avoided 24-hour outages vs. Ashfield's 72h SLA.
+- Capacity buffer: 960/day vs. 800 required = 160/day buffer ≈ 20%; covers the 180/day incremental from Tigerlily ramp without a third instrument.
+- Migration labor saving: ~5 FTE-weeks saved (8 → 3) via Thornegate Connect method-translation utility; ~$30K at loaded labor.
+
+## Close-plan calendar
+- 4/14 (Mon): v1 proposal drafted internally.
+- 4/18 (Fri): Dmitri Varga sign-off on pricing/discount levels.
+- 4/22 (Wed): proposal delivered to Raghavan and Ishida.
+- 4/29 (Wed): technical review call with Raghavan + SE Jon Park.
+- 5/6 (Wed): commercial Q&A with Ishida + Procurement.
+- 5/13 (Wed): final pricing negotiation call.
+- 5/20 (Wed): early-signing incentive window closes; potential PO date.
+- 5/30 (Fri): Meridian's stated PO target.
+- 9/16 (Wed): install week.
+- 10/31 (Sat): validation complete per RFP.

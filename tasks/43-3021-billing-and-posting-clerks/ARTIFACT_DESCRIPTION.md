@@ -89,3 +89,66 @@ Single Markdown file with tables and three letter templates, ~4 pages rendered (
 
 ## Scope target
 A v1 at ~15 minutes should contain: reformatted aging report with commentary, complete drafts of Letters A and B (Letter C can be shorter), and a first-pass referral shortlist covering all 15 accounts. Refining per-account recommendations, calculating per-account interest, and fully handling the disputed-vs-dunning distinction belong to iteration.
+
+## Example of v1 failure modes
+- Sending Letter B to 43502 (Coastal) despite their disputed shipping charges being unresolved.
+- Sending Letter A to 45033 (Mountain Ridge, first-time late, small balance, 61-90 days) — this is disproportionate and damages the relationship.
+- Sending any letter to 48003 (Richmond Kids) without first routing the wrong-SKU dispute.
+- Treating 42007 (Bluefield) as a standard delinquent account instead of a practice-sale dispute requiring Nadia's decision.
+- Recommending legal referral for 44100 (Shenandoah, $2,040) despite the $3,000 threshold.
+- Recommending legal referral for 47250 (Charlottesville, retiring) without pausing to consider pending practice sale as a recovery path.
+- Forgetting to apply the "hold new shipments" note in Letter A to customers who are otherwise paying current (e.g., 41144 Tidewater — holding their new orders while they have ignored one old invoice may be disproportionate; propose a partial hold or none).
+- Computing interest on the aggregate AR balance rather than on the specific delinquent invoices.
+
+## Common pitfalls to avoid
+- Do not threaten legal action in Letter A or B; only Letter C mentions referral, and it must be factual (date, third party name) not threatening (consequences, damage to credit).
+- Do not use the phrase "final notice" on Letter B; save for Letter C.
+- Do not draft letters that imply the customer's dispute is invalid; where disputes exist, the letters are not sent and the memo handles the dispute separately.
+- Do not bundle multiple invoices into a single amount due without itemization; each invoice must be line-itemed with its date and amount so the customer can reconcile.
+- Do not apply interest unilaterally without noting Nadia's discretion; the policy permits but does not require.
+- Do not forget Ridgeway's IPA-level customer relationships; some of these practices are also referral sources for Ridgeway's sales team, and collections tone should not torpedo those relationships.
+
+## Evaluator notes (context for scoring, not for the model)
+- The 43-3021 role has an unusually rich iteration surface in collections because tone, sequencing, and account-state awareness all matter, and a one-size letter series is the default junior output. Iteration feedback tightens this to an account-state-aware program with tailored tone and correct disputed-vs-dunning discrimination.
+- Ridgeway Orthodontic Supply, all practices, and named individuals are fictional. The 91-120/121+/legal-threshold/third-party structure is typical of B2B collections; the 1.5%/month late fee, Altus's 25% commission, and the $3,000 legal threshold are illustrative.
+- A strong v2: correctly excludes disputed accounts from dunning; applies Letter B/C to true non-responders; offers payment plans to communicating customers; applies the $3,000 threshold to legal-referral recommendations; and keeps tone collaborative for long-term-relationship preservation.
+
+## Letter tone gradients (examples — not templates)
+- Letter A opening: "Our records show a balance of $[X] on invoice #[Y] dated [date] that is now past due. We understand things come up — please reach out if there is a billing issue, or if you'd like to discuss payment options."
+- Letter B opening: "Following our notice dated [date], invoice #[Y] for $[X] remains unpaid and is now [days] days past due. To keep your account in good standing and shipments uninterrupted, please remit payment or contact us to arrange a payment plan by [date]."
+- Letter C opening: "Invoice #[Y] dated [date] in the amount of $[X] has been unpaid for [days] days and has not received a response to our prior notices of [date] and [date]. Unless we hear from you by [date], this account will be referred to [third party] for further collection."
+
+The gradient escalates in firmness but never in threat; every letter offers contact and a path to resolution.
+
+## Per-account expected recommendations (reference for evaluator, not a solution the model should copy verbatim)
+| Cust # | Expected recommendation | Reasoning |
+|---|---|---|
+| 40211 Chesapeake Smiles | Letter B (91-120 past Letter A); pre-referral posture | Ignored 3 prior calls |
+| 41144 Tidewater | Letter A (selective: only invoice #22-14821); offer payment plan | Paying current; responsive; relationship risk |
+| 42007 Bluefield | HOLD — route to Nadia | Practice sold; new owner disputes; not a standard collections case |
+| 43019 Riverbend | Offer payment plan; do not send Letter B yet | Responsive; cashflow-pending; relationship valued |
+| 43502 Coastal | DO NOT DUN; route dispute on shipping charges | Largest customer; dispute must be resolved first |
+| 44100 Shenandoah | Altus or write-off; not legal | Below $3,000; phone disconnected; no recovery path in-house |
+| 44812 Smile Valley | Letter B; restructure payment plan proposal | Missed plan payments 2x; trust broken but amounts moderate |
+| 45033 Mountain Ridge | Friendly reminder only; NOT Letter A | First-time late; relationship-building account |
+| 45701 Arlington | Payment plan offer; Letter A for the oldest invoice if plan not accepted within 10 days | Mixed aging; responsive |
+| 46120 Northern Virginia | Letter C posture; coordinate with counsel before legal referral | Attorney-on-retainer context; proceed carefully |
+| 46900 Piedmont | Letter A; offer payment plan given new-hire bookkeeper context | Small balance; historical payer; likely process issue |
+| 47011 Shore | No letter needed; no dispute or ignored contact | Normal aging; growing customer |
+| 47250 Charlottesville | Hold pending practice sale; flag to Nadia | Practice sale pending could pay off AR |
+| 48003 Richmond Kids | DO NOT DUN; route correction for wrong-SKU dispute | Good customer; fix the dispute |
+| 48500 Capital | Extended grace; offer flexible plan due to maternity-leave temp coverage | Responsive prior history; temp ops |
+
+## What distinguishes this from a basic dunning letter template set
+- Account-state awareness: the letter series is not applied uniformly; each account is mapped to a specific gate and letter.
+- Dispute discipline: disputed invoices are never dunned; the memo routes them separately.
+- Legal threshold honored: $3,000 minimum means 44100 and a few others are not legal candidates regardless of age.
+- Relationship preservation: long-term customers, first-time late, or small-balance accounts receive proportionate tone.
+- Interest disclosure handled explicitly: policy permits; each letter decides whether to invoke.
+
+## Final sanity checks before handing to Nadia
+- No disputed invoice appears in any letter.
+- No letter contains legal-consequence language.
+- Every letter's invoice table matches the aging report line for that account.
+- Memo recommendations sum to a coherent treatment of all 15 top accounts.
+- Referral shortlist respects the $3,000 floor for legal.

@@ -116,3 +116,40 @@ A v1 produced in ~15 minutes should include: header block, full attendee list, a
 - The minute-taker role here is archetypal for 43-6014: the admin is the only neutral party in the room capable of producing the institutional record. The iteration space is real because v1 outputs of timestamped-transcript style are the default failure mode, and the task of reorganizing into topical, action-oriented, redacted-where-appropriate minutes is exactly where a junior admin improves over the course of a year's mentoring.
 - Meridian Logistics, Toledo-to-Perrysburg relocation, and all named individuals are fictional. CBA Article 14 is plausible but a fabrication. The 6-week racking lead time, the 30-day CBA notice convention, and the HVAC commissioning slip pattern are realistic.
 - The document should feel like a work product Dana would actually hand Janelle at end of day Friday, ready to go to 23 recipients Monday morning.
+
+## Example of v1 failure modes
+- Keeping the raw timestamped sequence, producing a readable-but-useless transcript rather than minutes.
+- Merging decisions and discussion, leaving the reader unable to locate the one or two actions that matter per workstream.
+- Exposing which of HH1/HH2 (oops — wrong domain) — that is, exposing which team members have which accommodation requests, when the minute-taker should aggregate to "3 accommodation requests under review" without category.
+- Reporting the cutover-weekend decision as resolved when the audio cut before consensus; this is a false claim.
+- Using first-person voice ("I noted that…") instead of third-person neutral.
+- Listing Blackline's $18,400 quote in a version that Blackline's competitors will see.
+- Missing the HVAC-cold-storage decision (the cold storage offline-until-5/25 compromise is a real decision, not just a discussion).
+- Attributing actions incorrectly — "JO to get more bids" vs "RO to obtain 2 more striping bids by 4/22 per JO request" — the owner matters for the follow-up chase.
+
+## Common pitfalls to avoid
+- Do not invent content to fill the audio gap; the reconstruction must be faithful and flagged.
+- Do not use the word "unanimous" unless the notes support it; if dissent was minimal and not explicitly recorded, say "no objections raised" instead.
+- Do not describe HR accommodation categories (disability, childcare) in a broadly-distributed document even though the raw notes include them.
+- Do not include dollar amounts from the competitive striping quote in the Blackline-visible redacted version; Blackline's competitors are also on the redacted distribution.
+- Do not leave the next-meeting section empty; propose a date/agenda even if subject to confirmation.
+
+## Required cross-references
+- Decisions referenced to the project charter v2.1 section where the underlying approval lives (e.g., racking PO authority = charter §4.2).
+- CBA Article 14 cited when discussing HR relocation notices.
+- Steering committee update cited for risks rolled forward from 4/10.
+- IT cutover runbook v0.3 cited when referencing the fiber-slot or IT technician staffing discussions.
+
+## What distinguishes this from the executive brief (43-6011) artifact
+- Audience is 23 stakeholders including external vendors, not a single executive.
+- Content is recorded and distributed, not synthesized and confidential.
+- Tone is procedural and neutral, not executive and compressed.
+- Redaction is required (external vendors get a scoped view); executive brief has no distribution audience.
+- Decisions are documented institutional records; executive brief informs a conversation that has not yet happened.
+
+## Final sanity checks before distributing
+- Every action item has an owner and a due date.
+- Every decision is clearly marked "Decision:" and separate from discussion.
+- The audio-gap reconstruction is explicitly flagged.
+- HR-sensitive content is aggregated, not categorized.
+- Redacted external version (if produced) contains only the workstream relevant to that vendor.

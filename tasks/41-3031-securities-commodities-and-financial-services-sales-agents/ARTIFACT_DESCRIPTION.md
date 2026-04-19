@@ -104,3 +104,61 @@ Iteration work includes: the full labeled disclosure block; options overlay deta
 - Secondary readers: internal sales colleagues who will voice the idea on morning calls and in 1:1 outbound.
 - Not to be forwarded to retail channels, retail FAs, or non-client prospects without Compliance pre-clearance.
 - Note format must survive copy-paste into Bloomberg IB chat and email body without losing section structure.
+
+## Reference data available to the model
+- **Ahuja 4/14 published note (title, exec summary, PT change)** — for attribution, not for reproduction in full.
+- **Transcript excerpts from 4/13 call** — CEO Vas remarks on catalyst timing and enrolment status; CFO Osei remarks on Q2 opex.
+- **Competitor model detail** — Eliant Biosciences Phase II comparator readout (HR=0.82 published 3/14); Maridelle Pharma Phase II expected late May (window: 5/20–5/30).
+- **Options chain snapshot 4/11 close** — April $80 calls OI pre-/post-flow (pre 520, post 4,720), 30-day IV (48→62).
+- **Desk trade blotter entries** — the 210K block, paired trades, and borrow quotes summarized in the inputs.
+- **CRM notes** — Okafor (3/4), Patel (4/2), Doyle (4/7) — extract, do not paste verbatim.
+
+## Compliance quick-check for the writer
+Before distribution, the note must satisfy Hartwell Petrie compliance's 10-point checklist:
+1. Is the audience clearly marked as institutional?
+2. Is there a clear non-advice framing?
+3. Is there a Reg AC-style analyst attestation via Ahuja's published note (or reference to it)?
+4. Is market-making disclosed?
+5. Is analyst ownership disclosed?
+6. Is IB-relationship disclosure present (none in last 12 months)?
+7. Are price-target and probability numbers attributed to Ahuja, not presented as "our" numbers without attribution?
+8. Are comparable trades anonymized and client positions not reproduced?
+9. Are the specific client callouts generic enough to not disclose a position/order?
+10. Is the "not personalized advice" language visible on first screen without scrolling?
+
+Failing any one of these sends the note back for rewrite before it can go out — the writer should plan for this gate, not treat it as an afterthought.
+
+## Timing and delivery
+- 7:15 AM ET: draft produced.
+- 7:45 AM ET: compliance review (typically one round of edits).
+- 8:00 AM ET: sales meeting read-out; note distributed to wire.
+- 8:15 AM ET onward: 1:1 outbound calls reference the note; copy-paste into Bloomberg chat.
+- Distribution list is a static group of ~40 accounts; specific account-targeting happens in the 1:1 call, not in the written note itself.
+
+## Reference "ways to play" table skeleton
+The trade-construction section should fill in a table of this shape. The exact sizing, rationale, and risk language are for the rep to specify:
+
+| Expression | Sizing guide | Rationale | Risk |
+|---|---|---|---|
+| Outright long CVTX | Scale in: 50% at ~$78, 50% on pullback to ~$72 | Catalyst pulled forward; desk PoS 58% vs. Street ~45% | Pre-readout drift lower; vol compression post-event |
+| Pair: long CVTX / short ELB | Beta-weighted; 1:1 notional starting ratio | ELB Phase II miss reduces CVX-417's effective comp; borrow on ELB at 3.8% | ELB short-squeeze dynamics; M&A risk on ELB |
+| April $80 call overlay | 5–15% of core long position notional | Flow suggests asymmetric positioning into readout window | Vol mean-reversion from 62→48; theta decay if event slips |
+
+## Reference catalysts table skeleton
+The catalysts section should fill in a table of this shape. Windows should be narrow or dated:
+
+| Date or window | Event | Significance |
+|---|---|---|
+| Late May (5/20–5/30) | Maridelle Phase II readout | Category read-through regardless of CVTX |
+| 5/30 | ASCO abstract submission window closes | Late-breaker path for CVX-417 |
+| Late June – early July | CVX-417 PFS readout | Primary catalyst |
+| Late July | Q2 earnings | Tests whether Q1 Relvintil beat was stocking vs. demand |
+| August 14 | CVTX R&D day | CVX-209/CVX-330 pipeline detail |
+
+## Account-callout guidance
+Each of the three account callouts should be ≤2 sentences. Example framing (model must adapt, not reproduce):
+- **Meridian Grove (long-only, 2.1% position):** catalyst pull-forward is the de-risking moment Okafor cited in March; consider re-adding to position ahead of readout at current levels.
+- **Polaris (HF, flat CVTX):** natural long-leg on an existing ELB short; our desk view on the Phase II read-through supports the pair construction.
+- **Allenwright (insurance GA, no position, new specialty-pharma sleeve):** potential scaled-in core entry rather than catalyst trade; lower-beta framing fits the sleeve mandate; committee cycle implies a decision window after the readout.
+
+These are illustrative; the actual copy must be tailored and must not disclose another client's positions or orders.

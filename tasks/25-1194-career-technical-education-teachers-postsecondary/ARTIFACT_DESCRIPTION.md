@@ -76,4 +76,82 @@ The artifact should read like something an instructor could use immediately, not
 - The output can be used as a first draft without needing major structural repair.
 
 ## Scope target
-For a 15-minute v1, produce the lesson metadata, outcomes, lesson flow, job sheet, and the skills assessment rubric. The differentiation, curriculum placement note, and instructor feedback language can be brief but should be present rather than omitted. The aim is a usable first-pass lab packet that can be sharpened later into a more complete welding module.
+For a 15-minute v1, produce:
+- Lesson metadata (course title, session length, class size, required equipment).
+- 3-5 measurable outcomes mapped to program goals.
+- A minute-by-minute 90-minute lesson flow.
+- A job sheet / lab handout with step-by-step directions.
+- A skills assessment rubric with at least 10 scorable criteria.
+
+The differentiation, curriculum placement note, instructor feedback language, and student-facing agenda can be brief but should be present rather than omitted. The aim is a usable first-pass lab packet that can be sharpened later into a more complete welding module.
+
+## Evaluator notes (for fixture use)
+- Strong v1 stays **inside 90 minutes** — demo, practice, and performance check. Weak v1 accidentally writes a multi-day unit.
+- Strong v1 names **critical safety failures** (PPE not worn, arc struck without helmet down, grinder used without guard) that automatically stop the task, separate from minor technique issues. Weak v1 treats all errors as the same.
+- Strong v1 has **behaviorally anchored** rubric items ("student verifies clamp placement before tacking") not vague ("student is careful"). Weak v1 uses qualitative adjectives only.
+- Strong v1 **employer-aligned** cues appear: punctuality, PPE compliance, toolcare, communication, cleanup. Weak v1 focuses only on the weld bead.
+- Strong v1 **differentiation** has concrete shop-based supports (visual cue cards at the bench for MLLs; read-aloud for the job sheet; enlarged print of measurement markings). Weak v1 has generic "provide support".
+- Strong v1 **reteaching pathway** is explicit — what happens to a student who fails the check, where they practice, when they retake.
+- Strong v1 includes **cleanup as scorable** (shop culture matters for employer readiness). Weak v1 treats cleanup as an afterthought.
+- Strong v1 **measurement accuracy** gets explicit practice (reading a tape measure to 1/16", marking with soapstone) — this is the local employer pain point.
+- Strong v1 includes **at least one "stop work" criterion** (e.g., "if sparks go toward flammable materials, stop and reset").
+
+## Common first-week shop errors to anticipate
+- Forgetting eye protection while grinding (critical safety failure).
+- Using long-sleeve street clothes under the welding jacket (burn risk).
+- Measuring the coupon with the end hook dragged past the zero mark.
+- Clamping before checking joint gap.
+- Grinding toward self (should be away).
+- Striking an arc without helmet down ("flash" risk).
+- Leaving hot metal unmarked and unattended.
+- Not labeling consumables (which stinger or torch belongs to which booth).
+- Skipping cleanup — tools left on the floor, sparks in the scrap bin.
+
+## Sample rubric item (starter)
+| Item | 4 (ready) | 3 (competent) | 2 (needs coaching) | 1 (unsafe/fail) |
+|---|---|---|---|---|
+| PPE compliance before lab | All PPE donned correctly before entering booth; checks peer's PPE proactively | All PPE donned correctly before entering booth | Missing one minor item, corrected when reminded | Missing critical PPE (helmet, gloves, jacket) — STOP WORK |
+| Tape measure accuracy | Measures to 1/16", marks with soapstone, verifies twice | Measures to 1/16", marks with soapstone | Measures to 1/8" consistently; needs reminder to verify | Cannot read tape measure reliably; measurements off by >1/4" |
+| Joint prep | Coupon cleaned to bright metal, edges deburred, fit-up verified | Coupon cleaned, edges acceptable | Cleaned but edges rough; fit-up marginal | Mill scale left on weld surface (contamination risk) |
+| Clamping sequence | Clamp placement verified before tack; explains rationale | Clamp placement correct | Clamps placed but not checked for gap | No clamps used; parts move during tack |
+| Cleanup & toolcare | Booth clean, tools returned to correct location, reports any issues | Booth clean, tools returned | Partial cleanup; reminded by instructor | Leaves hot metal, sparks, or tools hazardously placed |
+
+## Critical safety failures (auto-STOP WORK list)
+These are not 1-point items on the rubric; they halt the task:
+- Arc struck without helmet down.
+- Respiratory exposure without ventilation (e.g., grinding galvanized or coated steel without PPE).
+- Fire not monitored; sparks toward flammables.
+- Student attempts to weld without supervisor in the shop.
+- PPE intentionally removed during hot work.
+
+## Sample instructor feedback language (starter)
+- Measuring error: "Walk me through your measurement. Start from the zero mark — the tip of the tape can be misleading. Let's re-measure together."
+- PPE lapse: "Stop. Helmet down before the arc, every time. Reset and show me the correct sequence."
+- Rushing: "You've got good momentum. Slow down on this next step — tacking is where your final bead succeeds or fails."
+- Good work: "Your joint prep is clean. Employers will notice that on day one. Keep that standard going."
+- Cleanup: "The bench is yours to own at the end of class. Show me what 'ready for next class' looks like."
+
+## Differentiation detail (for downstream model to expand)
+- **MLL learners**: Job sheet with icons alongside text; vocabulary card at the bench (tack, coupon, stinger, ground, consumable, slag); check for understanding by demonstration not verbal quiz.
+- **Reading accommodations**: Job sheet read aloud during demo; partner read for complex steps; audio recording of safety briefing available.
+- **Experienced students** (apprentices): Extension measurement task (read and mark a blueprint-style coupon layout); coach role for peer support when ready.
+
+## Pedagogical vocabulary glossary
+- **CTE**: Career and Technical Education.
+- **CBE**: Competency-Based Education — progress on demonstrated competencies, not seat time.
+- **Mastery-based skills check**: Assessment requiring all critical skills demonstrated; retakes permitted.
+- **Job sheet**: Student-facing step-by-step task document used in CTE/shop settings.
+- **Backwards design**: Wiggins & McTighe planning framework (outcomes -> assessments -> activities).
+- **Behaviorally anchored rubric**: Rubric where each score level names observable behaviors.
+- **PPE**: Personal Protective Equipment.
+
+## Iteration loop expectation
+This artifact will be drafted, evaluated, and iterated over 4-6 rounds focused on: right-sized single-period scope, critical safety distinctness, rubric specificity, employer-signal alignment, shop-based differentiation, and reteaching pathway.
+
+## Reteaching / retake pathway (seed)
+If a student does not meet the standard on the skills check:
+- Same-day: Student remains in shop for additional supervised practice during open shop time (later in the week).
+- Instructor identifies the specific criterion missed (measurement accuracy, PPE, sequencing).
+- Student demonstrates again, one criterion at a time, in open shop; records are updated.
+- If the student fails twice, a learning conference is scheduled; advisor and program director are notified.
+- No student advances to the next lesson (fillet-weld bead sequence) until all critical safety items are met.

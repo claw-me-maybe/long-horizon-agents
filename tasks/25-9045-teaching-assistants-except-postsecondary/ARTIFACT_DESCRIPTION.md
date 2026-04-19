@@ -78,4 +78,80 @@ Single Markdown file, ~1,800-2,600 words. Must include task card templates (labe
 - Scripts are written in exact TA-to-student language (not abstract pedagogical prose).
 
 ## Scope target
-At 15 minutes, v1 should include: packet overview with role boundaries, roster snapshot, 10-day routine skeleton, a starter set of 5-8 task cards across tiers, draft accommodation cards for all 5 students (even if brief), and a data-sheet template. Full 15+ task cards, complete scripts, and family insert are expected to be partial.
+At 15 minutes, v1 should include:
+- Packet overview with explicit TA role boundaries.
+- Roster snapshot (5 students, no PII).
+- 10-day routine skeleton with minute-by-minute structure.
+- A starter set of 5-8 task cards across CRA tiers.
+- Draft accommodation cards for all 5 students (even if brief).
+- A data-sheet template.
+
+Full 15+ task cards, complete corrective-feedback scripts, family insert, and vocabulary word-wall cards are expected to be partial at v1.
+
+## Evaluator notes (for fixture use)
+- Strong v1 keeps TA role **bounded** — delivery and data collection, not diagnosis or instructional decisions. Weak v1 drifts into having the TA decide standards or modify goals.
+- Strong v1 scripts are in **exact wording** ("Let's try this one together. I see 1/2 of this circle. Can you point to 1/2 of your circle?") not pedagogical prose ("the TA models equivalence").
+- Strong v1 has distinct accommodations per student tied to each student's named profile. Weak v1 reuses the same accommodations.
+- Strong v1 data sheets complete in ~2 minutes. Weak v1 has 25+ fields per session.
+- Strong v1 corrective-feedback script has at least 3 levels (hint -> scaffolded -> full re-model-then-try).
+- Strong v1 includes **clear escalation to supervising teacher** — what triggers a flag, not just "talk to teacher".
+- Strong v1 MLL support goes beyond translation: uses sentence frames, cognates, structured talk, and icon-based word wall cards.
+- Strong v1 respects that **Tier 2 alignment** means the TA's work is **coherent with** Tier 1, not a different program.
+- Strong v1 CRA progression across 10 days is visible (concrete Days 1-3; bridging 4-7; abstract 8-10).
+- Strong v1 includes a **fidelity check** (the supervising teacher observes the TA deliver at least once during the 10 days) — baked into the packet.
+
+## Sample corrective-feedback script (starter — for the downstream model to expand)
+- **Level 1 hint** (low support): "Take another look at your fraction tiles. What do you notice about 2/4 and 1/2?"
+- **Level 2 scaffold** (medium support): "Let's line up 1/2 next to 2/4. Now look at the bottom of the tiles. Are they the same length?"
+- **Level 3 full re-model** (high support): "Watch me. I'm putting 1/2 here. Now I'm putting 2/4 here. Look — they are the same length. That means 1/2 and 2/4 are equivalent. Now you try with 1/2 and 2/4."
+- Always close with: "Good thinking. Let's try the next one together."
+
+## Task card sample (starter)
+**Card 1 (CRA: Concrete, 4.NF.A.1)**
+- Front: "Use fraction tiles to show 1/3. Then use fraction tiles to show 2/6. Are they equivalent? Circle YES or NO."
+- Back (TA-only): Answer: YES. Scripted prompt if stuck: "Line up the 1/3 tile. Now line up two 1/6 tiles next to it. What do you see?"
+
+**Card 6 (CRA: Representational, 4.NF.A.1)**
+- Front: "Draw a circle divided into 4 equal parts. Shade 2 parts. What fraction did you shade? Write a fraction that is equivalent."
+- Back (TA-only): Accept 2/4 and any equivalent (1/2, 4/8). Scripted prompt: "Can you draw another circle the same size but divided differently, and shade the same amount?"
+
+**Card 12 (CRA: Abstract, 4.NF.A.1)**
+- Front: "Write 3 fractions equivalent to 3/5. You can draw, use tiles, or think with a partner."
+- Back (TA-only): Examples: 6/10, 9/15, 12/20. Scripted prompt: "What do you get if you multiply both the top and the bottom by 2?"
+
+## Pedagogical vocabulary glossary
+- **CRA**: Concrete-Representational-Abstract progression.
+- **MTSS**: Multi-Tiered System of Supports; Tier 2 is targeted small-group intervention beyond core (Tier 1).
+- **IEP**: Individualized Education Program (SpEd document).
+- **504 plan**: Accommodation plan under Section 504 of the Rehabilitation Act (not SpEd but provides access accommodations).
+- **WIDA level**: English-language proficiency scale (1-6) used to calibrate linguistic supports.
+- **Fidelity**: Delivery as designed — critical for intervention research base to transfer to real classrooms.
+- **Gradual release**: "I do / We do / You do" instructional sequence.
+- **Progress monitoring**: Brief, frequent data collection (e.g., weekly) to check intervention response.
+- **STAR Math**: Renaissance computer-adaptive universal screener (commonly used for Tier 2 entry decisions).
+
+## Role-boundary detail (critical for this artifact)
+The TA's role under the packet is:
+- **Does**: Deliver the scripted routine with fidelity; administer the task cards in order; collect data accurately; redirect off-task behavior per script; communicate observations to the supervising teacher weekly; translate vocabulary for the MLL student using the provided word wall.
+- **Does NOT**: Write or modify IEP goals; decide whether to advance students to new standards; diagnose learning disabilities; change the scope of the packet without teacher approval; assess mastery for grading purposes; communicate with families about instructional decisions (supervising teacher owns family communication; TA may share logistics only).
+
+## Iteration loop expectation
+This artifact will be drafted, evaluated, and iterated over 4-6 rounds focused on: role-boundary clarity, script specificity, student-level accommodation distinctness, data-sheet usability, CRA progression, and MLL integration beyond translation.
+
+## Data sheet template (seed)
+Sample daily tally (TA fills out during session; supervising teacher reviews Friday):
+
+| Date | Student | Warm-up correct | Task cards correct / attempted | Skill focus (CCSS) | Engagement (1-4) | Notes (1 line) |
+|---|---|---|---|---|---|---|
+| 10/14 | A | 4/5 | 3/5 | 4.NF.A.1 | 3 | Needed tiles, caught on by card 4 |
+| 10/14 | B | 3/5 | 4/5 | 4.NF.A.1 | 4 | Strong verbal recall from yesterday |
+| 10/14 | C | 2/5 | 2/5 | 4.NF.A.1 | 2 | Redirected 3x; tokens helpful |
+| 10/14 | D | 5/5 | 4/5 | 4.NF.A.1 | 4 | Used Spanish cognate "equivalente"; strong |
+| 10/14 | E | 4/5 | 3/5 | 4.NF.A.1 | 3 | Part-whole misconception on card 3 |
+
+Friday summary adds: weekly skill totals, pattern noticed, flags for teacher review.
+
+## Supervising teacher sign-off
+- Packet reviewed and approved: ___ (Teacher name) ___ (Date)
+- Weekly data review completed: ___ (Initials) ___ (Date)
+- Any mid-cycle changes must be teacher-approved before implementation.

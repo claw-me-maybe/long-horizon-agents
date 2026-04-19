@@ -101,3 +101,75 @@ Iteration work includes: upside/downside cases with math; margin floor justifica
 - Not a product brief. Product specs appear only where they matter for the decision (e.g., cert status, MOQ implications for reset timing).
 - Do not disclose Westbrook's observed FOB price ($5.55) or their 91.3% OTIF figure in any language that would go back to Brightshelf; these are for internal calibration only.
 - Margin floors are confidential. Do not state them verbatim in language a Brightshelf stakeholder should see.
+- Do not design the in-store marketing circular or the endcap creative. That is CMO scope and flows from, but is not part of, this account plan.
+
+## Reference SKU mapping (for the sizing table)
+The sizing table should tie back to this SKU-ask hypothesis, which the plan may refine with reasoning:
+
+| Current SKU slot (FY25) | Incumbent | Our recommended FY26 position | Rationale |
+|---|---|---|---|
+| Reserve Classic Ground 12oz | Westbrook | Displace in District 3 (11 stores) | Category underperforming 9%; Pike willing |
+| Reserve Breakfast Blend Ground 12oz | Westbrook | Add-in (Brightshelf Roaster Michigan) all districts | Whitespace; avoids Yoon's "mid-program displacement" concern |
+| Reserve French Roast Ground 12oz | Westbrook | Hold off; revisit FY27 | Protect Yoon relationship; not enough margin headroom |
+| Reserve Ethiopia Whole Bean 12oz | Fernhollow | Hold; extend to 2-year agreement | Existing win; defensive |
+| NEW SKU slot #1 | — | Colombia Supremo Whole Bean 12oz | Halo premium; cert story; fair-trade index 134 |
+| NEW SKU slot #2 | — | Sumatra Mandheling Whole Bean 12oz | Single-origin differentiation from Kroger |
+| NEW SKU slot #3 | — | Decaf Dark Ground 12oz | Spec parity to Westbrook; compete on OTIF |
+| NEW SKU slot #4 | — | Compostable pod 12-pack (Classic) | Whitespace — Westbrook does not offer |
+| NEW SKU slot #5 | — | Compostable pod 12-pack (Breakfast) | Whitespace — Westbrook does not offer |
+| NEW SKU slot #6 (future) | — | Cold-brew concentrate 32oz (FY27) | Out of FY26 scope; flagged for FY27 |
+
+If the plan recommends a different target mix (e.g., 5 SKUs instead of 6, or different slot allocation), it should show the math and defend the choice against the $1.8M opportunity.
+
+## Internal coordination & decision rights
+- VP Sales Marta Benedict: owns margin floor override authority; must counter-sign any offer below 22% / 26% / 19% floors.
+- VP Ops Sanjay Kumar: owns freight commitment; confirms 12-pallet free-freight threshold is sustainable to Toledo/Plainwell/Whitestown at the expected volume.
+- CMO Rebecca Wen: owns MDF co-fund; approves the 2% MDF commitment and any above-tier in-store activation.
+- CFO Alan Doucet: approves the rebate tier structure and credit terms (Net 30/45).
+- Legal (external counsel Hoffstetter & Reeves): 2-year exclusivity or multi-SKU commitment language requires a 3-business-day review.
+
+## Close-plan calendar
+- 4/22 (Tue): circulate v2 of account plan to deal team.
+- 4/23 (Wed): internal go/no-go call on commercial offer (Marta, Sanjay, Rebecca, Alan).
+- 4/25 (Fri): final internal sign-off on lead offer + walk-away.
+- 4/30 (Tue): buying meeting with Pike; Marta joins.
+- 5/9: follow-up call with Pike + Yoon (escalation meeting).
+- 5/23: informal CEO touchpoint with Teague (Grand Rapids event; both CEOs attending).
+- 6/13: final category review at Brightshelf.
+- 6/26: planogram lock.
+
+## Reference stakeholder map skeleton
+The stakeholder section should fill in a table of this shape. Stance and next action must be specific to the input facts, not generic:
+
+| Stakeholder | Role | Decision weight (1–5) | Stance today | Top concern | Our next action (date, owner) | What this unlocks |
+|---|---|---|---|---|---|---|
+| Darnell Pike | Cat Mgr (primary buyer) | 4 | Neutral-leaning-us | Margin defense; Ohio underperformance | 4/22: send OTIF data + Fair Trade shopper-index one-pager (Alex owner) | Pike's internal rec to Yoon |
+| Carl Yoon | VP Merchandising | 5 | Skeptic (mid-program change aversion) | No program disruption | 4/28: joint call w/ Pike to propose add-in-not-displace tactic (Marta owner) | Yoon greenlight |
+| Renata Shah | CFO | 3 | Cost-focused, neutral | COGS; lock-rate risk | 5/6: COGS sensitivity + rebate tier memo (Alan owner) | Financial sign-off |
+| Lorraine Teague | CEO | 5 (final) | Unknown; regional-supplier friendly | Local economic impact | 5/23: Grand Rapids event touchpoint (Marta + our CEO owner) | Strategic blessing |
+
+## Reference next-best-actions skeleton
+The NBA section should fill in a table of this shape:
+
+| # | Date | Action | Owner | Dependency | Unlocks |
+|---|---|---|---|---|---|
+| 1 | 4/22 | Send Pike the OTIF + Fair Trade shopper-index one-pager | Alex (AE) | Marketing to finalize one-pager by 4/21 | Pike's internal rec |
+| 2 | 4/25 | Internal sign-off on lead offer + walk-away | Marta (VP Sales) | Finance rebate-tier memo | Approval to present 4/30 |
+| 3 | 4/30 | Buying meeting w/ Pike (present offer) | Alex + Marta | None | Yoon escalation |
+| 4 | 5/6 | Send Shah COGS sensitivity + rebate memo via Pike | Alan (CFO) | Financial sign-off | Shah neutral → favorable |
+| 5 | 5/9 | Joint call w/ Pike + Yoon on add-in-not-displace tactic | Marta | Pike willingness after 4/30 | Yoon greenlight |
+| 6 | 5/16 | Plant tour at Fernhollow Grand Rapids facility (Pike + Yoon) | Alex | Ops to host | Relationship + Michigan-roaster story |
+| 7 | 5/23 | Teague touchpoint at Grand Rapids Chamber event | Marta + our CEO | Event logistics | CEO-level preference signal |
+| 8 | 6/6 | Deliver FY27 cold-brew concept to Pike | Alex + Product | Great Lakes Beverage capacity confirm | FY27 expansion narrative |
+| 9 | 6/13 | Final category review present (reinforce) | Alex | All prior items | Planogram decision |
+| 10 | 6/26 | Planogram lock; prepare ops handoff | Ops | Decision | Begin production planning |
+
+## Reference risks skeleton (at least four needed)
+| # | Risk | Likelihood | Impact | Mitigation | Owner |
+|---|---|---|---|---|---|
+| 1 | Yoon vetoes mid-program displacement | M | H | Add-in-not-displace tactic in Districts 1–2; displace only in District 3 | Marta |
+| 2 | Shah forces a below-floor rebate tier | M | M | Hold walk-away; offer a 2% MDF instead of an additional rebate point | Alan/Marta |
+| 3 | Westbrook counter-offers with Brazil-sourcing pledge | L | M | Emphasize our OTIF advantage + Rainforest cert already-in-place | Alex |
+| 4 | Pike leaves role before planogram lock | L | H | Double-track w/ Yoon directly; do not rely exclusively on Pike | Marta |
+| 5 | Great Lakes Beverage cold-brew capacity not confirmed by June | M | L (FY26) / M (FY27) | Flag FY27 add as contingent; keep pods as the whitespace play for FY26 | Ops |
+| 6 | Teague's regional-supplier preference is softer than we assume | L | M | Verify via Grand Rapids event observation before leaning on it | Marta |
