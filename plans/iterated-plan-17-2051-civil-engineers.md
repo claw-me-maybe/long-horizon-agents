@@ -76,6 +76,24 @@ Produce a permit-ready stormwater calculation package that clearly distinguishes
 - Failing to show governing outlet control by stage.
 - Missing the geotechnical bottom-elevation constraint.
 
+## Intermediate artifacts
+- Method/criteria sheet with all governing standards and equations.
+- Pre/post CN and land-use tables.
+- Tc worksheet with segment definitions.
+- WQv worksheet kept separate from detention-routing worksheet.
+- Stage-storage table, stage-discharge table, and compliance matrix drafted as standalone components before final narrative assembly.
+
+## Checkpoints
+- Checkpoint 1: weighted CNs and runoff equations are complete before routing begins.
+- Checkpoint 2: WQv is fully computed and translated into permanent-pool geometry before peak-control narrative is drafted.
+- Checkpoint 3: stage-storage has at least six rows before freeboard claims are made.
+- Checkpoint 4: outlet-control transitions are explicit rather than implied.
+
+## Final QA gate
+- If the memo could be read as mixing permanent-pool and detention-storage logic, restructure it.
+- If any pass/fail claim lacks a cited computed value, fill it in or mark it pending.
+- If the geotechnical elevation constraint is not visible in both geometry and compliance sections, the package is incomplete.
+
 ## Definition of done
 - Reviewers can trace every major result back to a cited method.
 - Peak control, WQv, emergency spillway, and outlet protection are all separately documented.

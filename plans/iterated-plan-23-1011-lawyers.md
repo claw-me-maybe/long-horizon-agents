@@ -75,6 +75,24 @@ Deliver a predictive office memorandum that tells the partner whether the non-co
 - Need revenue-footprint facts if proposing geographic reformation.
 - Need more detail on what was in `Pipeline_Q2` and `ForecastIQ_tuning`.
 
+## Intermediate artifacts
+- Statutory issue matrix keyed to each `§ 24L` subsection.
+- Chronology of operative facts and documents.
+- Separate PI-factor grid mapping facts to each factor.
+- Trade-secret theory memolet focused on the USB-copy events and protected categories.
+- Recommendation matrix comparing full PI, narrowed injunction, and settlement paths.
+
+## Checkpoints
+- Checkpoint 1: Brief Answer is predictive and specific enough to guide partner action.
+- Checkpoint 2: MNAA threshold-validity analysis is complete before common-law reasonableness discussion begins.
+- Checkpoint 3: USB-copy facts appear both in covenant analysis and independent trade-secret analysis.
+- Checkpoint 4: at least three actionable recommendation paths are ranked with tradeoffs.
+
+## Final QA gate
+- If any section sounds like a plaintiff's brief, neutralize it.
+- If any `§ 24L` element is implied but not expressly concluded, add a holding-level sentence.
+- If the remote-work fact is not surfaced as a real uncertainty, the memo is underdeveloped.
+
 ## High-risk failure modes
 - Conflating statutory validity with common-law reasonableness.
 - Writing like an advocate instead of a predictor.

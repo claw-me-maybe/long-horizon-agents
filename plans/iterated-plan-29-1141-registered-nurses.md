@@ -80,6 +80,24 @@ Produce a discharge packet that is simultaneously clinically complete and teacha
 - Every required topic is covered.
 - HF Zones use the provided thresholds exactly.
 
+## Intermediate artifacts
+- Source-data sheet with vitals, labs, med changes, follow-ups, and contact numbers.
+- Medication reconciliation table drafted before education prose.
+- Teach-back template repeated across all topics.
+- HF Zones block drafted separately, then embedded at the end.
+- Caregiver-role notes showing patient-owned tasks vs daughter-supported tasks.
+
+## Checkpoints
+- Checkpoint 1: furosemide-to-torsemide switch is impossible to misunderstand.
+- Checkpoint 2: minimum four teach-back topics are complete before broadening scope.
+- Checkpoint 3: every red flag has a threshold, action, and named contact.
+- Checkpoint 4: fall-prevention guidance references actual risk factors from the chart.
+
+## Final QA gate
+- If any prompt can be answered with yes/no, rewrite it.
+- If any medication instruction relies only on milligrams without time-of-day or plain-language reinforcement, rewrite it.
+- If any topic assumes the daughter is present, add a patient-alone fallback.
+
 ## Definition of done
 - A bedside nurse could walk through the packet without improvising.
 - Mr. Kendrick and his daughter could restate the weight rule, the med changes, and when to call.

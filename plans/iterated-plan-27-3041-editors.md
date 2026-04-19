@@ -55,6 +55,24 @@ Deliver a Graywolf-quality developmental edit letter that gives Naledi a new, us
 - Spread citations across praise, diagnosis, and thread notes rather than clustering them.
 - Use craft vocabulary precisely: interiority, narrative distance, braided structure, third-act reversal, causal handoff.
 
+## Intermediate artifacts
+- One-paragraph manuscript architecture summary.
+- Issue map with 2-4 named structural problems.
+- Citation bank with at least 8 chapter/page anchors.
+- Temi/Bristol thread note drafted to near-final quality before the other thread sections.
+- Final section-level outline showing exact order of the letter before prose polish.
+
+## Checkpoints
+- Checkpoint 1: opening praise drafted and still clearly specific to this novel.
+- Checkpoint 2: highest-priority issue is explicit and can be stated in one sentence.
+- Checkpoint 3: Aunty Fola answer exists in direct language before final polish.
+- Checkpoint 4: Temi section is visibly longer and more diagnostic than Lagos.
+
+## Final QA gate
+- No sentence should survive if it could apply to another multigenerational literary novel unchanged.
+- Every big-picture issue must contain at least two meaningfully different unlock paths.
+- The closing scope section must actively prevent scope creep rather than merely summarize next steps.
+
 ## Risks and mitigations
 - Risk: generic praise. Mitigation: every praise sentence must mention a book-specific effect, image system, or structural move.
 - Risk: diagnostic mush. Mitigation: separate architecture, character, and pacing/thematic issues.

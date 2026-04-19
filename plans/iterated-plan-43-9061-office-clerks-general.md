@@ -75,6 +75,24 @@ Produce a manager-ready retention audit report that separates clearly authorized
 - Board packets: archive, not shred.
 - Security reports: retain, but move offsite per policy.
 
+## Intermediate artifacts
+- Normalized inventory sheet by cabinet/drawer/category/year range.
+- Severity rubric applied before prose drafting.
+- Separate disposal, archive, and open-question queues built as standalone lists.
+- Same-day remediation list for security issues.
+- Volume summary to support shred-vendor scoping.
+
+## Checkpoints
+- Checkpoint 1: nothing enters the disposal queue unless retention status is unambiguous.
+- Checkpoint 2: all PII/security exposures are elevated before housekeeping items are written up.
+- Checkpoint 3: every queue item cites the retention schedule or policy basis.
+- Checkpoint 4: open questions remain open questions, not disguised directives.
+
+## Final QA gate
+- If a reader could confuse an approval-required item with clerk-executable action, rewrite the formatting.
+- If any category lacks volume context, add best-available quantification.
+- If severity labels feel interchangeable, rebalance before finalizing.
+
 ## Definition of done
 - Leo can read the findings table and queues and make decisions immediately.
 - Nothing in the report authorizes destruction that should remain on hold.
